@@ -211,9 +211,9 @@ function loadModel(done){
       const old=ch.material; const m=new THREE.MeshStandardMaterial({map:old.map||null,color:0xffffff,roughness:.42,metalness:.15,envMapIntensity:1.1});
       if(m.map){m.map.anisotropy=16;m.map.colorSpace=THREE.SRGBColorSpace;} ch.material=m; }});
     const s0=new THREE.Box3().setFromObject(model).getSize(new THREE.Vector3());
-    model.scale.setScalar(3.3/Math.max(s0.x,s0.y,s0.z)); model.updateMatrixWorld(true);
+    model.scale.setScalar(2.75/Math.max(s0.x,s0.y,s0.z)); model.updateMatrixWorld(true);
     model.position.sub(new THREE.Box3().setFromObject(model).getCenter(new THREE.Vector3()));
-    modelPivot.position.y=-0.35; modelPivot.scale.setScalar(.001);
+    modelPivot.position.y=-0.12; modelPivot.scale.setScalar(.001);
     gsap.to(modelPivot.scale,{x:1,y:1,z:1,duration:2.4,ease:'expo.out',delay:1.2});
     done&&done();
   },ev=>{if(ev.total)setLoad(25+65*ev.loaded/ev.total);},err=>{console.warn('model',err);done&&done();});
@@ -268,7 +268,7 @@ function animate(time){
   $('#prog').style.transform=`scaleX(${scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight)})`;
   if(document.hidden||viewerFull) return;
   if(past&&time-last<50) return; last=time;
-  if(modelPivot){modelPivot.rotation.y=mouseX*.25+el*.12;modelPivot.rotation.x=mouseY*.15;modelPivot.position.y=-.35+Math.sin(el*.8)*.04;}
+  if(modelPivot){modelPivot.rotation.y=mouseX*.25+el*.12;modelPivot.rotation.x=mouseY*.15;modelPivot.position.y=-.12+Math.sin(el*.8)*.04;}
   const vel=Math.abs(raw-currentScroll),sm=1+vel*9,tb=vel*.8;
   const M=new THREE.Matrix4(),Q=new THREE.Quaternion(),S=new THREE.Vector3();
   confData.forEach((c,i)=>{c.p.y-=c.fall*dt*sm;c.p.x+=Math.sin(el*c.sway+c.ph)*.12*dt*(1+tb*4);c.p.z+=Math.cos(el*c.sway+c.ph)*.1*dt*(1+tb*4);
