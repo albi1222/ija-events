@@ -12,16 +12,17 @@
 <link rel="icon" href="/assets/ija-logo-gold.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="/assets/exterior.webp">
+<link rel="preload" as="image" href="/assets/film-poster.jpg">
 <script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js"}}</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <style>
 :root{--ink:#080706;--ink2:#14110d;--ink3:#1e1a14;--gold:#D6AD68;--gold2:#B58A45;--goldl:#F1D9A2;--ivory:#F5EFE5;--ivory2:#ECE3D3;--stone:#8C8372;--line:rgba(214,173,104,.28);
  --serif:'Bodoni Moda',Didot,'Times New Roman',serif;--sans:'Manrope',system-ui,sans-serif;--ease:cubic-bezier(.16,1,.3,1);--pad:clamp(20px,5vw,80px)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{background:var(--ivory);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{background:var(--ink);color:var(--ivory);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 body.lock{overflow:hidden}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
@@ -103,7 +104,7 @@ body.mopen .nav .mbtn i b:nth-child(2){width:100%;transform:translateY(-3.5px) r
 @media(max-width:900px){#menu{grid-template-columns:1fr}#menu .pv{display:none}}
 
 /* ===== FILM HERO ===== */
-#film{height:520vh;position:relative;background:#000}
+#film{height:760vh;position:relative;background:#000}
 #film .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
 .ly{position:absolute;inset:0;will-change:transform,opacity}
 .ly img{width:100%;height:100%;object-fit:cover}
@@ -338,8 +339,6 @@ footer{background:var(--ink);color:var(--ivory);padding:clamp(80px,10vw,140px) v
 .ftop h5{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;font-weight:600}
 .ftop a{display:block;color:#d7ccb9;font-size:14px;padding:4px 0;transition:color .3s}
 .ftop a:hover{color:var(--gold)}
-.mega{font-family:var(--serif);font-size:clamp(90px,21vw,360px);line-height:.8;letter-spacing:-.03em;text-align:center;color:transparent;-webkit-text-stroke:1px rgba(214,173,104,.55);white-space:nowrap;user-select:none}
-.mega span{display:inline-block}
 .fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(214,173,104,.2);padding-top:24px;margin-top:40px;font-size:12px;color:#8c8372}
 .fbot .aiv{color:#2062E9;font-weight:600}
 @media(max-width:900px){.ftop{grid-template-columns:1fr}}
@@ -359,6 +358,70 @@ footer{background:var(--ink);color:var(--ivory);padding:clamp(80px,10vw,140px) v
 #lb button{position:absolute;color:var(--ivory);width:56px;height:56px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:22px}
 #lb .p{left:20px;top:50%}#lb .n{right:20px;top:50%}#lb .c{right:20px;top:20px}
 #lb button:hover{background:var(--gold);color:var(--ink)}
+
+
+/* ===== black & gold everywhere ===== */
+em{color:var(--gold)}
+.eyebrow{color:var(--gold)}
+.lead{color:#b9ae9a}
+.stats,.stat{border-color:rgba(214,173,104,.18)!important}
+.stat b{color:var(--ivory)}.stat b sup{color:var(--gold)}
+.evl,.evr{border-color:rgba(214,173,104,.18)}
+.evr .n{color:var(--gold)}.evr p{color:#a99f8c}.evr .ar{border-color:rgba(214,173,104,.35)}
+.evr:hover h3{color:var(--gold)}.evr::after{background:var(--gold)}.evr:hover .ar{background:var(--gold);color:var(--ink)}
+.svg6,.sv{border-color:rgba(214,173,104,.18)!important}.sv svg{stroke:var(--gold)}.sv p{color:#a99f8c}
+.cdirect a{border-color:rgba(214,173,104,.18)}.cdirect a:hover{color:var(--gold)}
+.f input,.f select,.f textarea{color:var(--ivory);border-color:rgba(214,173,104,.3)}
+.f select option{background:var(--ink2);color:var(--ivory)}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--gold)}
+.f input[type=date]{color-scheme:dark}
+.chip span{border-color:rgba(214,173,104,.3)}.chip input:checked+span{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+#sent{background:var(--ink2);border-color:var(--gold)}#sent p{color:#a99f8c}
+.sec{border-top:1px solid rgba(214,173,104,.08)}
+.sec::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(600px circle at var(--gx,80%) var(--gy,0%),rgba(214,173,104,.07),transparent 60%)}
+.sec>*{position:relative}
+/* gold shimmer text */
+.shine{background:linear-gradient(100deg,var(--gold2) 20%,var(--goldl) 40%,var(--gold) 50%,var(--gold2) 70%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:-250% 0}}
+/* marquee */
+.marquee{overflow:hidden;border-block:1px solid var(--line);padding:26px 0;background:var(--ink)}
+.mq-row{display:flex;width:max-content;will-change:transform}
+.mq-row span{font-family:var(--serif);font-size:clamp(2rem,4.6vw,3.8rem);white-space:nowrap;padding-right:.6em;color:transparent;-webkit-text-stroke:1px rgba(214,173,104,.55)}
+.mq-row span:nth-child(odd){color:var(--ivory);-webkit-text-stroke:0;font-style:italic}
+.mq-row b{display:inline-block;width:.3em;height:.3em;border-radius:50%;background:var(--gold);margin:0 .6em .22em 0;vertical-align:middle}
+.mq-row+.mq-row{margin-top:6px}
+/* halls (original cards) */
+.hall-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;perspective:1400px}
+.hall{position:relative;border:1px solid var(--line);border-radius:22px;background:var(--ink2);overflow:hidden;transform-style:preserve-3d;transition:border-color .6s,box-shadow .8s;will-change:transform}
+.hall:hover{border-color:rgba(214,173,104,.6);box-shadow:0 40px 70px -40px rgba(0,0,0,.9),0 0 60px -30px rgba(214,173,104,.5)}
+.hall .glow{position:absolute;inset:0;z-index:3;pointer-events:none;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(214,173,104,.2),transparent 60%);opacity:0;transition:opacity .5s}
+.hall:hover .glow{opacity:1}
+.hall .ph{position:relative;aspect-ratio:4/3.2;overflow:hidden;cursor:pointer}
+.hall .ph img{width:100%;height:118%;object-fit:cover;transition:filter .8s;filter:saturate(.9) brightness(.9)}
+.hall:hover .ph img{filter:none}
+.hall .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(20,17,13,.95))}
+.hall .badge{position:absolute;top:16px;left:16px;z-index:2;font-size:10px;letter-spacing:.24em;text-transform:uppercase;padding:8px 13px;border-radius:999px;background:rgba(8,7,6,.6);backdrop-filter:blur(8px);border:1px solid var(--line);color:var(--goldl)}
+.hall .bd{padding:26px 28px 32px}
+.hall .no{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:17px}
+.hall h3{font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.05;margin:6px 0 2px}
+.hall .alt{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--stone)}
+.hall p{font-size:15px;line-height:1.7;color:#a99f8c;margin:16px 0 20px}
+.specs{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;font-size:14px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:24px}
+.specs dt{font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);padding-top:4px}
+.specs .tbc{color:var(--stone);font-size:11.5px}
+.hall .row{display:flex;gap:10px;flex-wrap:wrap}.hall .btn{height:46px;padding:0 20px;font-size:10.5px}
+@media(max-width:1100px){.hall-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:720px){.hall-grid{grid-template-columns:1fr}}
+/* hero video */
+#fVid{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+.c4{right:var(--pad);left:auto;text-align:right;bottom:16vh;max-width:560px;opacity:0}
+.c4 h2{font-family:var(--serif);font-weight:400;font-size:clamp(38px,5.4vw,88px);line-height:1;margin:18px 0}
+.c4 p{color:#d9cfbd;margin-left:auto;max-width:42ch}
+.c4 .eyebrow{flex-direction:row-reverse}
+@media(max-width:760px){.c4{left:var(--pad);bottom:14vh}}
+/* footer word */
+.mega{width:100%;display:block;overflow:visible;margin-top:20px}
+.mega text{font-family:var(--serif);font-size:150px;fill:url(#fg);fill-opacity:0;stroke:var(--gold);stroke-width:.8;stroke-opacity:.8}
 
 .rv{opacity:1}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
@@ -386,13 +449,13 @@ footer{background:var(--ink);color:var(--ivory);padding:clamp(80px,10vw,140px) v
 
 <div id="menu">
   <nav>
-    <a href="#halls" data-pv="gold-1"><small>01</small><span data-i18n="nav.halls">Sallat</span></a>
+    <a href="#halls" data-pv="grand-2"><small>01</small><span data-i18n="nav.halls">Sallat</span></a>
     <a href="#experience" data-pv="grand-1"><small>02</small><span data-i18n="nav.x360">Përvoja 360°</span></a>
     <a href="#events" data-pv="royal-1"><small>03</small><span data-i18n="nav.events">Eventet</span></a>
     <a href="#menus" data-pv="grand-3"><small>04</small><span data-i18n="nav.menus">Menutë</span></a>
     <a href="#gallery" data-pv="salon-1"><small>05</small><span data-i18n="nav.gallery">Galeria</span></a>
     <a href="#location" data-pv="exterior"><small>06</small><span data-i18n="nav.loc">Vendndodhja</span></a>
-    <a href="#contact" data-pv="gold-3"><small>07</small><span data-i18n="nav.reserve">Rezervo</span></a>
+    <a href="#contact" data-pv="royal-2"><small>07</small><span data-i18n="nav.reserve">Rezervo</span></a>
   </nav>
   <div class="pv" id="menuPv"></div>
   <div class="ct">+355 69 208 7803 · Tiranë</div>
@@ -402,8 +465,7 @@ footer{background:var(--ink);color:var(--ivory);padding:clamp(80px,10vw,140px) v
 <section id="film" aria-label="IJA Events">
   <span id="top"></span>
   <div class="stage">
-    <div class="ly ext" id="fExt"><img src="/assets/exterior.webp" alt="IJA Events, hyrja në mbrëmje" fetchpriority="high"></div>
-    <div class="ly int" id="fInt"><img src="/assets/gold-1.webp" alt=""></div>
+    <div class="ly" id="fExtWrap"><video id="fVid" muted playsinline preload="auto" poster="/assets/film-poster.jpg" aria-label="IJA Events, hyrja dhe salla"></video></div>
     <canvas class="ly" id="panoC"></canvas>
     <div class="ly glow" id="fGlow"></div>
     <div class="vig"></div><div class="ly shade" id="fShade"></div>
@@ -419,6 +481,11 @@ footer{background:var(--ink);color:var(--ivory);padding:clamp(80px,10vw,140px) v
       <h2 data-i18n-html="h.c2t">Dera hapet, <em>mbrëmja fillon.</em></h2>
       <p data-i18n="h.c2p">Dritë e ngrohtë, tavane me stuko dhe tavolina të shtruara me kujdes. Kështu ju pret çdo sallë e IJA Events.</p>
     </div>
+    <div class="cap c4" id="c4">
+      <span class="eyebrow" data-i18n="h.c4k">Salla e Madhe</span>
+      <h2 data-i18n-html="h.c4t">Një sallë <em>për të gjithë të dashurit.</em></h2>
+      <p data-i18n="h.c4p">Tavan me kasetona, dritë e ngrohtë dhe tavolina për dhjetë veta, gati për mbrëmjen tuaj.</p>
+    </div>
     <div class="cap c3" id="c3">
       <span class="eyebrow" data-i18n="h.c3k">03 · Brenda, në 360°</span>
       <h2 data-i18n-html="h.c3t">Qëndroni <em>në mes të sallës.</em></h2>
@@ -428,7 +495,7 @@ footer{background:var(--ink);color:var(--ivory);padding:clamp(80px,10vw,140px) v
 
     <div class="cue" id="cue"><span data-i18n="hint">Zbrit</span><i></i></div>
     <div class="hud">
-      <ol id="hudCh"><li class="on"><b>01</b><span data-i18n="h.ch1">Mbërritja</span></li><li><b>02</b><span data-i18n="h.ch2">Hyrja</span></li><li><b>03</b><span>360°</span></li></ol>
+      <ol id="hudCh"><li class="on"><b>01</b><span data-i18n="h.ch1">Mbërritja</span></li><li><b>02</b><span data-i18n="h.ch2">Salla</span></li><li><b>03</b><span>360°</span></li></ol>
       <div class="pg"><i id="hudPg"></i></div>
       <span class="tc" id="hudTc">00:00</span>
     </div>
@@ -441,19 +508,21 @@ footer{background:var(--ink);color:var(--ivory);padding:clamp(80px,10vw,140px) v
   <p class="big" id="bigText" data-i18n="i.t">Për më shumë se njëzet vjet, familjet e Tiranës kanë festuar këtu momentet më të rëndësishme të jetës. Ne kujdesemi për sallën, tryezën dhe çdo detaj, që ju të mendoni vetëm për të ftuarit tuaj.</p>
   <div class="stats">
     <div class="stat"><b data-count="2000" data-from="1975">2000</b><span data-i18n="st.1">Që nga viti</span></div>
-    <div class="stat"><b data-count="4">4</b><span data-i18n="st.2">Salla elegante</span></div>
+    <div class="stat"><b data-count="3">3</b><span data-i18n="st.2">Salla elegante</span></div>
     <div class="stat"><b><span data-count="350" data-from="0">350</span><sup>+</sup></b><span data-i18n="st.3">Të ftuar</span></div>
     <div class="stat"><b data-count="4">4</b><span data-i18n="st.4">Menu të plota</span></div>
   </div>
 </section>
 
-<section class="sec dark" id="halls">
+<section class="sec dark" id="halls" style="padding-bottom:clamp(90px,13vw,190px)">
   <div class="head">
     <div><span class="eyebrow" data-i18n="halls.k">Sallat tona</span><h2 class="h2 split" data-i18n-html="halls.t">Katër salla, <em>një mikpritje.</em></h2></div>
-    <p class="lead rv" data-i18n="halls.l">Nga salla e madhe për dasma te salloni intim për fejesa, secila ka karakterin e vet.</p>
+    <p class="lead rv" data-i18n="halls.l"></p>
   </div>
+  <div class="hall-grid" id="hallGrid"></div>
 </section>
-<div class="stack" id="stack"></div>
+<div class="marquee" aria-hidden="true"><div class="mq-row" id="mq1"></div><div class="mq-row" id="mq2"></div></div>
+
 
 <section class="sec dark" id="experience">
   <div class="head">
@@ -498,7 +567,7 @@ footer{background:var(--ink);color:var(--ivory);padding:clamp(80px,10vw,140px) v
   <div class="gcols" id="gCols"></div>
 </section>
 
-<section class="sec" id="services" style="background:var(--ivory2)">
+<section class="sec" id="services" style="background:var(--ink2)">
   <div class="head">
     <div><span class="eyebrow" data-i18n="sv.k">Shërbimet</span><h2 class="h2 split" data-i18n-html="sv.t">Gjithçka, <em>e kujdesur.</em></h2></div>
   </div>
@@ -566,7 +635,7 @@ footer{background:var(--ink);color:var(--ivory);padding:clamp(80px,10vw,140px) v
     <div><h5 data-i18n="ft.e">Eksploro</h5><a href="#halls" data-i18n="nav.halls"></a><a href="#experience" data-i18n="nav.x360"></a><a href="#menus" data-i18n="nav.menus"></a><a href="#gallery" data-i18n="nav.gallery"></a><a href="#location" data-i18n="nav.loc"></a></div>
     <div><h5 data-i18n="ft.c">Kontakt</h5><a href="tel:+355692087803">+355 69 208 7803</a><a href="https://wa.me/355692087803" target="_blank" rel="noopener">WhatsApp</a><a href="https://www.google.com/maps/place/Ija+Events/@41.3398973,19.8395694,17z" target="_blank" rel="noopener">Tiranë, Shqipëri</a></div>
   </div>
-  <div class="mega" id="mega" aria-hidden="true"></div>
+  <svg class="mega" id="mega" viewBox="0 0 1000 170" aria-hidden="true"><defs><linearGradient id="fg" x1="0" x2="1"><stop offset="0" stop-color="#B58A45"/><stop offset=".5" stop-color="#F1D9A2"/><stop offset="1" stop-color="#B58A45"/></linearGradient></defs><text x="500" y="140" text-anchor="middle" textLength="980" lengthAdjust="spacingAndGlyphs">IJA EVENTS</text></svg>
   <div class="fbot"><span>© <span id="yr"></span> IJA Events · <span data-i18n="ft.tag"></span></span><span>Powered by <a class="aiv" href="https://aivis1on.com" target="_blank" rel="noopener">AIVision</a></span></div>
 </footer>
 

@@ -1,13 +1,8 @@
 exterior-sm.webp
 exterior.webp
-gold-1-sm.webp
-gold-1.webp
-gold-2-sm.webp
-gold-2.webp
-gold-3-sm.webp
-gold-3.webp
-gold-4-sm.webp
-gold-4.webp
+film-1280.mp4
+film-832.mp4
+film-poster.jpg
 grand-1-sm.webp
 grand-1.webp
 grand-2-sm.webp
