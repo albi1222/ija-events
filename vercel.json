@@ -1,10 +1,12 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/hf/:path*", "destination": "https://d8j0ntlcm91z4.cloudfront.net/:path*" }
+    { "source": "/hf/:path*", "destination": "https://d8j0ntlcm91z4.cloudfront.net/:path*" },
+    { "source": "/hfu/:path*", "destination": "https://d2ol7oe51mr4n9.cloudfront.net/:path*" }
   ],
   "headers": [
     { "source": "/assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] },
-    { "source": "/hf/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] }
+    { "source": "/hf/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] },
+    { "source": "/hfu/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] }
   ]
 }

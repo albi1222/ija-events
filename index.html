@@ -546,18 +546,36 @@ import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 const HF = '/hf/user_3JJdXTgHZ1RefQgaL5TKAYaM9hz/';
 // 360° panoramas (equirectangular 2:1), generated with Higgsfield from hall photographs.
 const HALLS = [
-  { id:'grand', name:'Grand Ballroom', alt:'Salla e Madhe', img:'/assets/grand-1.webp', pano:'PANO_GRAND', walk:'/assets/walk-grand.mp4',
+  { id:'grand', name:'Grand Ballroom', alt:'Salla e Madhe', img:'/assets/grand-1.webp', pano:'/hfu/user_3JJdXTgHZ1RefQgaL5TKAYaM9hz/cd706b80-84a6-44a5-aa71-8d46c06d13b3.jpg', walk:'/assets/walk-grand.mp4',
     desc:'Our largest hall: column-lined walls, a coffered stucco ceiling in warm cove light and round banquet tables for ten.',
     capacity:'Up to 350 guests', events:'Weddings · Gala dinners · Corporate',
-    hotspots:[] },
-  { id:'royal', name:'Royal Salon', alt:'Salloni Mbretëror', img:'/assets/royal-1.webp', pano:'PANO_ROYAL',
+    hotspots:[
+      {yaw:-1,pitch:18,t:'Bronze chandelier',p:'A bronze chandelier hangs at the heart of the hall, framed by a recessed lattice ceiling and a continuous ribbon of warm cove light.'},
+      {yaw:-60,pitch:58,t:'Coffered ceiling',p:'Hand-finished coffered stucco panels run the full length of the ballroom, each with its own recessed light.'},
+      {yaw:18,pitch:1,t:'Head of the hall',p:'The far wall carries the IJA Events crest and glass double doors: a natural backdrop for the head table, the couple\'s entrance or a stage.'},
+      {yaw:14,pitch:-36,t:'Table setting',p:'Round tables seat ten guests, with full place settings, glassware and tufted velvet chairs.'},
+      {yaw:-131,pitch:10,t:'Stucco reliefs',p:'Baroque stucco medallions and panel mouldings line the walls between classical columns.'}
+    ] },
+  { id:'royal', name:'Royal Salon', alt:'Salloni Mbretëror', img:'/assets/royal-1.webp', pano:'/hfu/user_3JJdXTgHZ1RefQgaL5TKAYaM9hz/93327ffc-0088-4fbb-a540-4f04f5025b3e.jpg',
     desc:'An ivory salon behind etched glass doors with two crystal chandeliers, panelled walls, a tufted sofa and white marble floors.',
     capacity:'Up to 40 guests', events:'Engagements · Family gatherings',
-    hotspots:[] },
-  { id:'crystal', name:'Crystal Salon', alt:'Salla Kristal', img:'/assets/crystal-1.webp', pano:'PANO_CRYSTAL', walk:'/assets/walk-crystal.mp4',
+    hotspots:[
+      {yaw:58,pitch:52,t:'Crystal chandeliers',p:'Two tiered crystal chandeliers scatter light across the ivory ceiling and its LED cove.'},
+      {yaw:-4,pitch:-22,t:'Lounge corner',p:'A tufted champagne sofa anchors the room: perfect for the couple, the guests of honour or photographs.'},
+      {yaw:-98,pitch:14,t:'Panelled walls',p:'Damask-textured panels in white mouldings, with brass sconces and a statement wall clock.'},
+      {yaw:150,pitch:-4,t:'Etched glass doors',p:'White double doors with etched frosted glass open onto the salon.'},
+      {yaw:0,pitch:-66,t:'Marble floor',p:'Polished white marble throughout, cool and luminous.'}
+    ] },
+  { id:'crystal', name:'Crystal Salon', alt:'Salla Kristal', img:'/assets/crystal-1.webp', pano:'/hfu/user_3JJdXTgHZ1RefQgaL5TKAYaM9hz/f60298ad-a067-4e0f-ac74-ce1af46e8e68.jpg', walk:'/assets/walk-crystal.mp4',
     desc:'Soft grey walls, white arched mouldings and a cascading crystal chandelier, with lounge sofas and its own coffee bar.',
     capacity:'Up to 60 guests', events:'Engagements · Birthdays · Receptions',
-    hotspots:[] }
+    hotspots:[
+      {yaw:0,pitch:56,t:'Crystal chandelier',p:'A cascading multi-tier crystal chandelier crowns the salon beneath a lit tray ceiling.'},
+      {yaw:2,pitch:5,t:'Feature wall',p:'Classical pilasters and an arched pediment frame a built-in screen for slideshows, speeches or presentations.'},
+      {yaw:80,pitch:-28,t:'Lounge sofas',p:'Tufted velvet sofas and cocktail tables create relaxed conversation corners.'},
+      {yaw:2,pitch:-56,t:'Stone inlay',p:'A geometric grey-and-white stone inlay set into the white marble floor.'},
+      {yaw:-162,pitch:-8,t:'Coffee bar',p:'The salon opens onto its own coffee bar with gold-trimmed cabinetry and a professional espresso machine.'}
+    ] }
 ];
 const EVENTS = [
   ['Weddings','From the first dance to the last toast: a ballroom dressed in light, with menu, decor and timing planned around you.','/assets/grand-5.webp','#2f8f6f','#ecd7a4'],
@@ -867,7 +885,7 @@ function initViewer(){
   vr=new THREE.WebGLRenderer({canvas:vc,antialias:true});vr.setPixelRatio(Math.min(devicePixelRatio,2));vr.outputColorSpace=THREE.SRGBColorSpace;
   vs=new THREE.Scene();vcam=new THREE.PerspectiveCamera(75,1,.1,100);
   const geo=new THREE.SphereGeometry(10,96,64);geo.scale(-1,1,1);
-  sphere=new THREE.Mesh(geo,new THREE.MeshBasicMaterial({color:0x000000}));vs.add(sphere);
+  sphere=new THREE.Mesh(geo,new THREE.MeshBasicMaterial({color:0x000000}));sphere.rotation.y=-Math.PI/2;vs.add(sphere);
   // drifting gold dust inside the room
   const N=200,p=new Float32Array(N*3);for(let i=0;i<N;i++){const r=1.5+Math.random()*5,a=Math.random()*6.28,h=(Math.random()-.5)*5;p[i*3]=Math.cos(a)*r;p[i*3+1]=h;p[i*3+2]=Math.sin(a)*r;}
   const dg=new THREE.BufferGeometry();dg.setAttribute('position',new THREE.BufferAttribute(p,3));
@@ -905,7 +923,7 @@ async function setHall(id){
   hsLayer.innerHTML=''; V.hs=h.hotspots.map(s=>{const el=document.createElement('button');el.className='hs';el.innerHTML=`<i></i><span>${s.t}</span>`;el.setAttribute('aria-label',s.t);
     el.onclick=ev=>{ev.stopPropagation();$('#hcK').textContent=h.name;$('#hcH').textContent=s.t;$('#hcP').textContent=s.p;card.classList.add('show');V.auto=false;V.tyaw=THREE.MathUtils.degToRad(s.yaw);V.tpitch=THREE.MathUtils.degToRad(s.pitch)*.8;V.tfov=55;};
     hsLayer.appendChild(el);return {el,v:ypToVec(s.yaw,s.pitch)};});
-  V.yaw=V.tyaw=-.25;V.pitch=V.tpitch=0;V.fov=100;V.tfov=75;V.tyaw=0;
+  V.yaw=-.3;V.tyaw=0;V.pitch=V.tpitch=0;V.fov=100;V.tfov=75;
   vfade.style.opacity=0; V.busy=false;
 }
 $('#vTabs').innerHTML=HALLS.map(h=>`<button data-h="${h.id}">${h.name}</button>`).join('');
