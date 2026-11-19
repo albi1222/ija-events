@@ -10,13 +10,13 @@ const T={
  sq:{'nav.menu':'Menu','nav.halls':'Sallat','nav.x360':'Përvoja 360°','nav.events':'Eventet','nav.menus':'Menutë','nav.gallery':'Galeria','nav.loc':'Vendndodhja','nav.reserve':'Rezervo','hint':'Zbrit',
   'h.t':'Çdo moment meriton <em>një mjedis</em> të jashtëzakonshëm','h.s':'Tiranë · Që nga viti 2000','h.ch1':'Mbërritja','h.ch2':'Salla',
   'h.c2k':'02 · Hyrja','h.c2t':'Dera hapet, <em>mbrëmja fillon.</em>','h.c2p':'Dritë e ngrohtë, tavane me stuko dhe tavolina të shtruara me kujdes. Kështu ju pret çdo sallë e IJA Events.',
-  'h.c4k':'Salla e Madhe','h.c4t':'Një sallë <em>për të gjithë të dashurit.</em>','h.c4p':'Tavan me kasetona, dritë e ngrohtë dhe tavolina për dhjetë veta, gati për mbrëmjen tuaj.','h.c3k':'03 · Brenda, në 360°','h.c3t':'Qëndroni <em>në mes të sallës.</em>','h.c3p':'Vazhdoni të zbrisni dhe salla rrotullohet rreth jush. Më poshtë mund ta drejtoni vetë.','h.cta1':'Zbuloni sallat',
+  'h.c4k':'Salla e Madhe','h.c4t':'Një sallë <em>për të gjithë të dashurit.</em>','h.c4p':'Tavan me kasetona, dritë e ngrohtë dhe tavolina për dhjetë veta, gati për mbrëmjen tuaj.','h.c3k':'03 · Mirë se vini','h.c3t':'Mbrëmja juaj <em>fillon këtu.</em>','h.c3p':'Zbuloni sallat dhe menutë, pastaj rezervoni datën tuaj direkt në WhatsApp.','h.ch3':'Mirëpritja','h.cta1':'Zbuloni sallat',
   'i.k':'IJA Events · Që nga 2000','i.t':'Për më shumë se njëzet vjet, familjet e Tiranës kanë festuar këtu momentet më të rëndësishme të jetës. Ne kujdesemi për sallën, tryezën dhe çdo detaj, që ju të mendoni vetëm për të ftuarit tuaj.',
   'st.1':'Që nga viti','st.2':'Salla elegante','st.3':'Të ftuar në Sallën e Madhe','st.4':'Menu të plota',
   'halls.k':'Sallat tona','halls.t':'Zgjidhni <em>ambientin tuaj.</em>','halls.l':'Tre salla, secila me karakterin e vet. Hyni në secilën në 360°, shikoni fotot reale dhe planifikoni mbrëmjen para se të na vizitoni.',
   'cap':'Kapaciteti','evs':'Për','tbc':'(për t\'u konfirmuar)','enter':'Hyni në 360°','photos':'Shiko fotot','more':'Më shumë foto',
   'x.k':'Përvoja 360°','x.t':'Mos shikoni vetëm. <em>Hyni brenda.</em>','x.l':'Tërhiqni për t\'u rrotulluar, zmadhoni me rrotë ose me dy gishta dhe ndiqni pikat e arta nëpër sallë.','x.drag':'Tërhiq për të parë përreth','x.note':'Pamjet 360° janë vizualizime të krijuara mbi bazën e fotove të sallave tona; fotot në galeri janë reale.','x.auto':'Rrotullim automatik','x.full':'Ekran i plotë',
-  'ev.k':'Eventet','ev.t':'Çdo festë, <em>historia e vet.</em>','ev.l':'Nga dasma e madhe te darka intime, çdo event ka atmosferën e vet te IJA Events.',
+  'ev.k':'Eventet','ev.t':'Çdo moment, <em>me kujdesin e duhur.</em>','ev.l':'Nga dasmat dhe festat familjare te ceremonitë mortore, IJA Events ofron ambientin dhe shërbimin e duhur për çdo rast.','video':'Video reale',
   'mn.k':'Tryeza','mn.t':'Katër menu. <em>Një standard.</em>','mn.l':'Çdo menu përfshin pjatën e parë, dy pjata kryesore, pjata anësore dhe një ëmbëlsirë sipas zgjedhjes, si dhe kafe, pije, ujë dhe fruta.','mn.dk':'Ëmbëlsira: zgjidhni një','mn.dv':'Hallvë · Revani · Grurë të ëmbël','mn.ik':'Të përfshira','mn.iv':'Kafe · Pije të gazuara (1L, Pepsi) · Ujë natyral & i gazuar · Fruta miks','mn.f':'Pjata e parë','mn.m':'Pjatat kryesore','mn.s':'Pjatat anësore','mn.pp':'LEKË / PERSON',
   'g.k':'Galeria','g.t':'Ambienti, <em>në kuadro.</em>','g.l':'Foto reale nga sallat tona. Prekni çdo foto për ta parë në ekran të plotë.',
   'sv.k':'Shërbimet','sv.t':'Gjithçka, <em>e kujdesur.</em>',
@@ -29,13 +29,13 @@ const T={
  en:{'nav.menu':'Menu','nav.halls':'Our Halls','nav.x360':'360° Experience','nav.events':'Events','nav.menus':'Menus','nav.gallery':'Gallery','nav.loc':'Location','nav.reserve':'Reserve','hint':'Scroll',
   'h.t':'Every moment deserves <em>an extraordinary</em> setting','h.s':'Tirana · Since 2000','h.ch1':'Arrival','h.ch2':'The hall',
   'h.c2k':'02 · The entrance','h.c2t':'The door opens, <em>the evening begins.</em>','h.c2p':'Warm light, stucco ceilings and carefully laid tables. This is how every IJA Events hall welcomes you.',
-  'h.c4k':'Grand Ballroom','h.c4t':'A hall <em>for everyone you love.</em>','h.c4p':'A coffered ceiling, warm light and tables for ten, ready for your evening.','h.c3k':'03 · Inside, in 360°','h.c3t':'Stand <em>in the middle of the hall.</em>','h.c3p':'Keep scrolling and the hall turns around you. Further down you can steer it yourself.','h.cta1':'Discover the halls',
+  'h.c4k':'Grand Ballroom','h.c4t':'A hall <em>for everyone you love.</em>','h.c4p':'A coffered ceiling, warm light and tables for ten, ready for your evening.','h.c3k':'03 · Welcome','h.c3t':'Your evening <em>begins here.</em>','h.c3p':'Discover the halls and menus, then reserve your date directly on WhatsApp.','h.ch3':'Welcome','h.cta1':'Discover the halls',
   'i.k':'IJA Events · Since 2000','i.t':'For more than twenty years, Tirana\'s families have celebrated the most important moments of their lives here. We take care of the hall, the table and every detail, so you only think about your guests.',
   'st.1':'Established','st.2':'Elegant halls','st.3':'Guests in the Grand Ballroom','st.4':'Full menus',
   'halls.k':'Our Halls','halls.t':'Choose your <em>setting.</em>','halls.l':'Three halls, each with its own character. Step inside any of them in 360°, see the real photos and plan your evening before you visit.',
   'cap':'Capacity','evs':'For','tbc':'(to be confirmed)','enter':'Step inside in 360°','photos':'See photos','more':'More photos',
   'x.k':'360° Experience','x.t':'Don\'t just look. <em>Stand inside.</em>','x.l':'Drag to turn, scroll or pinch to zoom, and follow the golden markers through the room.','x.drag':'Drag to look around','x.note':'360° views are visualisations based on photographs of our halls; the gallery photos are real.','x.auto':'Auto-rotate','x.full':'Fullscreen',
-  'ev.k':'Events','ev.t':'Every occasion, <em>its own story.</em>','ev.l':'From grand weddings to intimate dinners, every event has its own atmosphere at IJA Events.',
+  'ev.k':'Events','ev.t':'Every moment, <em>with the right care.</em>','ev.l':'From weddings and family celebrations to funeral ceremonies, IJA Events offers the right setting and service for every occasion.','video':'Real video',
   'mn.k':'The Table','mn.t':'Four menus. <em>One standard.</em>','mn.l':'Every menu includes a first course, two mains, sides and one dessert of your choice, plus coffee, soft drinks, water and fresh fruit.','mn.dk':'Dessert: choose one','mn.dv':'Halva · Revani · Sweet wheat','mn.ik':'Included','mn.iv':'Coffee · Soft drinks (1L, Pepsi) · Still & sparkling water · Mixed fruit','mn.f':'First course','mn.m':'Main courses','mn.s':'Sides','mn.pp':'LEK / PERSON',
   'g.k':'Gallery','g.t':'The venue, <em>in frames.</em>','g.l':'Real photographs of our halls. Tap any photo to see it full screen.',
   'sv.k':'Services','sv.t':'Everything, <em>taken care of.</em>',
@@ -47,7 +47,7 @@ const T={
   'cur.view':'View','cur.drag':'Drag','cur.open':'Open'}
 };
 const HALLS=[
- {id:'grand',imgs:['grand-1','grand-2','grand-3'],pano:PANO.grand,
+ {id:'grand',imgs:['grand-1','grand-2','grand-3'],pano:PANO.grand,vid:'/assets/film-hall.mp4',
   name:{sq:'Salla e Madhe',en:'Grand Ballroom'},alt:{sq:'Grand Ballroom',en:'Salla e Madhe'},cap:{sq:'Deri në 350 të ftuar',en:'Up to 350 guests'},
   ev:{sq:'Dasma · Korporative · Pritje',en:'Weddings · Corporate · Receptions'},
   desc:{sq:'Kolona klasike, tavan me kasetona në dritë të ngrohtë, relieve stukoje në mure dhe tavolina mermeri për dhjetë veta.',en:'Classical columns, a coffered ceiling in warm light, stucco reliefs on the walls and marble-topped tables for ten.'},
@@ -64,7 +64,7 @@ const HALLS=[
       {yaw:-4,pitch:-22,t:{sq:'Këndi i ndenjes',en:'Lounge corner'},p:{sq:'Divan kapitone në ngjyrë shampanje, ideal për të ftuarit e nderit ose fotot.',en:'A tufted champagne sofa, perfect for guests of honour or photographs.'}},
       {yaw:-98,pitch:14,t:{sq:'Muret me panele',en:'Panelled walls'},p:{sq:'Panele damasku në korniza të bardha, me aplikë dhe një orë muri dekorative.',en:'Damask panels in white mouldings, with sconces and a statement wall clock.'}},
       {yaw:0,pitch:-66,t:{sq:'Dyshemeja e mermerit',en:'Marble floor'},p:{sq:'Mermer i bardhë i lëmuar në gjithë sallonin.',en:'Polished white marble throughout.'}}]},
- {id:'salon',imgs:['salon-2','salon-1'],pano:PANO.salon,
+ {id:'salon',imgs:['salon-2','salon-1'],pano:PANO.salon,vid:'/assets/walk-salon.mp4',
   name:{sq:'Salla Kristal',en:'Crystal Salon'},alt:{sq:'Crystal Salon',en:'Salla Kristal'},cap:{sq:'Deri në 60 të ftuar',en:'Up to 60 guests'},
   ev:{sq:'Fejesa · Ditëlindje · Pritje',en:'Engagements · Birthdays · Receptions'},
   desc:{sq:'Mure gri të butë, korniza të bardha, llambadar kristali dhe barin e vet të kafesë me dollapë me ar.',en:'Soft grey walls, white mouldings, a crystal chandelier and its own coffee bar with gold-trimmed cabinets.'},
@@ -79,7 +79,8 @@ const EVENTS=[
  [{sq:'Ditëlindje',en:'Birthdays'},{sq:'Nga ditëlindja e parë te e tetëdhjeta, me menu dhe dekor të kujdesur.',en:'From the first birthday to the eightieth, with menus and decoration taken care of.'},'salon-2'],
  [{sq:'Darka gala',en:'Gala Dinners'},{sq:'Tavolina të shtruara, dritë e ngrohtë dhe shërbim elegant.',en:'Laid tables, warm light and elegant service.'},'grand-1'],
  [{sq:'Evente korporative',en:'Corporate Events'},{sq:'Prezantime, darka dhe pritje me ekran, zë dhe shërbim të kujdesshëm.',en:'Presentations, dinners and receptions with screens, sound and attentive service.'},'salon-1'],
- [{sq:'Mbledhje familjare',en:'Family Gatherings'},{sq:'Përvjetorë dhe ribashkime në një sallë që është e juaja për atë ditë.',en:'Anniversaries and reunions in a hall that is yours for the day.'},'royal-2']
+ [{sq:'Mbledhje familjare',en:'Family Gatherings'},{sq:'Përvjetorë dhe ribashkime në një sallë që është e juaja për atë ditë.',en:'Anniversaries and reunions in a hall that is yours for the day.'},'grand-3'],
+ [{sq:'Ceremoni mortore',en:'Funeral Ceremonies'},{sq:'Ambiente të qeta dhe dinjitoze për ngushëllime dhe përkujtime, me shërbim të kujdesshëm dhe të heshtur.',en:'Calm, dignified rooms for condolences and remembrance, with discreet and attentive service.'},'royal-2']
 ];
 const MENUS=[
  {n:1,p:1900,f:[['Supë orientale','Oriental soup'],['Supë me perime','Vegetable soup']],m:[['Biftek viçi, furrë, me patate','Oven-baked veal steak with potatoes'],['Pilaf ramstek, me djathë','Rice pilaf with rump steak & cheese']],s:[['Sallatë miks e stinës','Seasonal mixed salad'],['Djathë me ullinj','Cheese with olives'],['Sallatë me perime sote','Sautéed vegetable salad'],['Byrek','Byrek']]},
@@ -96,7 +97,7 @@ const SERVICES=[
  [{sq:'Koordinim në ditën e eventit',en:'On-the-day Coordination'},{sq:'Ekipi ynë drejton orarin dhe shërbimin, që ju vetëm të festoni.',en:'Our team runs the schedule and the service, so you only celebrate.'},'<circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0114 0"/>'],
  [{sq:'Bar kafeje',en:'Coffee Bar'},{sq:'Kafe e freskët dhe pije gjatë gjithë eventit, nga bari ynë i kafesë.',en:'Fresh coffee and drinks throughout the event, from our own coffee bar.'},'<path d="M4 9h12v5a5 5 0 01-5 5H9a5 5 0 01-5-5V9zM16 10h2a2 2 0 010 4h-2M7 3c0 1.5 1 1.5 1 3M11 3c0 1.5 1 1.5 1 3"/>']
 ];
-const EVTYPES=[['Dasmë','Wedding'],['Fejesë','Engagement'],['Ditëlindje','Birthday'],['Darkë gala','Gala dinner'],['Event korporativ','Corporate'],['Mbledhje familjare','Family gathering']];
+const EVTYPES=[['Dasmë','Wedding'],['Fejesë','Engagement'],['Ditëlindje','Birthday'],['Darkë gala','Gala dinner'],['Event korporativ','Corporate'],['Mbledhje familjare','Family gathering'],['Ceremoni mortore','Funeral ceremony']];
 const IJA={lat:41.3398973,lng:19.8395694};
 
 /* =====================================================================
@@ -134,13 +135,13 @@ function applyLang(){
   $$('main h3, .hall h3').forEach(()=>{});
 }
 $$('.lang button').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.lang===LANG)return;LANG=b.dataset.lang;try{localStorage.setItem('ija-lang',LANG);}catch(e){}
-  gsap.to('main,#film .cap,footer',{opacity:0,duration:.3,onComplete:()=>{applyLang();bind(true);gsap.to('main,footer',{opacity:1,duration:.7});gsap.set('#film .cap',{clearProps:'opacity'});film.force=true;}});}));
+  gsap.to('main,#film .cap,footer',{opacity:0,duration:.3,onComplete:()=>{applyLang();bind(true);gsap.to('main,footer',{opacity:1,duration:.7});film.c1.__on=film.c2.__on=film.c3.__on=film.c4.__on=undefined;}});}));
 
 const arrow='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h12M9 3l5 5-5 5"/></svg>';
 function render(){
-  $('#hallGrid').innerHTML=HALLS.map((h,i)=>`<article class="hall"><i class="glow"></i><div class="ph" data-photos="${h.id}" data-cursor="cur.view"><img src="${img(h.imgs[0])}" alt="${L(h.name)}" loading="lazy"><span class="badge">360° · ${h.imgs.length} ${LANG==="sq"?"foto":"photos"}</span></div><div class="bd"><span class="no">0${i+1}</span><h3>${L(h.name)}</h3><span class="alt">${L(h.alt)}</span><p>${L(h.desc)}</p><dl class="specs"><dt>${t('cap')}</dt><dd>${L(h.cap)} <span class="tbc">${t('tbc')}</span></dd><dt>${t('evs')}</dt><dd>${L(h.ev)}</dd></dl><div class="row"><a href="#experience" class="btn btn-gold magnetic" data-hall="${h.id}">${t('enter')}${arrow}</a><button class="btn btn-line" data-photos="${h.id}">${t('photos')}</button></div></div></article>`).join('');
-  const words=EVENTS.map(e=>L(e[0])),row=a=>a.concat(a).map((w,i)=>`<span>${i%2?'':'<b></b>'}${w}</span>`).join('');
-  $('#mq1').innerHTML=row(words.concat(words));$('#mq2').innerHTML=row(words.slice().reverse().concat(words.slice().reverse()));
+  $('#hallGrid').innerHTML=HALLS.map((h,i)=>`<article class="hall"><i class="glow"></i><div class="ph" data-photos="${h.id}" data-cursor="cur.view"><img src="${img(h.imgs[0])}" alt="${L(h.name)}" loading="lazy">${h.vid?`<video muted loop playsinline preload="none" src="${h.vid}"></video><span class="badge vid">▶ ${t('video')}</span>`:''}<span class="badge">360° · ${h.imgs.length} ${LANG==="sq"?"foto":"photos"}</span></div><div class="bd"><span class="no">0${i+1}</span><h3>${L(h.name)}</h3><span class="alt">${L(h.alt)}</span><p>${L(h.desc)}</p><dl class="specs"><dt>${t('cap')}</dt><dd>${L(h.cap)} <span class="tbc">${t('tbc')}</span></dd><dt>${t('evs')}</dt><dd>${L(h.ev)}</dd></dl><div class="row"><a href="#experience" class="btn btn-gold magnetic" data-hall="${h.id}">${t('enter')}${arrow}</a><button class="btn btn-line" data-photos="${h.id}">${t('photos')}</button>${h.vid?`<button class="btn btn-line" data-video="${h.vid}">▶ ${t('video')}</button>`:''}</div></div></article>`).join('');
+  $('#evxList').innerHTML=EVENTS.map(([ti,p,im])=>`<li class="evx-i" data-img="${im}"><h3>${L(ti)}</h3><p>${L(p)}</p><div class="mi"><img src="${img(im)}" alt="" loading="lazy"></div></li>`).join('');
+  $('#evxMedia').innerHTML=[...new Set(EVENTS.map(e=>e[2]))].map((im,i)=>`<img data-k="${im}" src="${img(im)}" alt="" loading="lazy"${i?'':' class="on"'}>`).join('');
   $('#mTabs').innerHTML=MENUS.map((m,i)=>`<button class="mtab${i===curMenu?' on':''}" data-m="${i}"><b>Menu ${m.n}</b><span>${m.p.toLocaleString('de-DE')} L</span></button>`).join('');
   $$('.mtab').forEach(b=>b.onclick=()=>showMenu(+b.dataset.m));
   showMenu(curMenu,true);
@@ -183,6 +184,7 @@ let lenis=null;
 if(window.Lenis&&!RM){lenis=new Lenis({duration:1.15,smoothWheel:true});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(tm=>lenis.raf(tm*1000));gsap.ticker.lagSmoothing(0);lenis.stop();}
 const smoothTo=y=>lenis?lenis.scrollTo(y,{duration:1.6}):scrollTo({top:y,behavior:RM?'auto':'smooth'});
 document.addEventListener('click',e=>{
+  const vb=e.target.closest('[data-video]');if(vb){const m=$('#vm'),v=$('video',m);v.src=vb.dataset.video;m.classList.add('open');v.play().catch(()=>{});return;}
   const ph=e.target.closest('[data-photos]');if(ph){const h=HALLS.find(x=>x.id===ph.dataset.photos);openLb(h.imgs.map(f=>[f,h.id]),0);return;}
   const a=e.target.closest('a[href^="#"]');if(!a)return;e.preventDefault();document.body.classList.remove('mopen');
   if(a.dataset.hall)setHall(a.dataset.hall);
@@ -192,61 +194,37 @@ document.addEventListener('click',e=>{
 /* =====================================================================
    FILM HERO — exterior push-in → door light → hall → 360°
    ===================================================================== */
-const film={p:0,tp:0,force:true,el:$('#film'),vid:$('#fVid'),glow:$('#fGlow'),c1:$('#c1'),c2:$('#c2'),c3:$('#c3'),c4:$('#c4'),bt:$('#bt'),bb:$('#bb'),cue:$('#cue'),pg:$('#hudPg'),tc:$('#hudTc'),ch:$$('#hudCh li'),dur:34.7,ready:false};
-const VEND=.87, TDOOR=[7.3,9.0];
-let pr,ps,pc,psph,pReady=false;
-function initPano(){
-  const cv=$('#panoC');
-  try{pr=new THREE.WebGLRenderer({canvas:cv,antialias:false,powerPreference:'high-performance'});}catch(e){return;}
-  pr.setPixelRatio(Math.min(devicePixelRatio,1.5));pr.outputColorSpace=THREE.SRGBColorSpace;
-  ps=new THREE.Scene();pc=new THREE.PerspectiveCamera(90,innerWidth/innerHeight,.1,100);
-  const g=new THREE.SphereGeometry(10,72,48);g.scale(-1,1,1);psph=new THREE.Mesh(g,new THREE.MeshBasicMaterial({color:0}));psph.rotation.y=-Math.PI/2;ps.add(psph);
-  const rs=()=>{pr.setSize(innerWidth,innerHeight,false);pc.aspect=innerWidth/innerHeight;pc.updateProjectionMatrix();};rs();addEventListener('resize',rs);
-  new THREE.TextureLoader().load(PANO.grand,tx=>{tx.colorSpace=THREE.SRGBColorSpace;psph.material=new THREE.MeshBasicMaterial({map:tx});pReady=true;film.force=true;});
+/* Hero: the real videos play at their original quality.
+   Entrance → camera pushes into door 3 with warm light → hall walkthrough (loops). */
+const film={vA:$('#vA'),vB:$('#vB'),wA:$('#wA'),wB:$('#wB'),glow:$('#fGlow'),c1:$('#c1'),c2:$('#c2'),c3:$('#c3'),c4:$('#c4'),pg:$('#hudPg'),ch:$$('#hudCh li'),phase:0,ready:false};
+const DOOR=7.3;
+function capShow(el,on){if(el.__on===on)return;el.__on=on;gsap.to(el,{opacity:on?1:0,y:on?0:(el===film.c1?-30:24),x:0,duration:on?1.2:.7,ease:on?'expo.out':'power2.in',overwrite:true});el.style.pointerEvents=on?'auto':'none';}
+function filmStart(){
+  const {vA,vB}=film;film.phase=0;vB.pause();vB.currentTime=0;
+  gsap.set(film.wA,{opacity:1,scale:1});gsap.set(film.wB,{opacity:0,scale:1.12});gsap.set(film.glow,{opacity:0});
+  vA.currentTime=0;vA.play().catch(()=>{});
 }
-/* hero video: fully buffered as a blob so scroll-seeking is instant */
-const VSRC=innerWidth<760?'/assets/film-832.mp4':'/assets/film-1280.mp4';
-function loadFilm(onProg){
-  const v=film.vid,done=()=>{film.ready=true;film.dur=v.duration||film.dur;film.force=true;};
-  v.addEventListener('loadedmetadata',()=>{film.dur=v.duration;},{once:true});
-  return fetch(VSRC).then(async r=>{
-    const total=+r.headers.get('content-length')||0;if(!r.body||!total){const b=await r.blob();return b;}
-    const rd=r.body.getReader(),chunks=[];let got=0;
-    for(;;){const{done:d,value}=await rd.read();if(d)break;chunks.push(value);got+=value.length;onProg(got/total);}
-    return new Blob(chunks,{type:'video/mp4'});
-  }).then(b=>{v.src=URL.createObjectURL(b);v.load();v.addEventListener('loadeddata',done,{once:true});})
-    .catch(()=>{v.src=VSRC;v.load();v.addEventListener('loadeddata',done,{once:true});});
+function toHall(){
+  if(film.phase>=1)return;film.phase=1;const {vB}=film;vB.currentTime=0;vB.play().catch(()=>{});
+  gsap.timeline()
+    .to(film.wA,{scale:2.6,duration:1.8,ease:'power2.in'},0)
+    .to(film.glow,{opacity:.9,duration:1.1,ease:'power2.in'},.5)
+    .to(film.wB,{opacity:1,scale:1,duration:1.6,ease:'expo.out'},1.3)
+    .to(film.glow,{opacity:0,duration:1.4,ease:'power2.out'},1.6)
+    .set(film.wA,{opacity:0});
 }
-let filmTime=0,lastSeek=-1;
+film.vA.addEventListener('timeupdate',()=>{if(film.vA.currentTime>=DOOR)toHall();});
+film.vA.addEventListener('ended',toHall);
+$('#hudRe').onclick=()=>filmStart();
 function filmFrame(){
-  const r=film.el.getBoundingClientRect(),max=film.el.offsetHeight-innerHeight;
-  film.tp=clamp(-r.top/max);
-  const d=film.tp-film.p;film.p+=Math.abs(d)<1e-4?d:d*(RM?1:.12);
-  const p=film.p;
-  if(r.bottom<=0&&!film.force)return;film.force=false;
-  // video scrub
-  const vt=range(p,0,VEND)*(film.dur-.05);
-  if(film.ready&&!film.vid.seeking&&Math.abs(vt-lastSeek)>.02){film.vid.currentTime=vt;lastSeek=vt;}
-  film.vid.style.transform=`scale(${1+range(p,VEND-.06,VEND+.04)*.18})`;
-  $('#fExtWrap').style.opacity=1-range(p,VEND-.02,VEND+.04);
-  // warm light through the door
-  const g=range(vt,TDOOR[0],TDOOR[0]+.9)*(1-range(vt,TDOOR[1]-.6,TDOOR[1]+.4));film.glow.style.opacity=(g*.85).toFixed(3);
-  // 360 pano finale
-  const pp=range(p,VEND,1);
-  $('#panoC').style.opacity=pReady?range(p,VEND-.02,VEND+.05).toFixed(3):0;
-  if(pr&&pReady&&p>VEND-.04){pc.fov=96-eOut(pp)*24;pc.updateProjectionMatrix();pc.rotation.order='YXZ';pc.rotation.y=-(pp*Math.PI*1.4)-filmTime*.02;pc.rotation.x=.04-pp*.06;pr.render(ps,pc);}
-  // letterbox & captions
-  const b=1-eOut(range(p,.02,.16));film.bt.style.transform=film.bb.style.transform=`scaleY(${b})`;
-  const c1=range(p,0,.07);film.c1.style.opacity=1-c1;film.c1.style.transform=`translateY(${-c1*60}px) scale(${1+c1*.06})`;film.c1.style.filter=`blur(${c1*8}px)`;
-  const cap=(el,a,b2,dx)=>{const i=range(vt,a,a+.8),o=range(vt,b2-.8,b2),v=i*(1-o);el.style.opacity=v;el.style.transform=`translate(${(1-i)*dx}px,${(1-i)*30-o*30}px)`;};
-  cap(film.c2,1.6,TDOOR[0]-.2,-40);cap(film.c4,14,23,40);
-  const c3=range(p,VEND+.04,VEND+.09);film.c3.style.opacity=c3;film.c3.style.transform=`translateY(${(1-c3)*40}px)`;film.c3.style.pointerEvents=c3>.5?'auto':'none';
-  film.cue.style.opacity=1-range(p,0,.02);$('#fShade').style.opacity=1-range(p,.01,.08);
-  film.pg.style.transform=`scaleX(${p})`;
-  const s=Math.floor(vt);film.tc.textContent=`00:${String(s).padStart(2,'0')}`;
-  const chap=p>=VEND?2:vt<8.6?0:1;film.ch.forEach((li,i)=>li.classList.toggle('on',i===chap));
+  const {vA,vB}=film,ta=vA.currentTime||0,da=vA.duration||9.1,tb=vB.currentTime||0,db=vB.duration||26.4;
+  if(film.phase===0){capShow(film.c1,ta<3.2);capShow(film.c2,ta>=3.6&&ta<DOOR-.2);capShow(film.c4,false);capShow(film.c3,false);film.pg.style.transform=`scaleX(${(ta/da)*.25})`;}
+  else{capShow(film.c1,false);capShow(film.c2,false);capShow(film.c4,tb>=1.5&&tb<11);capShow(film.c3,tb>=12);film.pg.style.transform=`scaleX(${.25+(tb/db)*.75})`;}
+  const chap=film.phase===0?0:tb<12?1:2;film.ch.forEach((li,i)=>li.classList.toggle('on',i===chap));
 }
-function loop(time){filmTime=time/1000;if(film.p>VEND-.05)film.force=true;filmFrame();requestAnimationFrame(loop);}
+function loop(){filmFrame();requestAnimationFrame(loop);}
+/* pause the films when the hero is off screen, resume on return */
+new IntersectionObserver(es=>{const v=es[0].isIntersecting,cur=film.phase===0?film.vA:film.vB;if(!finished)return;v?cur.play().catch(()=>{}):cur.pause();},{threshold:.05}).observe($('#film'));
 
 /* =====================================================================
    SCROLL ANIMATIONS
@@ -262,6 +240,7 @@ function bind(isRelang){
   $$('main .split').forEach(h=>fr($$('.char',h),{opacity:0,yPercent:100,rotate:6},{opacity:1,yPercent:0,rotate:0,duration:1.2,stagger:.018,ease:'expo.out',scrollTrigger:once(h,'top 88%')}));
   $$('.rv').forEach(el=>fr(el,{opacity:0,y:40},{opacity:1,y:0,duration:1.3,ease:'power3.out',scrollTrigger:once(el,'top 92%')}));
   $$('main .eyebrow').forEach(el=>fr(el,{'--ls':0,opacity:0},{'--ls':1,opacity:1,duration:1.3,ease:'expo.out',scrollTrigger:once(el,'top 94%')}));
+  fr('#film .stage',{yPercent:0,opacity:1},{yPercent:25,opacity:.35,ease:'none',scrollTrigger:{trigger:'#film',start:'top top',end:'bottom top',scrub:true}});
   // statement — words light up with scroll
   fr('#bigText .wd',{opacity:.14},{opacity:1,stagger:.05,ease:'none',scrollTrigger:{trigger:'#bigText',start:'top 80%',end:'bottom 45%',scrub:true}});
   $$('.stat').forEach((s,i)=>fr(s,{opacity:0,y:50},{opacity:1,y:0,duration:1.2,delay:i*.1,ease:'expo.out',scrollTrigger:once(s,'top 94%')}));
@@ -275,7 +254,11 @@ function bind(isRelang){
     if(FINE){hl.onpointermove=e=>{const r=hl.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;hl.style.setProperty('--mx',x*100+'%');hl.style.setProperty('--my',y*100+'%');gsap.to(hl,{rotateY:(x-.5)*10,rotateX:(.5-y)*8,duration:.8,ease:'power3.out',transformPerspective:1200});};
       hl.onpointerleave=()=>gsap.to(hl,{rotateY:0,rotateX:0,duration:1.2,ease:'elastic.out(1,.5)'});}
   });
-  fr('.marquee .mq-row',{opacity:0,y:40},{opacity:1,y:0,duration:1.4,stagger:.15,ease:'expo.out',scrollTrigger:once('.marquee','top 95%')});
+  // events — each line lights up as it crosses the middle of the screen; the photo follows
+  $$('.evx-i').forEach(li=>reg(gsap.to(li,{scrollTrigger:{trigger:li,start:'top 58%',end:'bottom 42%',toggleClass:'on',onToggle:st=>{if(st.isActive)$$('#evxMedia img').forEach(im=>im.classList.toggle('on',im.dataset.k===li.dataset.img));}}})));
+  fr('.evx-media',{clipPath:'inset(30% 30% 30% 30% round 20px)'},{clipPath:'inset(0% 0% 0% 0% round 20px)',duration:1.6,ease:'expo.inOut',scrollTrigger:once('.evx','top 75%')});
+  // hall cards: real video plays when the card is on screen
+  $$('.hall .ph').forEach(ph=>{const v=$('video',ph);if(!v)return;ScrollTrigger.create({trigger:ph,start:'top 85%',end:'bottom 15%',onToggle:st=>{if(st.isActive){v.preload='auto';v.play().then(()=>ph.classList.add('playing')).catch(()=>{});}else{v.pause();ph.classList.remove('playing');}}});});
   // 360 viewer opens like a lens
   fr('#viewer',{clipPath:'inset(12% 10% 12% 10% round 22px)'},{clipPath:'inset(0% 0% 0% 0% round 22px)',ease:'none',scrollTrigger:{trigger:'#viewer',start:'top 100%',end:'top 25%',scrub:true}});
   // menus
@@ -292,12 +275,9 @@ function bind(isRelang){
   // services
   $$('.sv').forEach((s,i)=>fr(s,{opacity:0,y:40},{opacity:1,y:0,duration:1.1,delay:(i%3)*.1,ease:'expo.out',scrollTrigger:once(s,'top 92%')}));
   $$('.sv svg *').forEach(p=>{let l=60;try{l=Math.ceil(p.getTotalLength()+2);}catch(e){}fr(p,{strokeDasharray:l,strokeDashoffset:l},{strokeDashoffset:0,duration:1.8,ease:'power2.inOut',scrollTrigger:once(p.closest('.sv'),'top 90%')});});
-  // location — the photo opens from a small window to the full frame
-  if(innerWidth>760){fr('#locWin',{clipPath:'inset(18% 26% 18% 26% round 20px)'},{clipPath:'inset(0% 0% 0% 0% round 20px)',ease:'none',scrollTrigger:{trigger:'#locFig',start:'top 85%',end:'center 55%',scrub:1}});
-    fr('#locWin img',{scale:1.25},{scale:1,ease:'none',scrollTrigger:{trigger:'#locFig',start:'top 85%',end:'center 55%',scrub:1}});}
-  else gsap.set('#locWin img',{scale:1});
-  fr('#locCard',{opacity:0,y:80},{opacity:1,y:0,duration:1.4,ease:'expo.out',scrollTrigger:once('#locCard','top 92%')});
-  fr($$('#locCard > *'),{opacity:0,y:20},{opacity:1,y:0,duration:1,stagger:.07,delay:.3,ease:'expo.out',scrollTrigger:once('#locCard','top 92%')});
+  // location
+  fr('#locPh',{clipPath:'inset(0 100% 0 0 round 18px)'},{clipPath:'inset(0 0% 0 0 round 18px)',duration:1.6,ease:'expo.inOut',scrollTrigger:once('#locPh','top 85%')});
+  fr('#locPh img',{scale:1.3},{scale:1,duration:2.2,ease:'expo.out',scrollTrigger:once('#locPh','top 85%')});
   fr('#mapbox',{opacity:0,y:60,scale:.96},{opacity:1,y:0,scale:1,duration:1.5,ease:'expo.out',scrollTrigger:once('#mapbox','top 88%')});
   // form & footer
   fr('#resForm .f,#resForm .fend',{opacity:0,y:30},{opacity:1,y:0,duration:1,stagger:.05,ease:'expo.out',scrollTrigger:once('#resForm','top 85%')});
@@ -327,6 +307,7 @@ if(FINE)addEventListener('pointermove',e=>{const s=e.target.closest&&e.target.cl
 {let x1=0,x2=0,vel=0,ly=scrollY;gsap.ticker.add(()=>{const dy=scrollY-ly;ly=scrollY;vel+=(dy-vel)*.1;const sp=1+Math.min(Math.abs(vel)*.15,8);
   const r1=$('#mq1'),r2=$('#mq2');if(!r1)return;const w1=r1.scrollWidth/2,w2=r2.scrollWidth/2;if(!w1)return;x1-=.6*sp;x2+=.6*sp;if(-x1>w1)x1+=w1;if(x2>0)x2-=w2;
   const sk=Math.max(-10,Math.min(10,-vel*.15));r1.style.transform=`translateX(${x1}px) skewX(${sk}deg)`;r2.style.transform=`translateX(${x2}px) skewX(${sk}deg)`;});}
+$('#vm .c').onclick=()=>{const m=$('#vm');m.classList.remove('open');$('video',m).pause();};
 /* lightbox */
 const lb=$('#lb'),lbImg=$('img',lb),lbCap=$('.cap',lb);let lbList=[],lbI=0;
 function lbShow(n){lbI=(n+lbList.length)%lbList.length;const[f,h]=lbList[lbI];gsap.to(lbImg,{opacity:0,scale:.96,duration:.2,onComplete:()=>{lbImg.onload=()=>gsap.to(lbImg,{opacity:1,scale:1,duration:.7,ease:'expo.out'});lbImg.src=img(f);lbCap.textContent=`${lbI+1} / ${lbList.length} · ${hallName(h)}`;}});}
@@ -446,16 +427,15 @@ const pct=$('#pct');let loadP=0;function setLoad(v){loadP=Math.max(loadP,v);gsap
 fetch('/assets/ija-logo-gold.svg').then(r=>r.text()).then(svg=>{const box=$('#loaderLogo');box.innerHTML=svg;const ps=$$('path',box);
   ps.forEach(p=>{let l=400;try{l=p.getTotalLength();}catch(e){}p.style.strokeDasharray=l;p.style.strokeDashoffset=l;});
   gsap.to(ps,{strokeDashoffset:0,duration:1.6,stagger:.04,ease:'power2.inOut',onComplete:()=>box.classList.add('filled')});}).catch(()=>{});
-const po=new Image();po.src='/assets/film-poster.jpg';
-loadFilm(f=>setLoad(10+f*88)).then(()=>{}).finally(()=>{});
-const waitReady=setInterval(()=>{if(film.ready){clearInterval(waitReady);finish();}},120);
+{const v=film.vA;let p=0;const tick=setInterval(()=>{try{if(v.buffered.length&&v.duration){p=v.buffered.end(v.buffered.length-1)/v.duration;setLoad(10+p*88);}}catch(e){}
+  if(v.readyState>=4||p>.98){clearInterval(tick);finish();}},150);v.addEventListener('canplaythrough',()=>{clearInterval(tick);finish();},{once:true});v.load();film.vB.load();}
 let finished=false;
 function finish(){if(finished)return;finished=true;setLoad(100);
   gsap.timeline({delay:.9})
    .to('#loader .lg,#loader .tg,#loader .cnt',{opacity:0,y:-20,duration:.6,stagger:.05,ease:'power2.in'})
    .to('#loader',{clipPath:'inset(0 0 100% 0)',duration:1.2,ease:'expo.inOut'})
    .add(()=>{document.body.classList.remove('lock');lenis&&lenis.start();},'-=.6')
-   .fromTo('#fExtWrap',{scale:1.2,filter:'brightness(.3)'},{scale:1,filter:'brightness(1)',duration:2.2,ease:'expo.out',clearProps:'transform,filter'},'-=.9')
+   .add(filmStart,'-=1.1').fromTo('#film .stage',{scale:1.15,filter:'brightness(.3)'},{scale:1,filter:'brightness(1)',duration:2.2,ease:'expo.out',clearProps:'transform,filter'},'<')
    .from('#c1 .lg',{opacity:0,y:30,duration:1.2,ease:'expo.out'},'-=1.8')
    .from('#c1 h1 .char',{opacity:0,yPercent:110,rotate:8,duration:1.3,stagger:.018,ease:'expo.out'},'-=1.5')
    .from('#c1 p',{opacity:0,letterSpacing:'1em',duration:1.4,ease:'expo.out'},'-=1.1')
@@ -463,6 +443,6 @@ function finish(){if(finished)return;finished=true;setLoad(100);
    .from('.hud,#cue',{opacity:0,duration:1},'-=.8')
    .set('#loader',{display:'none'});
 }
-setTimeout(finish,15000);
-applyLang();bind();initPano();requestAnimationFrame(loop);setLoad(6);
+setTimeout(finish,7000);
+applyLang();bind();requestAnimationFrame(loop);setLoad(6);
 addEventListener('load',()=>ScrollTrigger.refresh());

@@ -1,7 +1,7 @@
 exterior-sm.webp
 exterior.webp
-film-1280.mp4
-film-832.mp4
+film-entrance.mp4
+film-hall.mp4
 film-poster.jpg
 grand-1-sm.webp
 grand-1.webp
@@ -20,3 +20,6 @@ salon-1-sm.webp
 salon-1.webp
 salon-2-sm.webp
 salon-2.webp
+walk-bar.mp4
+walk-salon.mp4
+walk-salon2.mp4
