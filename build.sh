@@ -5,6 +5,7 @@ REF="${IJA_REF:-main}"
 BASE="https://raw.githubusercontent.com/albi1222/ija-events/${REF}"
 mkdir -p public/assets
 curl -fsSL "$BASE/index.html" -o public/index.html
+curl -fsSL "$BASE/app.js" -o public/app.js
 for f in $(curl -fsSL "$BASE/assets/manifest.txt"); do
   curl -fsSL "$BASE/assets/$f" -o "public/assets/$f"
 done

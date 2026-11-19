@@ -13,6 +13,9 @@ grand-4.webp
 grand-5.webp
 grand-6.webp
 grand-ceremony.webp
+ija-logo-black.svg
+ija-logo-gold.svg
+ija-logo-ivory-gold.svg
 lounge-1.webp
 lounge-2.webp
 lounge-3.webp
