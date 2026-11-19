@@ -66,7 +66,7 @@ em{font-family:var(--serif);font-style:italic;font-weight:300;text-transform:non
 #loader .lg.filled path{fill:var(--gold);stroke-width:0}
 #loader .cnt{position:absolute;left:50%;bottom:calc(var(--pad) - 4px);transform:translateX(-50%);font-family:var(--sans);font-size:13px;letter-spacing:.4em;color:var(--gold)}
 #loader .bar{position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--gold);transform-origin:left;transform:scaleX(0)}
-.wreath path{fill:none;stroke:var(--gold);stroke-width:1;stroke-linecap:round}
+.wreath path,.wreath circle{fill:none;stroke:var(--gold);stroke-width:.8;stroke-linecap:round}.wreath .dm{fill:var(--gold);stroke:none}
 
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:20px var(--pad);transition:transform .8s var(--ease),background .6s,padding .6s}
 .nav.solid{background:linear-gradient(rgba(7,6,5,.92),rgba(7,6,5,.78));padding-top:12px;padding-bottom:12px;border-bottom:1px solid rgba(200,161,90,.15)}
@@ -214,8 +214,6 @@ body.mopen #mmenu{clip-path:inset(0)}
 .mtab{padding:14px 26px;font-family:var(--sans);font-size:12px;letter-spacing:.2em;color:#b4aa98;border-right:1px solid var(--line);transition:.4s;white-space:nowrap}
 .mtab:last-child{border-right:0}.mtab.on{background:var(--gold);color:var(--ink)}
 .mcard{max-width:980px;margin:0 auto;position:relative;padding:clamp(30px,5vw,70px);border:1px solid var(--line);background:linear-gradient(180deg,rgba(200,161,90,.05),transparent)}
-.mcard::before,.mcard::after{content:'';position:absolute;left:-1px;right:-1px;height:20px;background:var(--meander) repeat-x center/40px 20px;opacity:.45}
-.mcard::before{top:-26px}.mcard::after{bottom:-26px}
 .mcard .pr{text-align:center;padding-bottom:30px;border-bottom:1px solid var(--line)}
 .mcard .pr b{display:block;font-family:var(--sans);font-weight:400;font-size:clamp(60px,8vw,120px);line-height:1.1}
 .mcard .pr small{font-family:var(--sans);font-size:10.5px;letter-spacing:.32em;color:var(--stone)}
@@ -333,8 +331,8 @@ footer .meander{margin:40px auto 0;max-width:1000px}
 #embers{position:fixed;inset:0;z-index:250;pointer-events:none;mix-blend-mode:screen}
 #prog{position:fixed;left:0;top:0;height:2px;width:100%;z-index:400;background:linear-gradient(90deg,var(--gold2),var(--goldl));transform-origin:left;transform:scaleX(0)}
 /* ornament divider: thin lines, olive sprig and a diamond */
-.sec+.sec::before{height:26px;left:50%;right:auto;width:min(520px,80vw);transform:translateX(-50%) scaleX(var(--mx,1));background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 26'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%23c8a15a' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23c8a15a'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%23c8a15a'/%3E%3Cstop offset='1' stop-color='%23c8a15a' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0 13H222' stroke='url(%23a)'/%3E%3Cpath d='M298 13H520' stroke='url(%23b)'/%3E%3Cpath d='M260 5l8 8-8 8-8-8z' fill='none' stroke='%23c8a15a'/%3E%3Cpath d='M228 13q12-10 24 0q-12 10-24 0zM292 13q-12-10-24 0q12 10 24 0z' fill='none' stroke='%23c8a15a' stroke-width='.9'/%3E%3C/svg%3E") center/contain no-repeat;opacity:.55}
-.mcard::before,.mcard::after{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 20'%3E%3Cpath d='M20 4l6 6-6 6-6-6z' fill='none' stroke='%23c8a15a'/%3E%3C/svg%3E") center/40px 20px no-repeat;opacity:.8}
+.sec+.sec::before{height:26px;left:50%;right:auto;width:min(560px,80vw);transform:translateX(-50%) scaleX(var(--mx,1));background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 560 26'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%23c8a15a' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23e9d39f'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%23e9d39f'/%3E%3Cstop offset='1' stop-color='%23c8a15a' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0 13H236M0 9.5H200' stroke='url(%23a)' stroke-width='.8'/%3E%3Cpath d='M324 13H560M360 9.5H560' stroke='url(%23b)' stroke-width='.8'/%3E%3Cpath d='M280 2l11 11-11 11-11-11z' fill='none' stroke='%23e9d39f'/%3E%3Cpath d='M280 7l6 6-6 6-6-6z' fill='%23c8a15a'/%3E%3Cpath d='M252 13l5-5 5 5-5 5zM298 13l5-5 5 5-5 5z' fill='none' stroke='%23c8a15a' stroke-width='.9'/%3E%3Ccircle cx='242' cy='13' r='1.6' fill='%23c8a15a'/%3E%3Ccircle cx='318' cy='13' r='1.6' fill='%23c8a15a'/%3E%3C/svg%3E") center/contain no-repeat;opacity:.75}
+.mcard.x::before,.mcard.x::after{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 20'%3E%3Cpath d='M20 4l6 6-6 6-6-6z' fill='none' stroke='%23c8a15a'/%3E%3C/svg%3E") center/40px 20px no-repeat;opacity:.8}
 footer .meander{background:linear-gradient(90deg,transparent,var(--gold),transparent);height:1px;opacity:.6}
 /* candle */
 .candle{display:inline-block;width:34px;height:70px;position:relative;margin-bottom:14px}
@@ -351,6 +349,21 @@ footer .meander{background:linear-gradient(90deg,transparent,var(--gold),transpa
 /* arch hover lift */
 .hall .arch{transition:transform .9s var(--ease),box-shadow .9s}
 .hall:hover .arch{transform:translateY(-10px);box-shadow:0 40px 80px -30px rgba(200,161,90,.35)}
+
+/* luxury details: gold corner brackets on framed elements */
+.cn{position:relative}
+.cn::before,.cn::after{content:'';position:absolute;width:26px;height:26px;border:1px solid var(--goldl);pointer-events:none;z-index:3;transition:width .8s var(--ease),height .8s var(--ease)}
+.cn::before{left:-7px;top:-7px;border-right:0;border-bottom:0}
+.cn::after{right:-7px;bottom:-7px;border-left:0;border-top:0}
+.cn:hover::before,.cn:hover::after{width:44px;height:44px}
+/* dark marble veins behind content */
+main{background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.004 .012' numOctaves='5' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .78  0 0 0 0 .63  0 0 0 0 .35  0 0 0 -1.6 1.1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)' opacity='.07'/%3E%3C/svg%3E") repeat}
+/* gold seal */
+.seal path,.seal circle{fill:none;stroke:var(--gold);stroke-width:.8}
+.seal .dm{fill:var(--gold);stroke:none}
+#ped path,#ped circle{fill:none;stroke:var(--gold);stroke-width:1}
+.btn.fill{background:linear-gradient(110deg,#a8833f,#e6cc8e 45%,#c8a15a 60%,#a8833f);background-size:220% 100%;animation:foil 6s linear infinite}
+@keyframes foil{to{background-position:-220% 0}}
 
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -419,14 +432,14 @@ footer .meander{background:linear-gradient(90deg,transparent,var(--gold),transpa
 </section>
 
 <section class="sec" id="events">
-  <div class="lft"><span class="k" data-i18n="ev.k"></span><h2 class="h2 rom split" data-i18n-html="ev.t"></h2><p class="lead rv" data-i18n="ev.l"></p><div class="img" id="evImg"></div></div>
+  <div class="lft"><span class="k" data-i18n="ev.k"></span><h2 class="h2 rom split" data-i18n-html="ev.t"></h2><p class="lead rv" data-i18n="ev.l"></p><div class="cn" style="margin-top:40px"><div class="img" id="evImg" style="margin-top:0"></div></div></div>
   <ol class="evl" id="evList"></ol>
 </section>
 
 <section class="sec" id="menus">
   <div class="hd"><span class="k" data-i18n="mn.k"></span><h2 class="h2 rom split" data-i18n-html="mn.t"></h2><p class="lead rv" data-i18n="mn.l"></p></div>
   <div class="mtabs" id="mTabs"></div>
-  <div class="mcard" id="mCard"></div>
+  <div class="mcard cn" id="mCard"></div>
 </section>
 
 <section class="sec" id="gallery">
@@ -443,7 +456,7 @@ footer .meander{background:linear-gradient(90deg,transparent,var(--gold),transpa
   <div class="hd"><span class="k" data-i18n="lo.k"></span><h2 class="h2 rom split" data-i18n-html="lo.t"></h2></div>
   <div class="loc">
     <div class="info">
-      <div class="ph" id="locPh"><img src="/assets/exterior.webp" alt="IJA Events" loading="lazy"></div>
+      <div class="ph cn" id="locPh"><img src="/assets/exterior.webp" alt="IJA Events" loading="lazy"></div>
       <dl><dt data-i18n="lo.a"></dt><dd>IJA Events, Tiranë</dd><dt data-i18n="lo.p"></dt><dd><a href="tel:+355692087803">+355 69 208 7803</a></dd></dl>
       <div class="row"><a class="btn fill" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=41.3398973,19.8395694"><span data-i18n="lo.dir"></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Ija+Events/@41.3398973,19.8395694,17z/data=!4m6!3m5!1s0x13503145b32e893d:0x528865664c10a171!8m2!3d41.3398973!4d19.8395694">Google Maps</a></div>
     </div>
@@ -472,7 +485,7 @@ footer .meander{background:linear-gradient(90deg,transparent,var(--gold),transpa
 </main>
 
 <footer id="foot">
-  <svg class="ped" id="ped" viewBox="0 0 760 90"></svg>
+  <svg class="ped" id="ped" viewBox="0 0 760 60"></svg>
   <img class="fl" src="/assets/ija-logo-gold.svg" alt="IJA Events">
   <p class="tag" data-i18n="ft.tag"></p>
   <div class="cols">

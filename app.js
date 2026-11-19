@@ -111,34 +111,25 @@ const hallName=id=>{const h=HALLS.find(x=>x.id===id);return h?L(h.name):(LANG===
 const arrow='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h12M9 3l5 5-5 5"/></svg>';
 $('#yr').textContent=new Date().getFullYear();
 
-/* laurel wreath — drawn as SVG strokes */
+/* gold seal — concentric rings, fine ticks and diamonds */
 function wreath(svg){
-  const cx=100,cy=100,r=78;let d='';
-  for(const side of [-1,1]){
-    let stem='';for(let i=0;i<=24;i++){const a=(Math.PI/2)+side*(0.25+i*0.105);const x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r;stem+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1);}
-    d+=`<path d="${stem}"/>`;
-    for(let i=1;i<=11;i++){const a=(Math.PI/2)+side*(0.25+i*0.21);const x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r;
-      const tang=a+side*Math.PI/2;for(const o of [-1,1]){const ang=tang+o*0.6*side,len=16-i*.4;
-        const x2=x+Math.cos(ang)*len,y2=y+Math.sin(ang)*len,mx=(x+x2)/2+Math.cos(ang+Math.PI/2)*4,my=(y+y2)/2+Math.sin(ang+Math.PI/2)*4,mx2=(x+x2)/2-Math.cos(ang+Math.PI/2)*4,my2=(y+y2)/2-Math.sin(ang+Math.PI/2)*4;
-        d+=`<path d="M${x.toFixed(1)} ${y.toFixed(1)}Q${mx.toFixed(1)} ${my.toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}Q${mx2.toFixed(1)} ${my2.toFixed(1)} ${x.toFixed(1)} ${y.toFixed(1)}"/>`;}}
-  }
-  d+=`<path d="M${cx-10} ${cy+r+4}q10 8 20 0"/>`;
+  const c=100;let d=`<circle cx="${c}" cy="${c}" r="92"/><circle cx="${c}" cy="${c}" r="86"/><circle cx="${c}" cy="${c}" r="64"/>`;
+  for(let i=0;i<72;i++){const a=i/72*Math.PI*2,r1=86,r2=i%6===0?78:82;d+=`<path d="M${(c+Math.cos(a)*r1).toFixed(1)} ${(c+Math.sin(a)*r1).toFixed(1)}L${(c+Math.cos(a)*r2).toFixed(1)} ${(c+Math.sin(a)*r2).toFixed(1)}"/>`;}
+  for(let i=0;i<4;i++){const a=i*Math.PI/2-Math.PI/2,x=c+Math.cos(a)*92,y=c+Math.sin(a)*92;d+=`<path class="dm" d="M${x} ${y-5}l5 5-5 5-5-5z"/>`;}
   svg.innerHTML=d;svg.classList.add('wreath');
-  $$('path',svg).forEach(p=>{let l=100;try{l=p.getTotalLength();}catch(e){}p.style.strokeDasharray=l;p.style.strokeDashoffset=l;});
-  return $$('path',svg);
+  const els=$$('path:not(.dm),circle',svg);els.forEach(p=>{let l=100;try{l=p.getTotalLength();}catch(e){}p.style.strokeDasharray=l;p.style.strokeDashoffset=l;});
+  gsap.set($$('.dm',svg),{scale:0,transformOrigin:'center'});
+  return els;
 }
 
-/* olive branch — peace for memorials, festivity for celebrations */
-function olive(svg){
-  const cy=58;let d=`<path d="M60 ${cy} Q380 ${cy-22} 700 ${cy}"/>`;
-  for(let i=0;i<24;i++){const t=(i+.5)/24,x=60+t*640,y=cy-22*4*t*(1-t)*.5*2*.5*2*.5,up=i%2?-1:1,len=26-Math.abs(t-.5)*18;
-    const dir=t<.5?-1:1,a=(up<0?-Math.PI/2:Math.PI/2)+dir*0.75*(up<0?1:-1)*-1;
-    const tx=x+Math.cos(a)*len,ty=y+Math.sin(a)*len,nx=-Math.sin(a)*5,ny=Math.cos(a)*5,mx=(x+tx)/2,my=(y+ty)/2;
-    d+=`<path d="M${x.toFixed(1)} ${y.toFixed(1)}Q${(mx+nx).toFixed(1)} ${(my+ny).toFixed(1)} ${tx.toFixed(1)} ${ty.toFixed(1)}Q${(mx-nx).toFixed(1)} ${(my-ny).toFixed(1)} ${x.toFixed(1)} ${y.toFixed(1)}"/>`;
-    if(i%6===3)d+=`<ellipse cx="${(x+Math.cos(a)*6).toFixed(1)}" cy="${(y-up*9).toFixed(1)}" rx="3" ry="4"/>`;}
-  svg.innerHTML=d;$$('path,ellipse',svg).forEach(p=>{let l=100;try{l=p.getTotalLength();}catch(e){}p.style.strokeDasharray=l;p.style.strokeDashoffset=l;});
+/* footer ornament — art-deco lines meeting at a double diamond */
+function deco(svg){
+  let d='';const c=380,y=30;
+  [[0,330,0],[40,336,-6],[80,340,6]].forEach(([a,b,o])=>{d+=`<path d="M${a} ${y+o}H${b}"/><path d="M${760-a} ${y+o}H${760-b}"/>`;});
+  d+=`<path d="M${c} ${y-22}l22 22-22 22-22-22z"/><path d="M${c} ${y-13}l13 13-13 13-13-13z"/><path d="M${c-44} ${y}l8-8 8 8-8 8zM${c+44} ${y}l-8-8-8 8 8 8z"/><circle cx="${c}" cy="${y}" r="3"/>`;
+  svg.innerHTML=d;$$('path,circle',svg).forEach(p=>{let l=100;try{l=p.getTotalLength();}catch(e){}p.style.strokeDasharray=l;p.style.strokeDashoffset=l;});
 }
-olive($('#ped'));
+deco($('#ped'));
 /* golden embers */
 {const c=$('#embers'),x=c.getContext('2d');let W,H,P=[];const N=MOBILE?22:46;
  const rs=()=>{W=c.width=innerWidth*Math.min(devicePixelRatio,1.5);H=c.height=innerHeight*Math.min(devicePixelRatio,1.5);c.style.width=innerWidth+'px';c.style.height=innerHeight+'px';};rs();addEventListener('resize',rs);
@@ -290,7 +281,9 @@ function bind(isRelang){
   $$('main .hd .h2, #events .lft .h2').forEach(h=>fr(h,{letterSpacing:'.02em'},{letterSpacing:'-.015em',ease:'none',scrollTrigger:{trigger:h,start:'top bottom',end:'bottom top',scrub:true}}));
   // II intro — laurel draws, words light, numbers rise
   if(!wreaths.in)wreaths.in=wreath($('#inWreath'));
-  fr(wreaths.in,{strokeDashoffset:(i,el)=>el.style.strokeDasharray},{strokeDashoffset:0,duration:2.4,stagger:.015,ease:'power2.inOut',scrollTrigger:once('#intro .wr','top 85%')});
+  fr(wreaths.in,{strokeDashoffset:(i,el)=>el.style.strokeDasharray},{strokeDashoffset:0,duration:2.4,stagger:.01,ease:'power2.inOut',scrollTrigger:once('#intro .wr','top 85%')});
+  fr($$('#inWreath .dm'),{scale:0,rotate:-90},{scale:1,rotate:0,duration:1,delay:1.6,stagger:.12,ease:'back.out(3)',scrollTrigger:once('#intro .wr','top 85%')});
+  if(!RM)gsap.to('#inWreath',{rotate:360,duration:120,repeat:-1,ease:'none',transformOrigin:'50% 50%'});
   fr('#intro .wr b,#intro .wr small',{opacity:0,scale:.85},{opacity:1,scale:1,duration:1.6,delay:.8,stagger:.15,ease:'expo.out',scrollTrigger:once('#intro .wr','top 85%')});
   fr('#bigText .wd',{opacity:.15},{opacity:1,stagger:.05,ease:'none',scrollTrigger:{trigger:'#bigText',start:'top 80%',end:'bottom 50%',scrub:true}});
   fr('.pillars div',{opacity:0,y:50},{opacity:1,y:0,duration:1.3,stagger:.15,ease:'expo.out',scrollTrigger:once('.pillars','top 90%')});
@@ -331,7 +324,7 @@ function bind(isRelang){
   fr('form.res',{opacity:0,y:60,filter:'blur(10px)'},{opacity:1,y:0,filter:'blur(0px)',duration:1.6,ease:'expo.out',scrollTrigger:once('form.res','top 85%')});
   fr('.cdir a',{opacity:0,x:-30},{opacity:1,x:0,duration:1.1,stagger:.12,ease:'expo.out',scrollTrigger:once('.cdir','top 90%')});
   // footer — the pediment draws, logo descends
-  fr($$('#ped path,#ped ellipse'),{strokeDashoffset:(i,el)=>el.style.strokeDasharray},{strokeDashoffset:0,duration:2.6,stagger:.01,ease:'power2.inOut',scrollTrigger:once('#ped','top 95%')});
+  fr($$('#ped path,#ped circle'),{strokeDashoffset:(i,el)=>el.style.strokeDasharray},{strokeDashoffset:0,duration:2.6,stagger:.01,ease:'power2.inOut',scrollTrigger:once('#ped','top 95%')});
   fr('footer .fl',{opacity:0,y:20},{opacity:1,y:0,duration:1.6,delay:1,ease:'expo.out',scrollTrigger:once('#ped','top 92%')});
   fr('footer .meander',{scaleX:0},{scaleX:1,duration:2,ease:'expo.inOut',scrollTrigger:once('footer .meander','top 98%')});
   if(FINE)$$('.btn').forEach(m=>{m.onpointermove=e=>{const r=m.getBoundingClientRect();gsap.to(m,{x:(e.clientX-r.left-r.width/2)*.18,y:(e.clientY-r.top-r.height/2)*.28,duration:.6,ease:'power3.out'});};m.onpointerleave=()=>gsap.to(m,{x:0,y:0,duration:1,ease:'elastic.out(1,.45)'});});
@@ -441,7 +434,7 @@ new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){o.disconnect();loadMa
    LOADER & BOOT
    ===================================================================== */
 const pct=$('#pct');let loadP=0;function setLoad(v){loadP=Math.max(loadP,v);gsap.to('#lbar',{scaleX:loadP/100,duration:.6,ease:'power2.out'});pct.textContent=Math.round(loadP)+'%';}
-{const lw=wreath($('#ldWreath'));gsap.to(lw,{strokeDashoffset:0,duration:2.2,stagger:.012,ease:'power2.inOut'});}
+{const lw=wreath($('#ldWreath'));gsap.to(lw,{strokeDashoffset:0,duration:2,stagger:.008,ease:'power2.inOut'});gsap.to($$('#ldWreath .dm'),{scale:1,duration:.8,delay:1.4,stagger:.1,ease:'back.out(3)'});gsap.to('#ldWreath',{rotate:90,duration:6,ease:'power1.inOut',transformOrigin:'50% 50%'});}
 fetch('/assets/ija-logo-gold.svg').then(r=>r.text()).then(svg=>{const box=$('#loaderLogo');box.innerHTML=svg;const ps=$$('path',box);
   ps.forEach(p=>{let l=400;try{l=p.getTotalLength();}catch(e){}p.style.strokeDasharray=l;p.style.strokeDashoffset=l;});
   gsap.to(ps,{strokeDashoffset:0,duration:1.6,delay:.4,stagger:.04,ease:'power2.inOut',onComplete:()=>box.classList.add('filled')});}).catch(()=>{});
