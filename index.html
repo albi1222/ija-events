@@ -101,7 +101,7 @@ body.mopen #mmenu{clip-path:inset(0)}
 .h-side p{font-size:14px;color:rgba(244,239,230,.82);line-height:1.75}
 .h-side .btn{margin-top:26px}
 .h-meta{position:absolute;left:var(--pad);right:var(--pad);bottom:34px;z-index:4;display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(244,239,230,.7)}
-.h-meta .chap{display:flex;gap:22px}.h-meta .chap span{transition:color .5s,opacity .5s;opacity:.5}.h-meta .chap span.on{opacity:1;color:var(--champ)}
+.h-meta #hTc{font-variant-numeric:tabular-nums;color:var(--champ)}.h-meta .chap span{transition:color .5s,opacity .5s;opacity:.5}.h-meta .chap span.on{opacity:1;color:var(--champ)}
 .h-meta .pg{flex:1;max-width:340px;height:1px;background:rgba(244,239,230,.2);position:relative}.h-meta .pg i{position:absolute;inset:0;background:var(--champ);transform-origin:left;transform:scaleX(0)}
 .h-meta button{display:flex;gap:8px;align-items:center;letter-spacing:.28em;font-size:10px;text-transform:uppercase}
 @media(max-width:860px){.h-side{display:none}.h-title h1 .i2{padding-left:0}}
@@ -121,13 +121,6 @@ body.mopen #mmenu{clip-path:inset(0)}
 @media(max-width:900px){#intro{display:block}#intro .pic{margin:50px 0 0;width:70%;margin-left:auto}#intro .facts{flex-wrap:wrap;gap:30px}}
 
 /* ===== 3 REEL — pinned video that opens to full screen ===== */
-#reel{position:relative;height:260vh;background:var(--ivory)}
-#reel .st{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
-#reel .vbox{position:absolute;inset:0;clip-path:inset(24% 30% 24% 30% round 14px);will-change:clip-path}
-#reel video{width:100%;height:100%;object-fit:cover;transform:scale(1.25);will-change:transform}
-#reel .cap{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);pointer-events:none;color:var(--ink);font-family:var(--serif);font-weight:300;font-size:clamp(48px,9vw,170px);line-height:1;mix-blend-mode:difference}
-#reel .cap span{color:var(--ivory)}
-#reel .lbl{position:absolute;left:var(--pad);bottom:40px;color:var(--ivory);font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;opacity:0}
 
 /* ===== 4 VENUE — asymmetric architecture ===== */
 #venue{position:relative;padding:clamp(110px,14vw,220px) var(--pad);min-height:190vh;overflow:hidden}
@@ -346,8 +339,6 @@ footer{background:var(--ink);padding:clamp(70px,9vw,120px) var(--pad) 28px;overf
 .ftop p{color:#a59b88;max-width:34ch;font-size:14px}
 .ftop h5{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:600}
 .ftop a{display:block;color:#d6ccba;font-size:14px;padding:4px 0}.ftop a:hover{color:var(--champ)}
-.mega{width:100%;display:block;overflow:visible}
-.mega text{font-family:var(--serif);font-weight:300;font-size:150px;fill:url(#fg);fill-opacity:0;stroke:var(--gold);stroke-width:.7;stroke-opacity:.8}
 .fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(230,214,184,.14);padding-top:22px;margin-top:30px;font-size:12px;color:#8c8475}
 .fbot .aiv{color:#2062E9;font-weight:600}
 @media(max-width:900px){.ftop{grid-template-columns:1fr}}
@@ -364,10 +355,50 @@ footer{background:var(--ink);padding:clamp(70px,9vw,120px) var(--pad) 28px;overf
 #lb button,#vm button{position:absolute;color:var(--ivory);width:54px;height:54px;border-radius:50%;border:1px solid rgba(230,214,184,.3);display:grid;place-items:center;font-size:22px}
 #lb .p{left:20px;top:50%}#lb .n{right:20px;top:50%}#lb .c,#vm .c{right:20px;top:20px}
 #lb button:hover,#vm button:hover{background:var(--champ);color:var(--ink)}
+
+/* ===== fixed background film (scroll-driven) ===== */
+#bg{position:fixed;inset:0;z-index:0;overflow:hidden;background:#000}
+#bgV{width:100%;height:100%;object-fit:cover;transform-origin:50% 50%;will-change:transform}
+#bg .scrim{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 70%,rgba(11,10,8,.35),rgba(11,10,8,.75));opacity:.25;will-change:opacity}
+#bg .grain{z-index:2}
+main,footer,#hero{position:relative;z-index:1}
+#hero{background:transparent}
+#hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(11,10,8,.7),transparent 45%),linear-gradient(to right,rgba(11,10,8,.4),transparent 55%);pointer-events:none;z-index:0}
+#hero>*{z-index:2}
+/* floating light panels over the film */
+.light,#gallery{margin:0 clamp(10px,2vw,28px);border-radius:clamp(18px,2.4vw,34px);background:rgba(244,239,230,.96);box-shadow:0 40px 120px -40px rgba(0,0,0,.6)}
+#gallery{background:rgba(235,227,213,.97)}
+#spaces{background:transparent}
+#intro,#events,#location,#gallery{margin-top:clamp(10px,2vw,28px);margin-bottom:clamp(10px,2vw,28px)}
+/* glass dark blocks */
+#menus .mcard{background:rgba(11,10,8,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(230,214,184,.14);border-radius:24px;padding:clamp(24px,3vw,46px)}
+.svl{background:rgba(11,10,8,.45);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(230,214,184,.12);border-radius:24px;padding:10px clamp(20px,3vw,46px)}
+.svr:last-child::after{display:none}
+.sp .media{border-radius:18px}
+#venue .pp{border-radius:14px}
+/* new footer */
+.ft{padding:clamp(60px,8vw,120px) clamp(10px,2vw,28px) clamp(10px,2vw,28px);background:transparent;border:0}
+.ft-card{background:var(--ivory);color:var(--ink);border-radius:clamp(22px,3vw,40px);padding:clamp(30px,5vw,80px) clamp(24px,5vw,80px) 26px;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:clamp(30px,4vw,70px);box-shadow:0 40px 120px -40px rgba(0,0,0,.7)}
+.ft-cta h3{font-size:clamp(46px,6vw,104px);margin:20px 0 30px}
+.ft-cta em{color:var(--gold2)}.ft .k{color:var(--gold2)}
+.btn-dark{background:var(--ink);color:var(--ivory)}.btn-dark::before{background:var(--gold)}.btn-dark:hover{color:var(--ink)}
+.ft h5{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold2);margin-bottom:18px;font-weight:600}
+.ft-nav a,.ft-ct a{display:block;font-family:var(--serif);font-size:22px;line-height:1.5;color:var(--ink);transition:color .3s,transform .5s var(--ease)}
+.ft-nav a:hover,.ft-ct a:hover{color:var(--gold2);transform:translateX(6px)}
+.ft-ct a.big{font-size:30px;margin-bottom:6px}
+.ft-bot{grid-column:1/-1;display:flex;align-items:center;gap:24px;flex-wrap:wrap;border-top:1px solid rgba(11,10,8,.12);padding-top:22px;font-size:12px;color:var(--stone2)}
+.ft-bot img{height:34px;width:auto}
+.ft-bot span:nth-of-type(2){margin-left:auto}
+.ft-bot .aiv{color:#2062E9;font-weight:600}
+.totop{width:46px;height:46px;border-radius:50%;background:var(--ink);color:var(--champ);display:grid;place-items:center;font-size:18px;transition:transform .5s var(--ease)}
+.totop:hover{transform:translateY(-4px)}
+@media(max-width:900px){.ft-card{grid-template-columns:1fr}.ft-bot span:nth-of-type(2){margin-left:0}}
+
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body class="lock">
+<div id="bg" aria-hidden="true"><video id="bgV" muted playsinline preload="auto" poster="/assets/bg-poster.jpg"></video><div class="scrim" id="scrim"></div><div class="grain"></div></div>
 <div class="cur" aria-hidden="true"><i class="d"></i><i class="r"><span id="curT"></span></i></div>
 
 <div id="loader" aria-hidden="true"><div class="lg" id="loaderLogo"></div><div class="tg">IJA Events · Tiranë · 2000</div><div class="cnt" id="pct">0</div><i class="bar" id="lbar"></i></div>
@@ -383,16 +414,12 @@ footer{background:var(--ink);padding:clamp(70px,9vw,120px) var(--pad) 28px;overf
 
 <!-- 1 · HERO — original footage, entrance → door → hall -->
 <section id="hero" aria-label="IJA Events"><span id="top"></span>
-  <div class="frame" id="hFrame"><div class="kb">
-    <div class="vw" id="wA"><video id="vA" src="/assets/film-entrance.mp4" muted playsinline preload="auto" poster="/assets/film-poster.jpg"></video></div>
-    <div class="vw" id="wB" style="opacity:0"><video id="vB" src="/assets/film-hall.mp4" muted playsinline loop preload="metadata"></video></div>
-  </div><div id="fGlow"></div><div class="sh"></div><div class="grain"></div></div>
   <div class="h-title">
     <span class="k" data-i18n="h.k">IJA Events · Tiranë · Që nga 2000</span>
     <h1 class="disp"><span class="ln"><span data-i18n-html="h.l1">Çdo moment</span></span><span class="ln i2"><span data-i18n-html="h.l2">meriton <em>një mjedis</em></span></span><span class="ln"><span data-i18n-html="h.l3">të jashtëzakonshëm.</span></span></h1>
   </div>
   <aside class="h-side"><p data-i18n="h.side">Salla elegante për dasma, fejesa, festa familjare dhe ceremoni. Hyni brenda para se të na vizitoni.</p><a href="#spaces" class="btn btn-line"><span data-i18n="h.cta">Zbuloni sallat</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a></aside>
-  <div class="h-meta"><div class="chap" id="hChap"><span class="on" data-i18n="h.c1">01 Hyrja</span><span data-i18n="h.c2">02 Salla e Madhe</span></div><div class="pg"><i id="hPg"></i></div><button id="hRe"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12a8 8 0 102.3-5.6M4 4v4h4"/></svg><span data-i18n="h.re">Rishiko</span></button></div>
+  <div class="h-meta"><span data-i18n="h.c1">Zbrit dhe kamera ecën drejt hyrjes</span><div class="pg"><i id="hPg"></i></div><span id="hTc">00:00</span></div>
 </section>
 
 <main>
@@ -405,21 +432,12 @@ footer{background:var(--ink);padding:clamp(70px,9vw,120px) var(--pad) 28px;overf
   <figure class="pic" id="introPic"><img src="/assets/royal-1.webp" alt="" loading="lazy"></figure>
 </section>
 
-<!-- 3 · REEL — pinned video window opens to full screen -->
-<section id="reel">
-  <div class="st">
-    <div class="vbox" id="reelBox"><video id="reelV" src="/assets/walk-salon.mp4" muted playsinline loop preload="none" poster="/assets/salon-2.webp"></video></div>
-    <div class="cap"><span data-i18n="r.a">Dritë</span><span data-i18n="r.b">& qetësi</span></div>
-    <div class="lbl" id="reelLbl" data-i18n="r.l">Salla Kristal · video reale</div>
-  </div>
-</section>
-
 <!-- 4 · VENUE — asymmetric architecture -->
 <section id="venue">
   <div class="t"><span class="k" data-i18n="v.k">Ambienti</span><h2 class="disp split" data-i18n-html="v.t">Arkitekturë <em>e ngrohtë,</em><br>detaje klasike.</h2></div>
   <figure class="pp p1" id="vp1"><img src="/assets/grand-1.webp" alt="Salla e Madhe" loading="lazy"></figure>
   <figure class="pp p2" id="vp2"><img src="/assets/royal-2.webp" alt="Salloni Mbretëror" loading="lazy"></figure>
-  <figure class="pp p3" id="vp3"><video src="/assets/walk-bar.mp4" muted playsinline loop preload="none" data-lazyplay></video></figure>
+  <figure class="pp p3" id="vp3"><img src="/assets/salon-1.webp" alt="Salla Kristal" loading="lazy"></figure>
   <div class="fl fl1" id="vf1"><b data-i18n="v.f1t">Tavane me stuko</b><span data-i18n="v.f1">Kasetona, korniza dhe dritë e fshehur që e bën sallën të ngrohtë në çdo orë të mbrëmjes.</span></div>
   <div class="fl fl2" id="vf2"><b data-i18n="v.f2t">Bari i kafesë</b><span data-i18n="v.f2">Kafe e freskët dhe pije gjatë gjithë eventit, nga bari ynë me dollapë me ar.</span></div>
   <span class="vert">IJA Events — Tiranë</span>
@@ -476,8 +494,7 @@ footer{background:var(--ink);padding:clamp(70px,9vw,120px) var(--pad) 28px;overf
 
 <!-- 12 · CONTACT — immersive closing -->
 <section id="contact">
-  <div class="bgv"><video id="cV" src="/assets/film-hall.mp4" muted playsinline loop preload="none" poster="/assets/grand-1.webp"></video></div>
-  <div class="lft"><span class="k" data-i18n="c.k">Rezervime</span><h2 class="disp split" data-i18n-html="c.t">Le ta nisim <em>bashkë.</em></h2><p data-i18n="c.l"></p>
+    <div class="lft"><span class="k" data-i18n="c.k">Rezervime</span><h2 class="disp split" data-i18n-html="c.t">Le ta nisim <em>bashkë.</em></h2><p data-i18n="c.l"></p>
     <div class="cdir"><a href="tel:+355692087803"><small data-i18n="c.call">Telefon</small>+355 69 208 7803</a><a href="https://wa.me/355692087803" target="_blank" rel="noopener"><small>WhatsApp</small>wa.me/355692087803</a></div></div>
   <form class="res" id="resForm" novalidate>
     <div class="grid">
@@ -496,14 +513,13 @@ footer{background:var(--ink);padding:clamp(70px,9vw,120px) var(--pad) 28px;overf
 </section>
 </main>
 
-<footer>
-  <div class="ftop">
-    <div><img src="/assets/ija-logo-gold.svg" alt="IJA Events"><p data-i18n="ft.d"></p></div>
-    <div><h5 data-i18n="ft.e"></h5><a href="#spaces" data-i18n="nav.halls"></a><a href="#experience">360°</a><a href="#events" data-i18n="nav.events"></a><a href="#menus" data-i18n="nav.menus"></a><a href="#gallery" data-i18n="nav.gallery"></a></div>
-    <div><h5 data-i18n="ft.c"></h5><a href="tel:+355692087803">+355 69 208 7803</a><a href="https://wa.me/355692087803" target="_blank" rel="noopener">WhatsApp</a><a href="https://www.google.com/maps/place/Ija+Events/@41.3398973,19.8395694,17z" target="_blank" rel="noopener">Tiranë, Shqipëri</a></div>
+<footer class="ft">
+  <div class="ft-card" id="ftCard">
+    <div class="ft-cta"><span class="k" data-i18n="ft.k">Rezervime</span><h3 class="disp" data-i18n-html="ft.h">Data juaj, <em>salla jonë.</em></h3><a href="#contact" class="btn btn-dark"><span data-i18n="nav.reserve">Rezervo</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a></div>
+    <nav class="ft-nav"><h5 data-i18n="ft.e">Eksploro</h5><a href="#venue" data-i18n="nav.venue"></a><a href="#spaces" data-i18n="nav.halls"></a><a href="#experience">360°</a><a href="#events" data-i18n="nav.events"></a><a href="#menus" data-i18n="nav.menus"></a><a href="#gallery" data-i18n="nav.gallery"></a></nav>
+    <div class="ft-ct"><h5 data-i18n="ft.c">Kontakt</h5><a class="big" href="tel:+355692087803">+355 69 208 7803</a><a href="https://wa.me/355692087803" target="_blank" rel="noopener">WhatsApp ↗</a><a href="https://www.google.com/maps/place/Ija+Events/@41.3398973,19.8395694,17z" target="_blank" rel="noopener">Tiranë, Shqipëri ↗</a></div>
+    <div class="ft-bot"><img src="/assets/ija-logo-black.svg" alt="IJA Events"><span>© <span id="yr"></span> IJA Events · <span data-i18n="ft.tag"></span></span><span>Powered by <a class="aiv" href="https://aivis1on.com" target="_blank" rel="noopener">AIVision</a></span><a href="#top" class="totop" aria-label="Top">↑</a></div>
   </div>
-  <svg class="mega" id="mega" viewBox="0 0 1000 170" aria-hidden="true"><defs><linearGradient id="fg" x1="0" x2="1"><stop offset="0" stop-color="#a8844c"/><stop offset=".5" stop-color="#efdcb8"/><stop offset="1" stop-color="#a8844c"/></linearGradient></defs><text x="500" y="135" text-anchor="middle" textLength="990" lengthAdjust="spacingAndGlyphs">IJA EVENTS</text></svg>
-  <div class="fbot"><span>© <span id="yr"></span> IJA Events · <span data-i18n="ft.tag"></span></span><span>Powered by <a class="aiv" href="https://aivis1on.com" target="_blank" rel="noopener">AIVision</a></span></div>
 </footer>
 
 <div class="fabs">

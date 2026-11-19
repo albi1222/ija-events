@@ -1,3 +1,5 @@
+bg-exterior.mp4
+bg-poster.jpg
 exterior-sm.webp
 exterior.webp
 film-entrance.mp4

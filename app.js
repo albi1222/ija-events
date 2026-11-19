@@ -8,7 +8,7 @@ const HFU='/hfu/user_3JJdXTgHZ1RefQgaL5TKAYaM9hz/';
 const PANO={grand:HFU+'cd706b80-84a6-44a5-aa71-8d46c06d13b3.jpg',royal:HFU+'93327ffc-0088-4fbb-a540-4f04f5025b3e.jpg',salon:HFU+'f60298ad-a067-4e0f-ac74-ce1af46e8e68.jpg'};
 const T={
  sq:{'nav.venue':'Ambienti','nav.halls':'Sallat','nav.events':'Eventet','nav.menus':'Menutë','nav.gallery':'Galeria','nav.loc':'Vendndodhja','nav.reserve':'Rezervo',
-  'h.k':'IJA Events · Tiranë · Që nga 2000','h.l1':'Çdo moment','h.l2':'meriton <em>një mjedis</em>','h.l3':'të jashtëzakonshëm.','h.side':'Salla elegante për dasma, fejesa, festa familjare dhe ceremoni. Hyni brenda para se të na vizitoni.','h.cta':'Zbuloni sallat','h.c1':'01 Hyrja','h.c2':'02 Salla e Madhe','h.re':'Rishiko',
+  'h.k':'IJA Events · Tiranë · Që nga 2000','h.l1':'Çdo moment','h.l2':'meriton <em>një mjedis</em>','h.l3':'të jashtëzakonshëm.','h.side':'Salla elegante për dasma, fejesa, festa familjare dhe ceremoni. Hyni brenda para se të na vizitoni.','h.cta':'Zbuloni sallat','h.c1':'Zbrit dhe kamera ecën drejt hyrjes',
   'i.k':'Që nga viti 2000','i.t':'Për më shumë se njëzet vjet, familjet e Tiranës kanë zgjedhur IJA Events për momentet që mbeten.','i.n':'Ne kujdesemi për sallën, tryezën dhe çdo detaj, nga mbrëmjet e gëzuara te ditët që kërkojnë qetësi dhe respekt.',
   'st.1':'Që nga viti','st.2':'Salla','st.3':'Të ftuar',
   'r.a':'Dritë','r.b':'& qetësi','r.l':'Salla Kristal · video reale',
@@ -23,11 +23,11 @@ const T={
   'lo.k':'Vendndodhja','lo.t':'Na gjeni <em>në Tiranë.</em>','lo.l':'Hyrja jonë, e ndriçuar çdo mbrëmje. Rrotullojeni hartën 3D ose hapeni në Google Maps për udhëzime.','lo.a':'Adresa','lo.p':'Telefon & WhatsApp','lo.dir':'Merr udhëzimet','lo.load':'Duke ngarkuar hartën 3D…','lo.err':'Harta nuk u ngarkua. Hapeni në Google Maps.',
   'c.k':'Rezervime','c.t':'Le ta nisim <em>bashkë.</em>','c.l':'Na tregoni për eventin tuaj dhe ju kthejmë përgjigje me disponueshmërinë dhe një ofertë të personalizuar.','c.call':'Telefon',
   'f.type':'Lloji i eventit','f.date':'Data e preferuar','f.guests':'Numri i të ftuarve','f.hall':'Salla','f.menu':'Menuja','f.name':'Emri i plotë','f.phone':'Telefoni','f.msg':'Mesazhi','f.msgph':'Orari, kërkesa të veçanta…','f.note':'Kërkesa hapet në WhatsApp si mesazh gati. Asgjë nuk dërgohet pa shtypur ju "Dërgo".','f.submit':'Përgatit kërkesën','f.ok':'Kërkesa juaj është gati.','f.okd':'Shtypni më poshtë për ta hapur në WhatsApp, pastaj dërgojeni.','f.wa':'Dërgo në WhatsApp','f.e1':'Zgjidhni llojin e eventit.','f.e2':'Zgjidhni një datë në të ardhmen.','f.e3':'Nga 10 deri në 600 të ftuar.','f.e4':'Shkruani emrin.','f.e5':'Shkruani një numër të vlefshëm.','f.nopref':'Pa preferencë','f.undec':'Ende pa vendosur',
-  'ft.d':'Salla elegante për dasma, fejesa, festa familjare dhe ceremoni në Tiranë, që nga viti 2000.','ft.e':'Eksploro','ft.c':'Kontakt','ft.tag':'Çdo moment meriton një mjedis të jashtëzakonshëm.',
+  'ft.k':'Rezervime','ft.h':'Data juaj, <em>salla jonë.</em>','ft.d':'Salla elegante për dasma, fejesa, festa familjare dhe ceremoni në Tiranë, që nga viti 2000.','ft.e':'Eksploro','ft.c':'Kontakt','ft.tag':'Çdo moment meriton një mjedis të jashtëzakonshëm.',
   'wa.hi':'Përshëndetje IJA Events,\nDëshiroj të bëj një kërkesë për rezervim.','wa.ev':'Eventi','wa.date':'Data','wa.g':'Të ftuar','wa.h':'Salla','wa.m':'Menuja','wa.n':'Emri','wa.p':'Telefoni','wa.x':'Shënime','wa.thx':'Faleminderit!',
   'cur.view':'Shiko','cur.drag':'Tërhiq','cur.play':'Luaj'},
  en:{'nav.venue':'The Venue','nav.halls':'Halls','nav.events':'Events','nav.menus':'Menus','nav.gallery':'Gallery','nav.loc':'Location','nav.reserve':'Reserve',
-  'h.k':'IJA Events · Tirana · Since 2000','h.l1':'Every moment','h.l2':'deserves <em>a setting</em>','h.l3':'beyond the ordinary.','h.side':'Elegant halls for weddings, engagements, family celebrations and ceremonies. Step inside before you visit.','h.cta':'Discover the halls','h.c1':'01 Entrance','h.c2':'02 Grand Ballroom','h.re':'Replay',
+  'h.k':'IJA Events · Tirana · Since 2000','h.l1':'Every moment','h.l2':'deserves <em>a setting</em>','h.l3':'beyond the ordinary.','h.side':'Elegant halls for weddings, engagements, family celebrations and ceremonies. Step inside before you visit.','h.cta':'Discover the halls','h.c1':'Scroll and the camera walks to the entrance',
   'i.k':'Since 2000','i.t':'For more than twenty years, Tirana\'s families have chosen IJA Events for the moments that stay.','i.n':'We take care of the hall, the table and every detail, from joyful evenings to days that call for calm and respect.',
   'st.1':'Established','st.2':'Halls','st.3':'Guests',
   'r.a':'Light','r.b':'& calm','r.l':'Crystal Salon · real footage',
@@ -42,7 +42,7 @@ const T={
   'lo.k':'Location','lo.t':'Find us <em>in Tirana.</em>','lo.l':'Our entrance, lit every evening. Turn the 3D map or open it in Google Maps for directions.','lo.a':'Address','lo.p':'Phone & WhatsApp','lo.dir':'Get directions','lo.load':'Loading 3D map…','lo.err':'The map could not load. Open it in Google Maps.',
   'c.k':'Reservations','c.t':'Let\'s begin <em>together.</em>','c.l':'Tell us about your event and we\'ll come back to you with availability and a tailored proposal.','c.call':'Phone',
   'f.type':'Event type','f.date':'Preferred date','f.guests':'Number of guests','f.hall':'Hall','f.menu':'Menu','f.name':'Full name','f.phone':'Phone','f.msg':'Message','f.msgph':'Timing, special requests…','f.note':'Your request opens in WhatsApp as a ready message. Nothing is sent until you press send.','f.submit':'Prepare request','f.ok':'Your request is ready.','f.okd':'Tap below to open WhatsApp with your details, then press send.','f.wa':'Send on WhatsApp','f.e1':'Choose an event type.','f.e2':'Choose a future date.','f.e3':'Between 10 and 600 guests.','f.e4':'Enter your name.','f.e5':'Enter a valid phone number.','f.nopref':'No preference','f.undec':'Not decided yet',
-  'ft.d':'Elegant halls for weddings, engagements, family celebrations and ceremonies in Tirana, since 2000.','ft.e':'Explore','ft.c':'Contact','ft.tag':'Every moment deserves an extraordinary setting.',
+  'ft.k':'Reservations','ft.h':'Your date, <em>our hall.</em>','ft.d':'Elegant halls for weddings, engagements, family celebrations and ceremonies in Tirana, since 2000.','ft.e':'Explore','ft.c':'Contact','ft.tag':'Every moment deserves an extraordinary setting.',
   'wa.hi':'Hello IJA Events,\nI\'d like to request a reservation.','wa.ev':'Event','wa.date':'Date','wa.g':'Guests','wa.h':'Hall','wa.m':'Menu','wa.n':'Name','wa.p':'Phone','wa.x':'Notes','wa.thx':'Thank you!',
   'cur.view':'View','cur.drag':'Drag','cur.play':'Play'}
 };
@@ -141,13 +141,13 @@ function render(){
   const btns=h=>`<div class="row"><a href="#experience" class="btn btn-gold" data-hall="${h.id}">${t('enter')}${arrow}</a><button class="btn btn-line" data-photos="${h.id}">${t('photos')} · ${h.imgs.length}</button>${h.vid?`<button class="btn btn-line" data-video="${h.vid}">▶ ${t('video')}</button>`:''}</div>`;
   const g=H.grand,r=H.royal,s=H.salon;
   $('#hzTrack').innerHTML=`<div class="hz-intro"><span class="k">${t('s.k')}</span><h2 class="disp">${t('s.t')}</h2><p>${t('s.l')}</p></div>
-   <article class="sp sp-a"><div class="media" data-video="${g.vid}" data-cursor="cur.play"><span class="tag">▶ ${t('video')}</span><video src="${g.vid}" muted loop playsinline preload="none" poster="${img(g.imgs[0])}" data-lazyplay></video></div>
+   <article class="sp sp-a"><div class="media" data-photos="grand" data-cursor="cur.view"><img src="${img(g.imgs[0])}" alt="${L(g.name)}" loading="lazy"></div>
      <div><span class="num">01</span><h3>${L(g.name)}</h3></div><div>${meta(g)}<p style="margin:14px 0 22px">${L(g.desc)}</p>${btns(g)}</div></article>
    <article class="sp sp-b"><div class="media m1" data-photos="royal" data-cursor="cur.view"><img src="${img(r.imgs[0])}" alt="${L(r.name)}" loading="lazy"></div>
      <div><span class="num">02</span><h3>${L(r.name)}</h3>${meta(r)}<p style="margin:14px 0 22px">${L(r.desc)}</p>${btns(r)}</div>
      <div class="media m2" data-photos="royal" data-cursor="cur.view"><img src="${img(r.imgs[1])}" alt="" loading="lazy"></div></article>
    <article class="sp sp-c"><div class="tx"><span class="num">03</span><h3>${L(s.name)}</h3>${meta(s)}<p style="margin:14px 0 22px">${L(s.desc)}</p>${btns(s)}</div>
-     <div class="media" data-video="${s.vid}" data-cursor="cur.play"><span class="tag">▶ ${t('video')}</span><video src="${s.vid}" muted loop playsinline preload="none" poster="${img(s.imgs[0])}" data-lazyplay></video></div></article>
+     <div class="media" data-photos="salon" data-cursor="cur.view"><img src="${img(s.imgs[0])}" alt="${L(s.name)}" loading="lazy"></div></article>
    <div class="hz-end"><h3>${t('s.end')}</h3><a href="#contact" class="btn btn-gold">${t('nav.reserve')}${arrow}</a></div>`;
   $('#xRooms').innerHTML=HALLS.map(h=>`<button data-h="${h.id}" class="${h.id===window.__vHall?'on':''}">${L(h.name)}</button>`).join('');
   $$('#xRooms button').forEach(b=>b.onclick=()=>setHall(b.dataset.h));
@@ -197,31 +197,32 @@ document.addEventListener('click',e=>{
 $('#vm .c').onclick=()=>{const m=$('#vm');m.classList.remove('open');$('video',m).pause();};
 
 /* =====================================================================
-   1 · HERO — original footage: entrance → push through the door → hall (loops)
+   BACKGROUND FILM — the exterior walk, fixed behind the whole site.
+   Scrolling drives the camera (every frame is a keyframe, so seeking is exact).
    ===================================================================== */
-const film={vA:$('#vA'),vB:$('#vB'),wA:$('#wA'),wB:$('#wB'),glow:$('#fGlow'),pg:$('#hPg'),ch:$$('#hChap span'),phase:0};
-const DOOR=7.3;
-function filmStart(){
-  const {vA,vB}=film;film.phase=0;vB.pause();vB.currentTime=0;
-  gsap.set(film.wA,{opacity:1,scale:1});gsap.set(film.wB,{opacity:0,scale:1.12});gsap.set(film.glow,{opacity:0});
-  vA.currentTime=0;vA.play().catch(()=>{});
+const bg={v:$('#bgV'),scrim:$('#scrim'),p:0,tp:0,dur:9.08,ready:false,last:-1};
+const BGSRC='/assets/bg-exterior.mp4';
+function loadBg(onProg){
+  const v=bg.v,done=()=>{bg.dur=v.duration||bg.dur;bg.ready=true;};
+  return fetch(BGSRC).then(async r=>{const total=+r.headers.get('content-length')||0;if(!r.body||!total)return r.blob();
+    const rd=r.body.getReader(),ch=[];let got=0;for(;;){const{done:d,value}=await rd.read();if(d)break;ch.push(value);got+=value.length;onProg(got/total);}return new Blob(ch,{type:'video/mp4'});})
+  .then(b=>{v.src=URL.createObjectURL(b);v.load();v.addEventListener('loadeddata',done,{once:true});})
+  .catch(()=>{v.src=BGSRC;v.load();v.addEventListener('loadeddata',done,{once:true});});
 }
-function toHall(){
-  if(film.phase>=1)return;film.phase=1;film.vB.currentTime=0;film.vB.play().catch(()=>{});
-  gsap.timeline().to(film.wA,{scale:2.6,duration:1.8,ease:'power2.in'},0).to(film.glow,{opacity:.85,duration:1.1,ease:'power2.in'},.5)
-    .to(film.wB,{opacity:1,scale:1,duration:1.6,ease:'expo.out'},1.3).to(film.glow,{opacity:0,duration:1.4,ease:'power2.out'},1.6).set(film.wA,{opacity:0});
+/* iOS: a muted play/pause unlocks seeking */
+addEventListener('touchstart',()=>{bg.v.play().then(()=>bg.v.pause()).catch(()=>{});},{once:true,passive:true});
+function bgFrame(){
+  const max=document.documentElement.scrollHeight-innerHeight;bg.tp=max>0?clamp01(scrollY/max):0;
+  const d=bg.tp-bg.p;bg.p+=Math.abs(d)<1e-4?d:d*(RM?1:.09);
+  const vt=bg.p*(bg.dur-.06);
+  if(bg.ready&&!bg.v.seeking&&Math.abs(vt-bg.last)>.015){bg.v.currentTime=vt;bg.last=vt;}
+  // slow cinematic push + darker scrim once the content starts
+  bg.v.style.transform=`scale(${1.04+bg.p*.12})`;
+  const hero=clamp01(scrollY/innerHeight);bg.scrim.style.opacity=(.25+hero*.62).toFixed(3);
+  $('#hPg').style.transform=`scaleX(${bg.p})`;$('#hTc').textContent='00:'+String(Math.floor(vt)).padStart(2,'0');
+  requestAnimationFrame(bgFrame);
 }
-film.vA.addEventListener('timeupdate',()=>{if(film.vA.currentTime>=DOOR)toHall();});
-film.vA.addEventListener('ended',toHall);
-$('#hRe').onclick=()=>filmStart();
-gsap.ticker.add(()=>{const {vA,vB}=film,ta=vA.currentTime||0,da=vA.duration||9.1,tb=vB.currentTime||0,db=vB.duration||26.4;
-  film.pg.style.transform=`scaleX(${film.phase===0?(ta/da)*.3:.3+(tb/db)*.7})`;film.ch.forEach((s,i)=>s.classList.toggle('on',i===film.phase));});
-new IntersectionObserver(es=>{if(!finished)return;const v=es[0].isIntersecting,c=film.phase===0?film.vA:film.vB;v?c.play().catch(()=>{}):c.pause();},{threshold:.05}).observe($('#hero'));
-
-/* lazy videos: load only near the viewport, pause off screen */
-function lazyVideos(){
-  $$('video[data-lazyplay], #reelV, #cV').forEach(v=>{if(v.__io)return;v.__io=new IntersectionObserver(es=>{const on=es[0].isIntersecting;if(on){if(v.preload==='none')v.preload='auto';v.play().catch(()=>{});}else v.pause();},{rootMargin:'200px 0px',threshold:.01});v.__io.observe(v);});
-}
+const clamp01=v=>Math.min(1,Math.max(0,v));
 
 /* =====================================================================
    SCROLL CHOREOGRAPHY
@@ -232,28 +233,22 @@ function bind(isRelang){
   const reg=a=>{if(a&&a.scrollTrigger)triggers.push(a.scrollTrigger);return a;};
   const fr=(tg,from,to)=>reg(gsap.fromTo(tg,from,to));
   const once=(tg,st='top 85%')=>({trigger:tg,start:st,once:true});
-  lazyVideos();bindLb();
+  bindLb();
   if(RM){ScrollTrigger.refresh();return;}
   // headings: characters rise from blur
   $$('main .split').forEach(h=>fr($$('.char',h),{opacity:0,yPercent:80,filter:'blur(10px)'},{opacity:1,yPercent:0,filter:'blur(0px)',duration:1.3,stagger:.016,ease:'expo.out',scrollTrigger:once(h,'top 86%')}));
   $$('.rv').forEach(el=>fr(el,{opacity:0,y:30,filter:'blur(6px)'},{opacity:1,y:0,filter:'blur(0px)',duration:1.3,ease:'power3.out',scrollTrigger:once(el,'top 92%')}));
   $$('main .k').forEach(el=>fr(el,{'--ls':0,opacity:0},{'--ls':1,opacity:1,duration:1.4,ease:'expo.out',scrollTrigger:once(el,'top 94%')}));
-  // 1 hero — leaving: the frame closes into a window
-  fr('#hFrame',{clipPath:'inset(0% 0% 0% 0% round 0px)'},{clipPath:'inset(6% 5% 6% 5% round 18px)',ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:true}});
-  fr('.h-title',{y:0,opacity:1},{y:-120,opacity:0,ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'60% top',scrub:true}});
+  fr('.h-title',{y:0,opacity:1,filter:'blur(0px)'},{y:-140,opacity:0,filter:'blur(8px)',ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'70% top',scrub:true}});
+  fr('.h-side',{y:0,opacity:1},{y:-60,opacity:0,ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'50% top',scrub:true}});
+  // light panels rise and settle over the film
+  $$('.light,#gallery').forEach(p=>fr(p,{y:120,scale:.96,borderRadius:'60px'},{y:0,scale:1,borderRadius:'',ease:'none',scrollTrigger:{trigger:p,start:'top bottom',end:'top 55%',scrub:true}}));
+  fr('#ftCard',{y:100,scale:.95},{y:0,scale:1,ease:'none',scrollTrigger:{trigger:'#ftCard',start:'top bottom',end:'top 60%',scrub:true}});
   // 2 intro — words light, image parallax, counters
   fr('#bigText .wd',{opacity:.13},{opacity:1,stagger:.05,ease:'none',scrollTrigger:{trigger:'#bigText',start:'top 80%',end:'bottom 50%',scrub:true}});
   fr('#introPic',{clipPath:'inset(100% 0 0 0)'},{clipPath:'inset(0% 0 0 0)',duration:1.8,ease:'expo.inOut',scrollTrigger:once('#introPic','top 85%')});
   fr('#introPic img',{yPercent:-12},{yPercent:0,ease:'none',scrollTrigger:{trigger:'#introPic',start:'top bottom',end:'bottom top',scrub:true}});
   $$('[data-count]').forEach(el=>{const to=+el.dataset.count,from=+(el.dataset.from||0),o={v:from};fr(o,{v:from},{v:to,duration:2.2,ease:'power3.out',scrollTrigger:once(el,'top 95%'),onUpdate:()=>el.innerHTML=Math.round(o.v)+(el.dataset.suf?`<sup>${el.dataset.suf}</sup>`:'')});});
-  // 3 reel — window opens to full screen, words part
-  const rt={trigger:'#reel',start:'top top',end:'bottom bottom',scrub:true};
-  fr('#reelBox',{clipPath:'inset(24% 30% 24% 30% round 14px)'},{clipPath:'inset(0% 0% 0% 0% round 0px)',ease:'none',scrollTrigger:{...rt,end:'60% bottom'}});
-  fr('#reelV',{scale:1.25},{scale:1,ease:'none',scrollTrigger:rt});
-  fr('#reel .cap span:first-child',{x:0},{x:-innerWidth*.2,ease:'none',scrollTrigger:rt});
-  fr('#reel .cap span:last-child',{x:0},{x:innerWidth*.2,ease:'none',scrollTrigger:rt});
-  fr('#reel .cap',{opacity:1},{opacity:0,ease:'none',scrollTrigger:{trigger:'#reel',start:'40% bottom',end:'70% bottom',scrub:true}});
-  fr('#reelLbl',{opacity:0},{opacity:1,ease:'none',scrollTrigger:{trigger:'#reel',start:'55% bottom',end:'70% bottom',scrub:true}});
   // 4 venue — layered parallax at different speeds
   if(WIDE){[['#vp1',-6,10],['#vp2',30,-20],['#vp3',20,-30],['#vf1',40,-40],['#vf2',20,-20]].forEach(([s,a,b])=>fr(s,{yPercent:a},{yPercent:b,ease:'none',scrollTrigger:{trigger:'#venue',start:'top bottom',end:'bottom top',scrub:true}}));}
   $$('#venue .pp').forEach((p,i)=>{fr(p,{clipPath:['inset(0 100% 0 0)','inset(100% 0 0 0)','inset(0 0 0 100%)'][i]},{clipPath:'inset(0 0% 0 0%)',duration:1.8,ease:'expo.inOut',scrollTrigger:once(p,'top 88%')});
@@ -285,12 +280,7 @@ function bind(isRelang){
   fr('#locPh',{clipPath:'inset(0 100% 0 0)'},{clipPath:'inset(0 0% 0 0)',duration:1.6,ease:'expo.inOut',scrollTrigger:once('#locPh','top 85%')});
   fr('#locPh img',{scale:1.3},{scale:1,duration:2.2,ease:'expo.out',scrollTrigger:once('#locPh','top 85%')});
   fr('#mapbox',{opacity:0,y:60},{opacity:1,y:0,duration:1.5,ease:'expo.out',scrollTrigger:once('#mapbox','top 88%')});
-  // 12 contact — background breathes in
-  fr('#contact .bgv video',{scale:1.2},{scale:1,ease:'none',scrollTrigger:{trigger:'#contact',start:'top bottom',end:'bottom bottom',scrub:true}});
   fr('form.res',{opacity:0,y:60,filter:'blur(10px)'},{opacity:1,y:0,filter:'blur(0px)',duration:1.5,ease:'expo.out',scrollTrigger:once('form.res','top 85%')});
-  {const tx=$('#mega text');let L2=3000;try{L2=tx.getComputedTextLength()*2.2;}catch(e){}
-   fr(tx,{strokeDasharray:L2,strokeDashoffset:L2},{strokeDashoffset:0,duration:2.6,ease:'power2.inOut',scrollTrigger:once('#mega','top 95%')});
-   fr(tx,{fillOpacity:0},{fillOpacity:1,duration:1.6,delay:1.8,ease:'power2.out',scrollTrigger:once('#mega','top 95%')});}
   if(FINE)$$('.btn-gold').forEach(m=>{m.onpointermove=e=>{const r=m.getBoundingClientRect();gsap.to(m,{x:(e.clientX-r.left-r.width/2)*.22,y:(e.clientY-r.top-r.height/2)*.32,duration:.6,ease:'power3.out'});};m.onpointerleave=()=>gsap.to(m,{x:0,y:0,duration:1,ease:'elastic.out(1,.45)'});});
   if(isRelang)ScrollTrigger.getAll().forEach(s=>{if(s.vars.once&&s.start<scrollY+innerHeight&&s.animation)s.animation.progress(1);});
   ScrollTrigger.refresh();
@@ -402,14 +392,14 @@ fetch('/assets/ija-logo-gold.svg').then(r=>r.text()).then(svg=>{const box=$('#lo
   ps.forEach(p=>{let l=400;try{l=p.getTotalLength();}catch(e){}p.style.strokeDasharray=l;p.style.strokeDashoffset=l;});
   gsap.to(ps,{strokeDashoffset:0,duration:1.6,stagger:.04,ease:'power2.inOut',onComplete:()=>box.classList.add('filled')});}).catch(()=>{});
 let finished=false;
-{const v=film.vA;let p=0;const tick=setInterval(()=>{try{if(v.buffered.length&&v.duration){p=v.buffered.end(v.buffered.length-1)/v.duration;setLoad(10+p*88);}}catch(e){}
-  if(v.readyState>=4||p>.98){clearInterval(tick);finish();}},150);v.addEventListener('canplaythrough',()=>{clearInterval(tick);finish();},{once:true});v.load();}
+loadBg(f=>setLoad(8+f*90));
+const waitBg=setInterval(()=>{if(bg.ready){clearInterval(waitBg);finish();}},120);
 function finish(){if(finished)return;finished=true;setLoad(100);
   gsap.timeline({delay:.8})
    .to('#loader .lg,#loader .tg,#loader .cnt',{opacity:0,y:-20,duration:.6,stagger:.05,ease:'power2.in'})
    .to('#loader',{clipPath:'inset(0 0 100% 0)',duration:1.2,ease:'expo.inOut'})
-   .add(()=>{document.body.classList.remove('lock');lenis&&lenis.start();filmStart();setTimeout(()=>film.vB.load(),2500);},'-=.7')
-   .fromTo('#hFrame',{scale:1.18,filter:'brightness(.25)'},{scale:1,filter:'brightness(1)',duration:2.4,ease:'expo.out',clearProps:'transform,filter'},'<')
+   .add(()=>{document.body.classList.remove('lock');lenis&&lenis.start();},'-=.7')
+   .fromTo('#bg',{scale:1.15,filter:'brightness(.25)'},{scale:1,filter:'brightness(1)',duration:2.4,ease:'expo.out',clearProps:'transform,filter'},'<')
    .from('.h-title .k',{opacity:0,x:-30,duration:1.2,ease:'expo.out'},'-=1.7')
    .from('.h-title .ln>span',{yPercent:110,duration:1.5,stagger:.12,ease:'expo.out'},'-=1.4')
    .from('.h-side>*',{opacity:0,y:30,filter:'blur(8px)',duration:1.2,stagger:.12,ease:'expo.out'},'-=1')
@@ -417,6 +407,6 @@ function finish(){if(finished)return;finished=true;setLoad(100);
    .from('.h-meta',{opacity:0,duration:1},'-=.8')
    .set('#loader',{display:'none'});
 }
-setTimeout(finish,7000);
-applyLang();bind();
+setTimeout(finish,12000);
+applyLang();bind();requestAnimationFrame(bgFrame);
 addEventListener('load',()=>ScrollTrigger.refresh());
