@@ -138,16 +138,14 @@ $$('.lang button').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.lang=
 
 const arrow='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h12M9 3l5 5-5 5"/></svg>';
 function render(){
-  $('#hallGrid').innerHTML=HALLS.map((h,i)=>`<article class="hall"><i class="glow"></i><div class="ph" data-photos="${h.id}" data-cursor="cur.view"><img src="${img(h.imgs[0],1)}" alt="${L(h.name)}" loading="lazy"><span class="badge">360° · ${h.imgs.length} ${LANG==="sq"?"foto":"photos"}</span></div><div class="bd"><span class="no">0${i+1}</span><h3>${L(h.name)}</h3><span class="alt">${L(h.alt)}</span><p>${L(h.desc)}</p><dl class="specs"><dt>${t('cap')}</dt><dd>${L(h.cap)} <span class="tbc">${t('tbc')}</span></dd><dt>${t('evs')}</dt><dd>${L(h.ev)}</dd></dl><div class="row"><a href="#experience" class="btn btn-gold magnetic" data-hall="${h.id}">${t('enter')}${arrow}</a><button class="btn btn-line" data-photos="${h.id}">${t('photos')}</button></div></div></article>`).join('');
+  $('#hallGrid').innerHTML=HALLS.map((h,i)=>`<article class="hall"><i class="glow"></i><div class="ph" data-photos="${h.id}" data-cursor="cur.view"><img src="${img(h.imgs[0])}" alt="${L(h.name)}" loading="lazy"><span class="badge">360° · ${h.imgs.length} ${LANG==="sq"?"foto":"photos"}</span></div><div class="bd"><span class="no">0${i+1}</span><h3>${L(h.name)}</h3><span class="alt">${L(h.alt)}</span><p>${L(h.desc)}</p><dl class="specs"><dt>${t('cap')}</dt><dd>${L(h.cap)} <span class="tbc">${t('tbc')}</span></dd><dt>${t('evs')}</dt><dd>${L(h.ev)}</dd></dl><div class="row"><a href="#experience" class="btn btn-gold magnetic" data-hall="${h.id}">${t('enter')}${arrow}</a><button class="btn btn-line" data-photos="${h.id}">${t('photos')}</button></div></div></article>`).join('');
   const words=EVENTS.map(e=>L(e[0])),row=a=>a.concat(a).map((w,i)=>`<span>${i%2?'':'<b></b>'}${w}</span>`).join('');
   $('#mq1').innerHTML=row(words.concat(words));$('#mq2').innerHTML=row(words.slice().reverse().concat(words.slice().reverse()));
-  $('#evList').innerHTML=EVENTS.map(([ti,p,im],i)=>`<div class="evr" data-img="${im}"><span class="n">0${i+1}</span><h3>${L(ti)}</h3><p>${L(p)}</p><span class="ar">${arrow}</span><div class="mi"><img src="${img(im,1)}" alt="" loading="lazy"></div></div>`).join('');
-  $('#evFloat').innerHTML=[...new Set(EVENTS.map(e=>e[2]))].map(im=>`<img data-k="${im}" src="${img(im,1)}" alt="">`).join('');
   $('#mTabs').innerHTML=MENUS.map((m,i)=>`<button class="mtab${i===curMenu?' on':''}" data-m="${i}"><b>Menu ${m.n}</b><span>${m.p.toLocaleString('de-DE')} L</span></button>`).join('');
   $$('.mtab').forEach(b=>b.onclick=()=>showMenu(+b.dataset.m));
   showMenu(curMenu,true);
-  const cols=[[],[],[]];GALLERY.forEach((g,i)=>cols[i%3].push([g,i]));
-  $('#gCols').innerHTML=cols.map(c=>`<div class="gcol">${c.map(([[f,h],i])=>`<figure class="gi" data-i="${i}" data-cursor="cur.view" tabindex="0"><img src="${img(f,1)}" alt="${hallName(h)}" loading="lazy"><figcaption>${hallName(h)}</figcaption></figure>`).join('')}</div>`).join('');
+  $('#gTrack').innerHTML=GALLERY.map(([f,hh],i)=>`<figure class="gfig gi" data-i="${i}" data-cursor="cur.view" tabindex="0"><img src="${img(f)}" alt="${hallName(hh)}" loading="lazy"><figcaption><span>${String(i+1).padStart(2,'0')}</span><b>${hallName(hh)}</b></figcaption></figure>`).join('');
+  $('#gTot').textContent=String(GALLERY.length).padStart(2,'0');
   $('#svGrid').innerHTML=SERVICES.map(([ti,p,ic])=>`<div class="sv"><svg viewBox="0 0 24 24">${ic}</svg><h3>${L(ti)}</h3><p>${L(p)}</p></div>`).join('');
   $('#chips').innerHTML=EVTYPES.map(([sq,en])=>`<label class="chip"><input type="radio" name="type" value="${LANG==='sq'?sq:en}"><span>${LANG==='sq'?sq:en}</span></label>`).join('');
   $('#fHall').innerHTML=`<option>${t('f.nopref')}</option>`+HALLS.map(h=>`<option>${L(h.name)}</option>`).join('');
@@ -179,7 +177,7 @@ addEventListener('scroll',()=>{const y=scrollY;nav.classList.toggle('solid',y>in
   nav.classList.toggle('up',y>lastY&&y>innerHeight&&!document.body.classList.contains('mopen'));lastY=y;},{passive:true});
 $('#mbtn').onclick=()=>{const o=document.body.classList.toggle('mopen');nav.classList.remove('up');
   $$('#menu nav a span').forEach((s,i)=>s.style.transitionDelay=o?(.25+i*.06)+'s':'0s');};
-$('#menuPv').innerHTML=$$('#menu nav a').map(a=>`<img data-k="${a.dataset.pv}" src="${img(a.dataset.pv,1)}" alt="" loading="lazy">`).join('');
+$('#menuPv').innerHTML=$$('#menu nav a').map(a=>`<img data-k="${a.dataset.pv}" src="${img(a.dataset.pv)}" alt="" loading="lazy">`).join('');
 $$('#menu nav a').forEach(a=>a.addEventListener('pointerenter',()=>$$('#menuPv img').forEach(i=>i.classList.toggle('on',i.dataset.k===a.dataset.pv))));
 let lenis=null;
 if(window.Lenis&&!RM){lenis=new Lenis({duration:1.15,smoothWheel:true});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(tm=>lenis.raf(tm*1000));gsap.ticker.lagSmoothing(0);lenis.stop();}
@@ -194,8 +192,8 @@ document.addEventListener('click',e=>{
 /* =====================================================================
    FILM HERO — exterior push-in → door light → hall → 360°
    ===================================================================== */
-const film={p:0,tp:0,force:true,el:$('#film'),vid:$('#fVid'),glow:$('#fGlow'),c1:$('#c1'),c2:$('#c2'),c3:$('#c3'),c4:$('#c4'),bt:$('#bt'),bb:$('#bb'),cue:$('#cue'),pg:$('#hudPg'),tc:$('#hudTc'),ch:$$('#hudCh li'),dur:31.9,ready:false};
-const VEND=.86, TDOOR=[5.0,6.9];
+const film={p:0,tp:0,force:true,el:$('#film'),vid:$('#fVid'),glow:$('#fGlow'),c1:$('#c1'),c2:$('#c2'),c3:$('#c3'),c4:$('#c4'),bt:$('#bt'),bb:$('#bb'),cue:$('#cue'),pg:$('#hudPg'),tc:$('#hudTc'),ch:$$('#hudCh li'),dur:34.7,ready:false};
+const VEND=.87, TDOOR=[7.3,9.0];
 let pr,ps,pc,psph,pReady=false;
 function initPano(){
   const cv=$('#panoC');
@@ -241,12 +239,12 @@ function filmFrame(){
   const b=1-eOut(range(p,.02,.16));film.bt.style.transform=film.bb.style.transform=`scaleY(${b})`;
   const c1=range(p,0,.07);film.c1.style.opacity=1-c1;film.c1.style.transform=`translateY(${-c1*60}px) scale(${1+c1*.06})`;film.c1.style.filter=`blur(${c1*8}px)`;
   const cap=(el,a,b2,dx)=>{const i=range(vt,a,a+.8),o=range(vt,b2-.8,b2),v=i*(1-o);el.style.opacity=v;el.style.transform=`translate(${(1-i)*dx}px,${(1-i)*30-o*30}px)`;};
-  cap(film.c2,2.0,TDOOR[0]+.4,-40);cap(film.c4,11,19,40);
+  cap(film.c2,1.6,TDOOR[0]-.2,-40);cap(film.c4,14,23,40);
   const c3=range(p,VEND+.04,VEND+.09);film.c3.style.opacity=c3;film.c3.style.transform=`translateY(${(1-c3)*40}px)`;film.c3.style.pointerEvents=c3>.5?'auto':'none';
   film.cue.style.opacity=1-range(p,0,.02);$('#fShade').style.opacity=1-range(p,.01,.08);
   film.pg.style.transform=`scaleX(${p})`;
   const s=Math.floor(vt);film.tc.textContent=`00:${String(s).padStart(2,'0')}`;
-  const chap=p>=VEND?2:vt<TDOOR[1]?0:1;film.ch.forEach((li,i)=>li.classList.toggle('on',i===chap));
+  const chap=p>=VEND?2:vt<8.6?0:1;film.ch.forEach((li,i)=>li.classList.toggle('on',i===chap));
 }
 function loop(time){filmTime=time/1000;if(film.p>VEND-.05)film.force=true;filmFrame();requestAnimationFrame(loop);}
 
@@ -259,7 +257,7 @@ function bind(isRelang){
   const reg=a=>{if(a&&a.scrollTrigger)triggers.push(a.scrollTrigger);return a;};
   const fr=(tg,from,to)=>reg(gsap.fromTo(tg,from,to));
   const once=(tg,st='top 88%')=>({trigger:tg,start:st,once:true});
-  bindEvents();bindLb();
+  bindLb();
   if(RM){ScrollTrigger.refresh();return;}
   $$('main .split').forEach(h=>fr($$('.char',h),{opacity:0,yPercent:100,rotate:6},{opacity:1,yPercent:0,rotate:0,duration:1.2,stagger:.018,ease:'expo.out',scrollTrigger:once(h,'top 88%')}));
   $$('.rv').forEach(el=>fr(el,{opacity:0,y:40},{opacity:1,y:0,duration:1.3,ease:'power3.out',scrollTrigger:once(el,'top 92%')}));
@@ -267,7 +265,7 @@ function bind(isRelang){
   // statement — words light up with scroll
   fr('#bigText .wd',{opacity:.14},{opacity:1,stagger:.05,ease:'none',scrollTrigger:{trigger:'#bigText',start:'top 80%',end:'bottom 45%',scrub:true}});
   $$('.stat').forEach((s,i)=>fr(s,{opacity:0,y:50},{opacity:1,y:0,duration:1.2,delay:i*.1,ease:'expo.out',scrollTrigger:once(s,'top 94%')}));
-  $$('[data-count]').forEach(el=>{const to=+el.dataset.count,from=+(el.dataset.from||0),o={v:from};fr(o,{v:from},{v:to,duration:2.2,ease:'power3.out',scrollTrigger:once(el,'top 95%'),onUpdate:()=>el.textContent=Math.round(o.v)});});
+  $$('[data-count]').forEach(el=>{const to=+el.dataset.count,from=+(el.dataset.from||0),o={v:from};fr(o,{v:from},{v:to,duration:2.2,ease:'power3.out',scrollTrigger:once(el,'top 95%'),onUpdate:()=>el.innerHTML=Math.round(o.v)+(el.dataset.suf?`<sup>${el.dataset.suf}</sup>`:'')});});
   // halls — cards rise in 3D, photos open like curtains, tilt with the pointer
   $$('.hall').forEach((hl,i)=>{
     fr(hl,{opacity:0,y:120,rotateX:14},{opacity:1,y:0,rotateX:0,duration:1.5,delay:i*.12,ease:'expo.out',scrollTrigger:once('#hallGrid','top 88%')});
@@ -280,20 +278,26 @@ function bind(isRelang){
   fr('.marquee .mq-row',{opacity:0,y:40},{opacity:1,y:0,duration:1.4,stagger:.15,ease:'expo.out',scrollTrigger:once('.marquee','top 95%')});
   // 360 viewer opens like a lens
   fr('#viewer',{clipPath:'inset(12% 10% 12% 10% round 22px)'},{clipPath:'inset(0% 0% 0% 0% round 22px)',ease:'none',scrollTrigger:{trigger:'#viewer',start:'top 100%',end:'top 25%',scrub:true}});
-  // events
-  $$('.evr').forEach((r,i)=>fr(r,{opacity:0,y:40},{opacity:1,y:0,duration:1.1,delay:(i%3)*.06,ease:'expo.out',scrollTrigger:once(r,'top 94%')}));
   // menus
   fr('.mtab',{opacity:0,x:-40},{opacity:1,x:0,duration:1,stagger:.08,ease:'expo.out',scrollTrigger:once('.mtabs','top 85%')});
   fr('#mCard',{opacity:0,y:60,rotateX:-12,transformPerspective:1200},{opacity:1,y:0,rotateX:0,duration:1.4,ease:'expo.out',scrollTrigger:once('#mCard','top 85%')});
-  // gallery — columns at different speeds + curtain reveal
-  $$('.gcol').forEach((c,i)=>fr(c,{yPercent:[6,-4,10][i]},{yPercent:[-6,4,-10][i],ease:'none',scrollTrigger:{trigger:'#gCols',start:'top bottom',end:'bottom top',scrub:true}}));
-  $$('.gi').forEach(g=>{fr(g,{clipPath:'inset(0 0 100% 0)'},{clipPath:'inset(0 0 0% 0)',duration:1.4,ease:'expo.inOut',scrollTrigger:once(g,'top 96%')});fr($('img',g),{scale:1.25},{scale:1,duration:2,ease:'expo.out',scrollTrigger:once(g,'top 96%')});});
+  // gallery — pinned horizontal film strip
+  const tr=$('#gTrack');
+  if(innerWidth>900&&tr){
+    const hs=reg(gsap.to(tr,{x:()=>-(tr.scrollWidth-innerWidth),ease:'none',scrollTrigger:{trigger:'#hgal',start:'top top',end:()=>'+='+(tr.scrollWidth-innerWidth),pin:true,scrub:1,invalidateOnRefresh:true,
+      onUpdate:st=>{$('#gBar').style.transform=`scaleX(${st.progress})`;$('#gCnt').textContent=String(1+Math.round(st.progress*(GALLERY.length-1))).padStart(2,'0');}}}));
+    $$('.gfig',tr).forEach(g=>{fr($('img',g),{xPercent:-8,scale:1.15},{xPercent:8,scale:1.15,ease:'none',scrollTrigger:{trigger:g,containerAnimation:hs,start:'left right',end:'right left',scrub:true}});
+      fr(g,{clipPath:'inset(12% 0% 12% 0% round 6px)'},{clipPath:'inset(0% 0% 0% 0% round 6px)',ease:'none',scrollTrigger:{trigger:g,containerAnimation:hs,start:'left 100%',end:'left 55%',scrub:true}});});
+  } else $$('.gfig').forEach(g=>fr(g,{opacity:0,y:40},{opacity:1,y:0,duration:1.2,ease:'expo.out',scrollTrigger:once(g,'top 95%')}));
   // services
   $$('.sv').forEach((s,i)=>fr(s,{opacity:0,y:40},{opacity:1,y:0,duration:1.1,delay:(i%3)*.1,ease:'expo.out',scrollTrigger:once(s,'top 92%')}));
   $$('.sv svg *').forEach(p=>{let l=60;try{l=Math.ceil(p.getTotalLength()+2);}catch(e){}fr(p,{strokeDasharray:l,strokeDashoffset:l},{strokeDashoffset:0,duration:1.8,ease:'power2.inOut',scrollTrigger:once(p.closest('.sv'),'top 90%')});});
-  // location
-  fr('#locPh',{clipPath:'inset(0 100% 0 0 round 18px)'},{clipPath:'inset(0 0% 0 0 round 18px)',duration:1.6,ease:'expo.inOut',scrollTrigger:once('#locPh','top 85%')});
-  fr('#locPh img',{scale:1.3},{scale:1,duration:2.2,ease:'expo.out',scrollTrigger:once('#locPh','top 85%')});
+  // location — the photo opens from a small window to the full frame
+  if(innerWidth>760){fr('#locWin',{clipPath:'inset(18% 26% 18% 26% round 20px)'},{clipPath:'inset(0% 0% 0% 0% round 20px)',ease:'none',scrollTrigger:{trigger:'#locFig',start:'top 85%',end:'center 55%',scrub:1}});
+    fr('#locWin img',{scale:1.25},{scale:1,ease:'none',scrollTrigger:{trigger:'#locFig',start:'top 85%',end:'center 55%',scrub:1}});}
+  else gsap.set('#locWin img',{scale:1});
+  fr('#locCard',{opacity:0,y:80},{opacity:1,y:0,duration:1.4,ease:'expo.out',scrollTrigger:once('#locCard','top 92%')});
+  fr($$('#locCard > *'),{opacity:0,y:20},{opacity:1,y:0,duration:1,stagger:.07,delay:.3,ease:'expo.out',scrollTrigger:once('#locCard','top 92%')});
   fr('#mapbox',{opacity:0,y:60,scale:.96},{opacity:1,y:0,scale:1,duration:1.5,ease:'expo.out',scrollTrigger:once('#mapbox','top 88%')});
   // form & footer
   fr('#resForm .f,#resForm .fend',{opacity:0,y:30},{opacity:1,y:0,duration:1,stagger:.05,ease:'expo.out',scrollTrigger:once('#resForm','top 85%')});

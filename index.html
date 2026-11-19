@@ -423,6 +423,33 @@ em{color:var(--gold)}
 .mega{width:100%;display:block;overflow:visible;margin-top:20px}
 .mega text{font-family:var(--serif);font-size:150px;fill:url(#fg);fill-opacity:0;stroke:var(--gold);stroke-width:.8;stroke-opacity:.8}
 
+/* horizontal gallery */
+.hgal{position:relative;background:var(--ink)}
+.hgal-in{height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.gtrack{display:flex;gap:clamp(14px,2vw,32px);padding:0 var(--pad);width:max-content;will-change:transform}
+.gfig{position:relative;height:min(72vh,760px);aspect-ratio:3/2;overflow:hidden;border-radius:6px;cursor:pointer;flex:none}
+.gfig img{width:100%;height:100%;object-fit:cover;transform:scale(1.15);will-change:transform}
+.gfig figcaption{position:absolute;left:22px;bottom:18px;display:flex;gap:14px;align-items:baseline;color:var(--ivory);text-shadow:0 2px 14px rgba(0,0,0,.6)}
+.gfig figcaption b{font-family:var(--serif);font-weight:400;font-size:clamp(22px,2vw,32px)}
+.gfig figcaption span{font-size:10px;letter-spacing:.25em;color:var(--gold)}
+.ghud{display:flex;align-items:center;gap:18px;padding:34px var(--pad) 0;font-family:var(--serif);font-size:20px;color:var(--gold)}
+.ghud i{flex:1;max-width:420px;height:1px;background:rgba(214,173,104,.2);position:relative}
+.ghud b{position:absolute;inset:0;background:var(--gold);transform-origin:left;transform:scaleX(0)}
+@media(max-width:900px){.hgal-in{height:auto;padding:0 0 60px}.gtrack{width:auto;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:6px}.gfig{height:auto;width:84vw;scroll-snap-align:center}.gfig img{transform:none}.ghud{display:none}}
+/* location: full photo window + floating card */
+.locfig{position:relative;margin:0 0 clamp(30px,5vw,70px)}
+.lwin{position:relative;width:100%;aspect-ratio:3/2;overflow:hidden;border-radius:20px;clip-path:inset(18% 26% 18% 26% round 20px);will-change:clip-path;background:#000}
+.lwin img{width:100%;height:100%;object-fit:cover;transform:scale(1.25);will-change:transform}
+.lcard{position:relative;margin-top:24px;width:100%;display:grid;grid-template-columns:1fr auto;gap:6px 40px;align-items:center;background:rgba(14,12,9,.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:18px;padding:30px 32px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lcard h3{font-weight:400;font-size:38px;margin:14px 0 4px}
+.lcard p{color:#a99f8c;font-size:13px;letter-spacing:.04em}
+.lcard .ltel{display:block;font-family:var(--serif);font-size:26px;margin:16px 0 22px;color:var(--goldl)}
+.lcard .row{display:flex;gap:10px;flex-wrap:wrap}.lcard .btn{height:46px;padding:0 20px;font-size:10.5px}
+#location .mapbox{min-height:clamp(420px,70vh,720px);margin-top:clamp(20px,3vw,40px)}
+.lcard .eyebrow,.lcard h3,.lcard p{grid-column:1}.lcard .ltel,.lcard .row{grid-column:2}.lcard .ltel{grid-row:1/3;align-self:end;margin:0}.lcard .row{grid-row:3}
+@media(max-width:760px){.lcard .ltel,.lcard .row{grid-column:1;grid-row:auto}.lcard .ltel{margin:12px 0}}
+@media(max-width:760px){.lcard{grid-template-columns:1fr;padding:24px}.lwin{clip-path:inset(0 round 14px)}}
+
 .rv{opacity:1}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -451,11 +478,10 @@ em{color:var(--gold)}
   <nav>
     <a href="#halls" data-pv="grand-2"><small>01</small><span data-i18n="nav.halls">Sallat</span></a>
     <a href="#experience" data-pv="grand-1"><small>02</small><span data-i18n="nav.x360">Përvoja 360°</span></a>
-    <a href="#events" data-pv="royal-1"><small>03</small><span data-i18n="nav.events">Eventet</span></a>
-    <a href="#menus" data-pv="grand-3"><small>04</small><span data-i18n="nav.menus">Menutë</span></a>
-    <a href="#gallery" data-pv="salon-1"><small>05</small><span data-i18n="nav.gallery">Galeria</span></a>
-    <a href="#location" data-pv="exterior"><small>06</small><span data-i18n="nav.loc">Vendndodhja</span></a>
-    <a href="#contact" data-pv="royal-2"><small>07</small><span data-i18n="nav.reserve">Rezervo</span></a>
+    <a href="#menus" data-pv="grand-3"><small>03</small><span data-i18n="nav.menus">Menutë</span></a>
+    <a href="#gallery" data-pv="salon-1"><small>04</small><span data-i18n="nav.gallery">Galeria</span></a>
+    <a href="#location" data-pv="exterior"><small>05</small><span data-i18n="nav.loc">Vendndodhja</span></a>
+    <a href="#contact" data-pv="royal-2"><small>06</small><span data-i18n="nav.reserve">Rezervo</span></a>
   </nav>
   <div class="pv" id="menuPv"></div>
   <div class="ct">+355 69 208 7803 · Tiranë</div>
@@ -509,7 +535,7 @@ em{color:var(--gold)}
   <div class="stats">
     <div class="stat"><b data-count="2000" data-from="1975">2000</b><span data-i18n="st.1">Që nga viti</span></div>
     <div class="stat"><b data-count="3">3</b><span data-i18n="st.2">Salla elegante</span></div>
-    <div class="stat"><b><span data-count="350" data-from="0">350</span><sup>+</sup></b><span data-i18n="st.3">Të ftuar</span></div>
+    <div class="stat"><b data-count="350" data-from="0" data-suf="+">350<sup>+</sup></b><span data-i18n="st.3">Të ftuar</span></div>
     <div class="stat"><b data-count="4">4</b><span data-i18n="st.4">Menu të plota</span></div>
   </div>
 </section>
@@ -542,15 +568,6 @@ em{color:var(--gold)}
   <p class="vnote" data-i18n="x.note">Pamjet 360° janë vizualizime të krijuara mbi bazën e fotove të sallave tona.</p>
 </section>
 
-<section class="sec" id="events">
-  <div class="head">
-    <div><span class="eyebrow" data-i18n="ev.k">Eventet</span><h2 class="h2 split" data-i18n-html="ev.t">Çdo festë, <em>historia e vet.</em></h2></div>
-    <p class="lead rv" data-i18n="ev.l">Nga dasma e madhe te darka intime, çdo event ka atmosferën e vet te IJA Events.</p>
-  </div>
-  <div class="evl" id="evList"></div>
-</section>
-<div id="evFloat" aria-hidden="true"></div>
-
 <section class="sec dark" id="menus">
   <div class="head">
     <div><span class="eyebrow" data-i18n="mn.k">Tryeza</span><h2 class="h2 split" data-i18n-html="mn.t">Katër menu. <em>Një standard.</em></h2></div>
@@ -564,9 +581,13 @@ em{color:var(--gold)}
     <div><span class="eyebrow" data-i18n="g.k">Galeria</span><h2 class="h2 split" data-i18n-html="g.t">Ambienti, <em>në kuadro.</em></h2></div>
     <p class="lead rv" data-i18n="g.l"></p>
   </div>
-  <div class="gcols" id="gCols"></div>
 </section>
-
+<section class="hgal" id="hgal">
+  <div class="hgal-in">
+    <div class="gtrack" id="gTrack"></div>
+    <div class="ghud"><span id="gCnt">01</span><i><b id="gBar"></b></i><span id="gTot">08</span></div>
+  </div>
+</section>
 <section class="sec" id="services" style="background:var(--ink2)">
   <div class="head">
     <div><span class="eyebrow" data-i18n="sv.k">Shërbimet</span><h2 class="h2 split" data-i18n-html="sv.t">Gjithçka, <em>e kujdesur.</em></h2></div>
@@ -579,24 +600,24 @@ em{color:var(--gold)}
     <div><span class="eyebrow" data-i18n="lo.k">Vendndodhja</span><h2 class="h2 split" data-i18n-html="lo.t">Na gjeni <em>në Tiranë.</em></h2></div>
     <p class="lead rv" data-i18n="lo.l"></p>
   </div>
-  <div class="loc">
-    <div class="info">
-      <div class="ph" id="locPh"><img src="/assets/exterior-sm.webp" alt="IJA Events" loading="lazy"></div>
-      <dl>
-        <div><dt data-i18n="lo.a">Adresa</dt><dd>IJA Events, Tiranë, Shqipëri</dd></div>
-        <div><dt data-i18n="lo.p">Telefon & WhatsApp</dt><dd><a href="tel:+355692087803">+355 69 208 7803</a></dd></div>
-      </dl>
+  <figure class="locfig" id="locFig">
+    <div class="lwin" id="locWin"><img src="/assets/exterior.webp" alt="IJA Events, hyrja"></div>
+    <figcaption class="lcard" id="locCard">
+      <span class="eyebrow" data-i18n="lo.a">Adresa</span>
+      <h3 class="serif">IJA Events</h3>
+      <p>Tiranë, Shqipëri · 41.3399° N, 19.8396° E</p>
+      <a class="ltel" href="tel:+355692087803">+355 69 208 7803</a>
       <div class="row">
         <a class="btn btn-gold" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=41.3398973,19.8395694"><span data-i18n="lo.dir">Merr udhëzimet</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
         <a class="btn btn-line" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Ija+Events/@41.3398973,19.8395694,17z/data=!4m6!3m5!1s0x13503145b32e893d:0x528865664c10a171!8m2!3d41.3398973!4d19.8395694" data-i18n="lo.gm">Google Maps</a>
       </div>
-    </div>
-    <div class="mapbox" id="mapbox">
-      <div class="mfb" data-i18n="lo.load">Duke ngarkuar hartën 3D…</div>
-      <div id="map" aria-label="Harta 3D"></div>
-      <span class="mtag">3D · 41.3399° N, 19.8396° E</span>
-      <div class="vctl mrot"><button id="mRot" class="on" data-i18n-title="x.auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 12a8 8 0 11-2.3-5.6M20 4v4h-4"/></svg></button></div>
-    </div>
+    </figcaption>
+  </figure>
+  <div class="mapbox" id="mapbox">
+    <div class="mfb" data-i18n="lo.load">Duke ngarkuar hartën 3D…</div>
+    <div id="map" aria-label="Harta 3D"></div>
+    <span class="mtag">3D · IJA Events</span>
+    <div class="vctl mrot"><button id="mRot" class="on" data-i18n-title="x.auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 12a8 8 0 11-2.3-5.6M20 4v4h-4"/></svg></button></div>
   </div>
 </section>
 
