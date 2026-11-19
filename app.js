@@ -130,15 +130,6 @@ function deco(svg){
   svg.innerHTML=d;$$('path,circle',svg).forEach(p=>{let l=100;try{l=p.getTotalLength();}catch(e){}p.style.strokeDasharray=l;p.style.strokeDashoffset=l;});
 }
 deco($('#ped'));
-/* golden embers */
-{const c=$('#embers'),x=c.getContext('2d');let W,H,P=[];const N=MOBILE?22:46;
- const rs=()=>{W=c.width=innerWidth*Math.min(devicePixelRatio,1.5);H=c.height=innerHeight*Math.min(devicePixelRatio,1.5);c.style.width=innerWidth+'px';c.style.height=innerHeight+'px';};rs();addEventListener('resize',rs);
- for(let i=0;i<N;i++)P.push({x:Math.random(),y:Math.random(),r:.6+Math.random()*1.8,s:.00012+Math.random()*.0004,w:Math.random()*6.28,a:.15+Math.random()*.5});
- let vel=0,ly=scrollY;
- (function tick(){requestAnimationFrame(tick);if(document.hidden||RM)return;const dy=scrollY-ly;ly=scrollY;vel+=(dy-vel)*.08;x.clearRect(0,0,W,H);
-  for(const p of P){p.y-=p.s*(1+Math.abs(vel)*.08);p.w+=.01;p.x+=Math.sin(p.w)*.0003;if(p.y<-.02){p.y=1.02;p.x=Math.random();}
-   const px=p.x*W,py=p.y*H,rr=p.r*Math.min(devicePixelRatio,1.5),g=x.createRadialGradient(px,py,0,px,py,rr*5);
-   g.addColorStop(0,`rgba(255,222,160,${p.a})`);g.addColorStop(1,'rgba(200,161,90,0)');x.fillStyle=g;x.beginPath();x.arc(px,py,rr*5,0,6.28);x.fill();}})();}
 /* page progress */
 addEventListener('scroll',()=>{const m=document.documentElement.scrollHeight-innerHeight;$('#prog').style.transform=`scaleX(${m>0?scrollY/m:0})`;},{passive:true});
 function splitChars(el){
@@ -166,7 +157,7 @@ $$('.lang button').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.lang=
 
 function render(){
   $('#memList').innerHTML=[1,2,3,4,5].map(i=>`<li><b>${String(i).padStart(2,'0')}</b><span>${t('m.'+i)}</span></li>`).join('');
-  $('#colonnade').innerHTML=HALLS.map((h,i)=>`<article class="hall"><figure class="arch" data-photos="${h.id}" data-cursor="cur.view"><img src="${img(h.imgs[0])}" alt="${L(h.name)}" loading="lazy"></figure>
+  $('#colonnade').innerHTML=HALLS.map((h,i)=>`<article class="hall"><figure class="arch sweep" data-photos="${h.id}" data-cursor="cur.view"><img src="${img(h.imgs[0])}" alt="${L(h.name)}" loading="lazy"></figure>
     <div class="nm">${String(i+1).padStart(2,'0')}</div><h3>${L(h.name)}</h3><div class="cap">${L(h.cap)} · <span style="font-size:.8em;opacity:.7">${t('tbc')}</span></div><p>${L(h.desc)}</p>
     <div class="row" style="margin-top:22px"><a href="#experience" class="btn fill" data-hall="${h.id}">${t('enter')}</a><button class="btn" data-photos="${h.id}">${t('photos')}</button>${h.vid?`<button class="btn" data-video="${h.vid}">${t('video')}</button>`:''}</div></article>`).join('');
   $('#xRooms').innerHTML=HALLS.map(h=>`<button data-h="${h.id}" class="${h.id===window.__vHall?'on':''}">${L(h.name)}</button>`).join('');
@@ -175,7 +166,7 @@ function render(){
   $('#evImg').innerHTML=[...new Set(EVENTS.map(e=>e[2]))].map((im,i)=>`<img data-k="${im}" src="${img(im)}" alt="" loading="lazy"${i?'':' class="on"'}>`).join('');
   $('#mTabs').innerHTML=MENUS.map((m,i)=>`<button class="mtab${i===curMenu?' on':''}" data-m="${i}">Menu ${String(i+1).padStart(2,'0')}</button>`).join('');
   $$('.mtab').forEach(b=>b.onclick=()=>showMenu(+b.dataset.m));showMenu(curMenu,true);
-  $('#gTrack').innerHTML=GALLERY.map(([f,h,c],i)=>`<figure class="gfr ${c}" data-i="${i}" data-cursor="cur.view" tabindex="0"><img src="${img(f)}" alt="${hallName(h)}" loading="lazy"><figcaption>${String(i+1).padStart(2,'0')} · ${hallName(h)}</figcaption></figure>`).join('');
+  $('#gTrack').innerHTML=GALLERY.map(([f,h,c],i)=>`<figure class="gfr sweep ${c}" data-i="${i}" data-cursor="cur.view" tabindex="0"><img src="${img(f)}" alt="${hallName(h)}" loading="lazy"><figcaption>${String(i+1).padStart(2,'0')} · ${hallName(h)}</figcaption></figure>`).join('');
   $('#svGrid').innerHTML=SERVICES.map(([ti,p],i)=>`<div class="sv"><span class="n">${String(i+1).padStart(2,'0')}</span><h3>${L(ti)}</h3><p>${L(p)}</p></div>`).join('');
   $('#chips').innerHTML=EVTYPES.map(([sq,en])=>`<label class="chip"><input type="radio" name="type" value="${LANG==='sq'?sq:en}"><span>${LANG==='sq'?sq:en}</span></label>`).join('');
   $('#fHall').innerHTML=`<option>${t('f.nopref')}</option>`+HALLS.map(h=>`<option>${L(h.name)}</option>`).join('');
@@ -271,6 +262,7 @@ function bind(isRelang){
   $$('main .k').forEach(el=>fr(el,{'--ls':0,opacity:0,letterSpacing:'.8em'},{'--ls':1,opacity:1,letterSpacing:'.38em',duration:1.6,ease:'expo.out',scrollTrigger:once(el,'top 94%')}));
   // meander dividers unroll
   $$('.sec+.sec').forEach(s=>reg(gsap.fromTo(s,{'--mx':0},{'--mx':1,duration:1.6,ease:'expo.inOut',scrollTrigger:once(s,'top 92%')})));
+  $$('main .sec').forEach(sc=>{let e=$(':scope>.edge',sc);if(!e){e=document.createElement('i');e.className='edge';sc.prepend(e);}fr(e,{scaleX:0},{scaleX:1,duration:2,ease:'expo.inOut',scrollTrigger:once(sc,'top 80%')});});
   // counters
   $$('[data-count]').forEach(el=>{const to=+el.dataset.count,from=+(el.dataset.from||0),o={v:from};fr(o,{v:from},{v:to,duration:2.4,ease:'power3.out',scrollTrigger:once(el,'top 95%'),onUpdate:()=>el.textContent=Math.round(o.v)+(el.dataset.suf||'')});});
   // headings: a soft light passes over the gold words once revealed
@@ -280,21 +272,19 @@ function bind(isRelang){
   // section titles drift apart gently while scrolling
   $$('main .hd .h2, #events .lft .h2').forEach(h=>fr(h,{letterSpacing:'.02em'},{letterSpacing:'-.015em',ease:'none',scrollTrigger:{trigger:h,start:'top bottom',end:'bottom top',scrub:true}}));
   // II intro — laurel draws, words light, numbers rise
-  if(!wreaths.in)wreaths.in=wreath($('#inWreath'));
-  fr(wreaths.in,{strokeDashoffset:(i,el)=>el.style.strokeDasharray},{strokeDashoffset:0,duration:2.4,stagger:.01,ease:'power2.inOut',scrollTrigger:once('#intro .wr','top 85%')});
-  fr($$('#inWreath .dm'),{scale:0,rotate:-90},{scale:1,rotate:0,duration:1,delay:1.6,stagger:.12,ease:'back.out(3)',scrollTrigger:once('#intro .wr','top 85%')});
-  if(!RM)gsap.to('#inWreath',{rotate:360,duration:120,repeat:-1,ease:'none',transformOrigin:'50% 50%'});
-  fr('#intro .wr b,#intro .wr small',{opacity:0,scale:.85},{opacity:1,scale:1,duration:1.6,delay:.8,stagger:.15,ease:'expo.out',scrollTrigger:once('#intro .wr','top 85%')});
+  fr('.yr2 i',{scaleX:0},{scaleX:1,duration:1.8,ease:'expo.inOut',scrollTrigger:once('.yr2','top 85%')});
+  fr('.yr2 small',{opacity:0,letterSpacing:'1.2em'},{opacity:1,letterSpacing:'.5em',duration:1.6,ease:'expo.out',scrollTrigger:once('.yr2','top 85%')});
+  fr('.yr2 b',{opacity:0,y:60,filter:'blur(14px)'},{opacity:1,y:0,filter:'blur(0px)',duration:1.8,delay:.2,ease:'expo.out',scrollTrigger:once('.yr2','top 85%')});
   fr('#bigText .wd',{opacity:.15},{opacity:1,stagger:.05,ease:'none',scrollTrigger:{trigger:'#bigText',start:'top 80%',end:'bottom 50%',scrub:true}});
   fr('.pillars div',{opacity:0,y:50},{opacity:1,y:0,duration:1.3,stagger:.15,ease:'expo.out',scrollTrigger:once('.pillars','top 90%')});
   // III memorial — arch opens from the bottom like a doorway
-  fr('#memPh',{clipPath:'inset(100% 0% 0% 0%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:2,ease:'expo.inOut',scrollTrigger:once('#memPh','top 85%')});
+  fr('#memPh img',{clipPath:'polygon(0 100%,100% 100%,100% 100%,0 100%)'},{clipPath:'polygon(0 0,100% 0,100% 100%,0 100%)',duration:2,ease:'expo.inOut',scrollTrigger:once('#memPh','top 85%')});
   fr('#memPh img',{scale:1.3,yPercent:-10},{scale:1,yPercent:0,duration:2.6,ease:'expo.out',scrollTrigger:once('#memPh','top 85%')});
   fr('#memPh img',{yPercent:0},{yPercent:-12,ease:'none',scrollTrigger:{trigger:'#memorial',start:'top bottom',end:'bottom top',scrub:true}});
   fr('#memList li',{opacity:0,x:40},{opacity:1,x:0,duration:1.1,stagger:.1,ease:'expo.out',scrollTrigger:once('#memList','top 88%')});
   // IV halls — the colonnade rises, arches open
   $$('.hall').forEach((hl,i)=>{
-    fr($('.arch',hl),{clipPath:'inset(100% 0% 0% 0% round 999px 999px 0 0)'},{clipPath:'inset(0% 0% 0% 0% round 999px 999px 0 0)',duration:2,delay:i*.18,ease:'expo.inOut',scrollTrigger:once('#colonnade','top 85%')});
+    fr($('.arch img',hl),{clipPath:'polygon(0 0,0 0,0 100%,0 100%)'},{clipPath:'polygon(0 0,100% 0,100% 100%,0 100%)',duration:1.8,delay:i*.18,ease:'expo.inOut',scrollTrigger:once('#colonnade','top 85%')});
     fr($('.arch img',hl),{scale:1.35},{scale:1,duration:2.6,delay:i*.18,ease:'expo.out',scrollTrigger:once('#colonnade','top 85%')});
     fr($$('.nm,h3,.cap,p,.row',hl),{opacity:0,y:24},{opacity:1,y:0,duration:1.1,stagger:.08,delay:.9+i*.18,ease:'expo.out',scrollTrigger:once('#colonnade','top 85%')});
     if(FINE){const a=$('.arch',hl);hl.onpointermove=e=>{const r=a.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;gsap.to($('img',a),{x:-x*24,y:-y*24,duration:1,ease:'power3.out'});};hl.onpointerleave=()=>gsap.to($('img',a),{x:0,y:0,duration:1.2,ease:'power3.out'});}
@@ -305,7 +295,7 @@ function bind(isRelang){
   fr('#experience .fr',{clipPath:'inset(50% 50% 50% 50%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:1.8,ease:'expo.inOut',scrollTrigger:once('#experience','top 60%')});
   // VI events — each numeral lights up, image follows
   $$('.evi').forEach(li=>triggers.push(ScrollTrigger.create({trigger:li,start:'top 60%',end:'bottom 40%',toggleClass:'on',onToggle:st=>{if(st.isActive)$$('#evImg img').forEach(im=>im.classList.toggle('on',im.dataset.k===li.dataset.img));}})));
-  fr('#evImg',{clipPath:'inset(0 0 100% 0)'},{clipPath:'inset(0 0 0% 0)',duration:1.8,ease:'expo.inOut',scrollTrigger:once('#evImg','top 85%')});
+  fr('#evImg img',{clipPath:'polygon(0 0,100% 0,100% 0,0 0)'},{clipPath:'polygon(0 0,100% 0,100% 100%,0 100%)',duration:1.8,ease:'expo.inOut',scrollTrigger:once('#evImg','top 85%')});
   // VII menus
   fr('.mtabs',{opacity:0,y:30},{opacity:1,y:0,duration:1.2,ease:'expo.out',scrollTrigger:once('.mtabs','top 90%')});
   fr('#mCard',{opacity:0,y:60,filter:'blur(10px)'},{opacity:1,y:0,filter:'blur(0px)',duration:1.6,ease:'expo.out',scrollTrigger:once('#mCard','top 85%')});
@@ -317,7 +307,7 @@ function bind(isRelang){
   // IX services — diamonds bloom, cells rise
   $$('.sv').forEach((s,i)=>{fr(s,{opacity:0,y:40},{opacity:1,y:0,duration:1.2,delay:(i%3)*.12,ease:'expo.out',scrollTrigger:once(s,'top 92%')});fr(s,{'--ds':0},{'--ds':1,duration:1,delay:.4+(i%3)*.12,ease:'back.out(3)',scrollTrigger:once(s,'top 92%')});});
   // X location
-  fr('#locPh',{clipPath:'inset(0 100% 0 0)'},{clipPath:'inset(0 0% 0 0)',duration:1.6,ease:'expo.inOut',scrollTrigger:once('#locPh','top 85%')});
+  fr('#locPh img',{clipPath:'polygon(0 0,0 0,0 100%,0 100%)'},{clipPath:'polygon(0 0,100% 0,100% 100%,0 100%)',duration:1.6,ease:'expo.inOut',scrollTrigger:once('#locPh','top 85%')});
   fr('#locPh img',{scale:1.3},{scale:1,duration:2.2,ease:'expo.out',scrollTrigger:once('#locPh','top 85%')});
   fr('#mapbox',{opacity:0,y:60},{opacity:1,y:0,duration:1.5,ease:'expo.out',scrollTrigger:once('#mapbox','top 88%')});
   // XI contact
@@ -434,7 +424,7 @@ new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){o.disconnect();loadMa
    LOADER & BOOT
    ===================================================================== */
 const pct=$('#pct');let loadP=0;function setLoad(v){loadP=Math.max(loadP,v);gsap.to('#lbar',{scaleX:loadP/100,duration:.6,ease:'power2.out'});pct.textContent=Math.round(loadP)+'%';}
-{const lw=wreath($('#ldWreath'));gsap.to(lw,{strokeDashoffset:0,duration:2,stagger:.008,ease:'power2.inOut'});gsap.to($$('#ldWreath .dm'),{scale:1,duration:.8,delay:1.4,stagger:.1,ease:'back.out(3)'});gsap.to('#ldWreath',{rotate:90,duration:6,ease:'power1.inOut',transformOrigin:'50% 50%'});}
+gsap.to('#loader .ldl',{scaleX:1,duration:2.2,ease:'expo.inOut'});
 fetch('/assets/ija-logo-gold.svg').then(r=>r.text()).then(svg=>{const box=$('#loaderLogo');box.innerHTML=svg;const ps=$$('path',box);
   ps.forEach(p=>{let l=400;try{l=p.getTotalLength();}catch(e){}p.style.strokeDasharray=l;p.style.strokeDashoffset=l;});
   gsap.to(ps,{strokeDashoffset:0,duration:1.6,delay:.4,stagger:.04,ease:'power2.inOut',onComplete:()=>box.classList.add('filled')});}).catch(()=>{});
