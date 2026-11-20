@@ -213,11 +213,23 @@ const hero={el:$('#hero'),v:$('#heroV'),p:0,tp:0,dur:9.08,ready:false,last:-1,fo
 const HSRC='/assets/bg-exterior.mp4';
 let frLen=1000;
 function loadHero(onProg){
-  const v=hero.v,done=()=>{hero.dur=v.duration||hero.dur;hero.ready=true;hero.force=true;};
-  return fetch(HSRC).then(async r=>{const total=+r.headers.get('content-length')||0;if(!r.body||!total)return r.blob();
-    const rd=r.body.getReader(),ch=[];let got=0;for(;;){const{done:d,value}=await rd.read();if(d)break;ch.push(value);got+=value.length;onProg(got/total);}return new Blob(ch,{type:'video/mp4'});})
-  .then(b=>{v.src=URL.createObjectURL(b);v.load();v.addEventListener('loadeddata',done,{once:true});})
-  .catch(()=>{v.src=HSRC;v.load();v.addEventListener('loadeddata',done,{once:true});});
+  // Native video streaming supports HTTP byte ranges, caching and fast seeking.
+  // Avoid downloading the full MP4 into a Blob before the first frame.
+  const v=hero.v;
+  let settled=false;
+  const ready=()=>{
+    if(settled)return;settled=true;
+    hero.dur=Number.isFinite(v.duration)?v.duration:hero.dur;
+    hero.ready=true;hero.force=true;onProg?.(1);
+  };
+  v.preload='metadata';
+  v.addEventListener('loadeddata',ready,{once:true});
+  v.addEventListener('error',()=>{hero.ready=false;onProg?.(1);},{once:true});
+  v.src=HSRC;
+  v.load();
+  // The poster is intentionally sufficient for reduced-motion/data-saving users.
+  if(RM||navigator.connection?.saveData){ready();}
+  return Promise.resolve();
 }
 addEventListener('touchstart',()=>{hero.v.play().then(()=>hero.v.pause()).catch(()=>{});},{once:true,passive:true});
 const fr=$('#frRect');fr.style.strokeDasharray=1000;fr.style.strokeDashoffset=1000;
@@ -228,7 +240,7 @@ function heroFrame(){
   const d=hero.tp-hero.p;hero.p+=Math.abs(d)<1e-4?d:d*(RM?1:.1);const p=hero.p;
   if(r.bottom>0||hero.force){hero.force=false;
     const vt=range(p,0,.9)*(hero.dur-.04);
-    if(hero.ready&&!hero.v.seeking&&Math.abs(vt-hero.last)>.012){hero.v.currentTime=vt;hero.last=vt;}
+    if(hero.ready&&!RM&&!navigator.connection?.saveData&&!hero.v.seeking&&Math.abs(vt-hero.last)>.045){hero.v.currentTime=vt;hero.last=vt;}
     
     $('#hShade').style.opacity=(.55-range(p,.02,.2)*.13+range(p,.9,1)*.45).toFixed(3);
     
@@ -420,6 +432,55 @@ function orbit(){if(!map||!mapRot||RM)return;map.easeTo({bearing:map.getBearing(
 $('#mRot').onclick=()=>{mapRot=!mapRot;$('#mRot').classList.toggle('off',!mapRot);if(mapRot)orbit();else map&&map.stop();};
 new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){o.disconnect();loadMap();}},{rootMargin:'800px'}).observe($('#mapbox'));
 
+
+/* CINEMATIC MEDIA & MOTION — nonblocking enhancements */
+function enhanceImages(root=document){
+  const images=$$('img',root);
+  images.forEach(im=>{
+    if(im.dataset.mediaOptimized)return;
+    im.dataset.mediaOptimized='1';
+    const src=im.getAttribute('src')||'';
+    if(src.endsWith('.webp')&&!src.endsWith('-sm.webp')){
+      im.setAttribute('srcset',src.replace(/\.webp$/,'-sm.webp')+' 520w, '+src+' 1440w');
+      im.setAttribute('sizes',im.closest('.gfr,.hall')?'(max-width:760px) 92vw, (max-width:1200px) 48vw, 32vw':'(max-width:760px) 100vw, 65vw');
+    }
+    im.decoding='async';
+    if(!im.closest('#hero,#nav,#loader'))im.loading='lazy';
+    im.addEventListener('load',()=>im.parentElement?.classList.add('media-loaded'),{once:true});
+    if(im.complete&&im.naturalWidth)im.parentElement?.classList.add('media-loaded');
+  });
+}
+function initCinematicEnhancements(){
+  enhanceImages();
+  const watched=['#colonnade','#gallery','#evImg','#memorial','#menus'];
+  const obs=new MutationObserver(records=>{
+    records.forEach(({addedNodes})=>addedNodes.forEach(n=>{
+      if(n.nodeType===1){if(n.matches?.('img'))enhanceImages(n.parentElement||document);else if(n.querySelector?.('img'))enhanceImages(n);}
+    }));
+  });
+  watched.forEach(s=>{const el=$(s);if(el)obs.observe(el,{childList:true,subtree:true});});
+  if(RM||navigator.connection?.saveData)return;
+  if(FINE){
+    let tx=50,ty=50,scheduled=false;
+    addEventListener('pointermove',e=>{
+      tx=e.clientX/innerWidth*100;ty=e.clientY/innerHeight*100;
+      if(scheduled)return;scheduled=true;
+      requestAnimationFrame(()=>{document.body.style.setProperty('--spot-x',tx+'%');document.body.style.setProperty('--spot-y',ty+'%');scheduled=false;});
+    },{passive:true});
+  }
+  // Subtle section depth, without shifting text or disrupting existing reveals.
+  $$('.sec').forEach((section,i)=>{
+    gsap.fromTo(section,{'--cinema-depth':0},{'--cinema-depth':1,ease:'none',scrollTrigger:{
+      trigger:section,start:'top bottom',end:'bottom top',scrub:true,
+      onUpdate:self=>section.style.setProperty('--cinema-light',(self.progress*.75).toFixed(2))
+    }});
+  });
+  // Image focal points follow scroll slowly; CSS hover zoom stays intact.
+  $$('#memorial .ph, #events .ph').forEach(el=>{
+    gsap.fromTo(el,{yPercent:2},{yPercent:-2,ease:'none',scrollTrigger:{trigger:el,start:'top bottom',end:'bottom top',scrub:true}});
+  });
+}
+
 /* =====================================================================
    LOADER & BOOT
    ===================================================================== */
@@ -432,7 +493,7 @@ let finished=false;
 loadHero(f=>setLoad(6+f*92));
 const waitHero=setInterval(()=>{if(hero.ready){clearInterval(waitHero);finish();}},120);
 function finish(){if(finished)return;finished=true;setLoad(100);
-  gsap.timeline({delay:1})
+  gsap.timeline({delay:.3})
    .to('#loader .lw,#loader .cnt',{opacity:0,scale:.96,duration:.7,ease:'power2.in'})
    .to('#loader',{opacity:0,duration:1,ease:'power2.inOut'})
    .add(()=>{document.body.classList.remove('lock');lenis&&lenis.start();},'-=.6')
@@ -443,6 +504,6 @@ function finish(){if(finished)return;finished=true;setLoad(100);
    .from('#nav,.h-hud',{opacity:0,duration:1.2,clearProps:'opacity'},'-=1')
    .set('#loader',{display:'none'});
 }
-setTimeout(finish,12000);
-applyLang();bind();requestAnimationFrame(heroFrame);
+setTimeout(finish,5500);
+applyLang();bind();initCinematicEnhancements();requestAnimationFrame(heroFrame);
 addEventListener('load',()=>ScrollTrigger.refresh());

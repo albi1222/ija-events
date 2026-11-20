@@ -11,7 +11,7 @@
 <link rel="icon" href="/assets/ija-logo-gold.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="/assets/bg-poster.jpg">
+<link rel="preload" as="image" href="/assets/bg-poster.jpg" fetchpriority="high">
 <script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js"}}</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -401,6 +401,38 @@ main{background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.o
 .mtabs,.x-rooms{clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px)}
 
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* CINEMATIC EXPERIENCE 2026 — progressive enhancement */
+:root{--cinema-ease:cubic-bezier(.2,.8,.2,1);--cinema-glow:rgba(200,161,90,.1)}
+html{scroll-padding-top:88px}
+body{background:radial-gradient(ellipse at 50% 0%,#15100b 0%,#070605 45%)}
+body::before{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.3;background:radial-gradient(circle at var(--spot-x,50%) var(--spot-y,50%),rgba(200,161,90,.095),transparent 36%);transition:opacity .4s}
+main,footer{isolation:isolate}
+main .sec{overflow:clip}
+main .sec::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 90% 20%,var(--cinema-glow),transparent 58%);opacity:.6}
+main .sec:nth-child(even)::after{background:radial-gradient(ellipse at 5% 72%,var(--cinema-glow),transparent 58%)}
+.nav.solid{backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+.nav .logo img{filter:drop-shadow(0 2px 20px rgba(200,161,90,.12))}
+.btn{transition:transform .45s var(--cinema-ease),box-shadow .45s var(--cinema-ease),color .45s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(200,161,90,.12)}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--goldl);outline-offset:5px}
+#hero .st{background:#070605}
+#heroV{transform:translateZ(0);backface-visibility:hidden}
+#hero .vig{background:radial-gradient(ellipse at 50% 52%,transparent 28%,rgba(7,6,5,.63) 100%),linear-gradient(to top,rgba(7,6,5,.84),transparent 48%)}
+#hero .st::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;box-shadow:inset 0 0 min(9vw,125px) rgba(0,0,0,.22)}
+#hero .hc{z-index:4}
+#hero .hc .in{filter:drop-shadow(0 12px 38px rgba(0,0,0,.5))}
+.arch img,.ph img,.hall figure img,.gfr img,#evImg img{transform-origin:center center;backface-visibility:hidden;transition:transform 1.5s var(--cinema-ease),filter 1.5s var(--cinema-ease)}
+.arch:hover img,.ph:hover img,.hall figure:hover img,.gfr:hover img{transform:scale(1.055);filter:contrast(1.04) saturate(1.08)}
+.hall,.gfr{transition:transform .75s var(--cinema-ease),box-shadow .75s var(--cinema-ease)}
+.hall:hover{transform:translateY(-7px)}
+.gfr:hover{transform:translateY(-4px)}
+.media-shimmer{background:linear-gradient(110deg,#17130f 0%,#272014 45%,#17130f 90%);background-size:220% 100%}
+.media-shimmer:not(.media-loaded){animation:cinema-shimmer 2.2s ease-in-out infinite}
+@keyframes cinema-shimmer{to{background-position-x:-220%}}
+@media(max-width:760px){#hero{height:420svh}#heroV{object-fit:cover;object-position:center}.grain{opacity:.035}main .sec{overflow:hidden}.btn:hover,.hall:hover,.gfr:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){body::before{display:none}.media-shimmer:not(.media-loaded){animation:none}.arch img,.ph img,.hall figure img,.gfr img,#evImg img,.hall,.gfr,.btn{transition:none!important}}
+
 </style>
 </head>
 <body class="lock">
@@ -421,7 +453,7 @@ main{background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.o
 <!-- I · CINEMATIC HERO — the exterior walk, driven by scroll -->
 <section id="hero" aria-label="IJA Events"><span id="top"></span>
   <div class="st">
-    <canvas id="heroFill" width="96" height="54"></canvas><video id="heroV" muted playsinline preload="auto" poster="/assets/bg-poster.jpg"></video>
+    <canvas id="heroFill" width="96" height="54"></canvas><video id="heroV" muted playsinline preload="metadata" poster="/assets/bg-poster.jpg" aria-hidden="true"></video>
     <div class="shade" id="hShade"></div><div class="vig"></div>
         <div class="frame"><svg><rect id="frRect" x=".5" y=".5" width="99%" height="99%" pathLength="1000"/></svg></div>
     <div class="hc hc1" id="hc1"><div class="in"><img class="lg" src="/assets/ija-logo-gold.svg" alt=""><span class="k" style="margin-top:28px" data-i18n="h.k">Tiranë · Që nga MM</span><h1 class="rom" data-i18n-html="h.t">Me dinjitet, <em class="goldt">për çdo kujtim.</em></h1></div></div>
