@@ -84,7 +84,7 @@ a:focus-visible,button:focus-visible{outline:1px solid currentColor;outline-offs
 @media(max-width:767.98px){.quote{right:1.5rem;top:1.5rem}}
 .blk{pointer-events:none;position:absolute;inset:0;z-index:5}
 .exitL{position:absolute;inset:0}
-.slot{position:absolute}
+.slot{position:absolute}.slot .le{flex-wrap:nowrap}
 .s-tl{left:2.5rem;top:2.5rem}.s-tr{right:2.5rem;top:2.5rem}.s-cl{left:2.5rem;top:50%;translate:0 -50%}.s-cr{right:2.5rem;top:50%;translate:0 -50%}.s-c{left:50%;top:50%;translate:-50% -50%}.s-bl{left:2.5rem;bottom:2.5rem}.s-br{right:2.5rem;bottom:2.5rem}
 @media(max-width:767.98px){.s-tl{left:1.5rem;top:6rem}.s-tr{right:1.5rem;top:6rem}.s-cl{left:1.5rem}.s-cr{right:1.5rem}.s-bl{left:1.5rem;bottom:13rem}.s-br{right:1.5rem;bottom:13rem}}
 .desc{position:absolute;bottom:2.5rem;width:20rem}
@@ -264,7 +264,7 @@ footer .lines{z-index:2}
 .dock ul a:hover{opacity:.7}
 .dock ul .lng{display:flex;gap:.75rem;border-top:1px solid color-mix(in oklab,var(--foreground) 10%,transparent);padding-top:.75rem;font-size:var(--fs-caption);letter-spacing:var(--tr-caps)}
 .dock ul .lng button[aria-pressed=true]{color:var(--gold)}
-.fab{position:fixed;right:1.25rem;bottom:2.5rem;z-index:99;width:3.25rem;height:3.25rem;display:grid;place-items:center;background:#25D366;color:#fff;transition:translate .35s var(--ease-glide)}
+.fab{position:fixed;right:1.25rem;bottom:7.5rem;z-index:99;width:3.25rem;height:3.25rem;display:grid;place-items:center;background:#25D366;color:#fff;transition:translate .35s var(--ease-glide)}
 .fab:hover{translate:0 -.125rem}.fab svg{width:1.4rem;height:1.4rem}
 @media(max-width:767.98px){.fab{bottom:6.5rem;right:1rem;width:2.9rem;height:2.9rem}}
 #lb{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.94);display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .4s}
