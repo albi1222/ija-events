@@ -148,23 +148,17 @@ const store={framesProgress:0,introReady:false,dockHidden:false,ls:new Set(),set
 const html=document.documentElement;html.classList.add('loading');scrollTo(0,0);
 const showErr=msg=>{const e=$('#err');e.style.display='block';e.textContent=msg;};
 {
-  const STEPS=Array.from({length:101},(_,v)=>v),BLANK=' ';
-  const COLS=[v=>v<100?BLANK:'1',v=>v<10?BLANK:String(Math.floor((v%100)/10)),v=>String(v%10)];
-  ['#c0','#c1','#c2'].forEach((id,k)=>{$(id).innerHTML=STEPS.map(v=>`<span>${COLS[k](v).replace(' ','&nbsp;')}</span>`).join('');});
   const clock=new Spring(0,PRELOADER_COUNT),loaded=new Spring(0,DEFAULT);clock.set(1);
   let exiting=false;const t0=performance.now();
   const sub=(t)=>{if(exiting&&pre.gone)return;loaded.set(store.framesProgress);
-    const c=Math.min(clock.pos,loaded.pos)*100,n=Math.round(c);
-    $('#trav').style.left=c+'%';$('#trav').style.transform=`translateX(-${c}%)`;
-    ['#c0','#c1','#c2'].forEach(id=>$(id).style.transform=`translateY(-${n*.9}em)`);
-    $('#preFill').style.transform=`scaleX(${Math.min(clock.pos,loaded.pos)})`;
+    const p=Math.min(clock.pos,loaded.pos);
+    $('#preFill').style.clipPath=`inset(${((1-p)*100).toFixed(2)}% 0 0 0)`;
+    $('#ppct').textContent=Math.round(p*100)+'%';
     if(!exiting&&t-t0>=2800&&store.framesProgress>=1){exiting=true;exit();}};
   const pre={gone:false};onTick(sub);
   function exit(){
     $$('#pre .cols i').forEach((col,i)=>{const s=new Spring(1,PRELOADER_WIPE,v=>col.style.transform=`scaleY(${v})`);s.set(0,{delay:i*100});});
-    const lb=$('#pre .lbl'),f=new Spring(1,PRELOADER_FADE,v=>{lb.style.opacity=v;lb.style.transform=`translateY(${(1-v)*-40}px)`;});f.set(0);
-    const rl=$('#pre .rule'),r=new Spring(1,PRELOADER_RULE,v=>rl.style.transform=`scaleX(${v})`);r.set(0);
-    [...$$('#trav .col'),$('#cpc')].forEach((el,i)=>{const s=new Spring(1,PRELOADER_FADE,v=>{el.style.opacity=v;el.style.transform=(el.id==='cpc'?'':`translateY(-${Math.round(Math.min(clock.pos,loaded.pos)*100)*.9}em) `)+`translateX(${(1-v)*-40}px)`;});s.set(0,{delay:(3-i)*50});});
+    const lg=$('#plogo'),pc=$('#ppct'),f=new Spring(1,PRELOADER_FADE,v=>{lg.style.opacity=v;lg.style.transform=`scale(${1+(1-v)*.08})`;pc.style.opacity=v*.8;});f.set(0);
     html.classList.remove('loading');lenis&&lenis.start();
     setTimeout(()=>store.set('introReady',true),1200);
     setTimeout(()=>{$('#pre').remove();pre.gone=true;},1600);
