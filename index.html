@@ -188,7 +188,7 @@
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galeria e fotove" aria-hidden="true"><button type="button" id="closeLightbox" aria-label="Mbyll">×</button><img alt=""><span></span></div>
 <script>'use strict';
 (() => {
- const $=(q,r=document)=>r.querySelector(q), $=(q,r=document)=>Array.from(r.querySelectorAll(q));
+ const $=(q,r=document)=>r.querySelector(q), $$=(q,r=document)=>Array.from(r.querySelectorAll(q));
  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
  const saver=Boolean(navigator.connection?.saveData);
  const mobile=window.matchMedia('(max-width:760px)').matches;
@@ -222,14 +222,14 @@
  function translate(l){
  language=l;document.documentElement.lang=l;
  document.title=l==='sq'?'IJA Events — Momente me kuptim':'IJA Events — Moments with meaning';
- $('[data-t]').forEach(el=>{const t=dict[l][el.dataset.t];if(t!==undefined)el.textContent=t});
- $('[data-lang]').forEach(b=>{b.classList.toggle('is-active',b.dataset.lang===l);b.setAttribute('aria-pressed',String(b.dataset.lang===l))});
+ $$('[data-t]').forEach(el=>{const t=dict[l][el.dataset.t];if(t!==undefined)el.textContent=t});
+ $$('[data-lang]').forEach(b=>{b.classList.toggle('is-active',b.dataset.lang===l);b.setAttribute('aria-pressed',String(b.dataset.lang===l))});
  $('#fName').placeholder=l==='sq'?'Emri juaj':'Your name';
  $('#fMessage').placeholder=l==='sq'?'Na tregoni çfarë ju nevojitet...':'How can we help?';
  try{localStorage.setItem('ija-language',l)}catch(e){}
  window.dispatchEvent(new Event('ija:language'));
  }
- $('[data-lang]').forEach(b=>b.addEventListener('click',()=>translate(b.dataset.lang)));
+ $$('[data-lang]').forEach(b=>b.addEventListener('click',()=>translate(b.dataset.lang)));
  $('#year').textContent=String(new Date().getFullYear());
  const header=$('#header'),progress=$('#progress'),hero=$('.hero'),heroVisual=$('.hero-visual'),heroContent=$('.hero-content'),menu=$('#menuToggle');
  function scrollUpdate(){
@@ -245,7 +245,7 @@
  }
  addEventListener('scroll',scrollUpdate,{passive:true});scrollUpdate();
  menu.addEventListener('click',()=>{const open=document.body.classList.toggle('menu-open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Mbyll menunë':'Hap menunë')});
- $('.mobile-nav a').forEach(a=>a.addEventListener('click',()=>{document.body.classList.remove('menu-open');menu.setAttribute('aria-expanded','false')}));
+ $$('.mobile-nav a').forEach(a=>a.addEventListener('click',()=>{document.body.classList.remove('menu-open');menu.setAttribute('aria-expanded','false')}));
  const film=$('#hallVideo'),toggle=$('#filmToggle'),heroVideo=$('#heroVideo');
  const playVideo=v=>{
  if(reduced||saver||document.hidden)return;
@@ -264,7 +264,7 @@
  });
  document.addEventListener('visibilitychange',()=>{if(document.hidden){film.pause();heroVideo.pause()}else{playVideo(heroVideo);if($('#film').getBoundingClientRect().top<innerHeight&&film.dataset.paused!=='true')playVideo(film)}});
  const lightbox=$('#lightbox');
- $('.gallery-photo').forEach(btn=>btn.addEventListener('click',()=>{
+ $$('.gallery-photo').forEach(btn=>btn.addEventListener('click',()=>{
  const im=$('img',lightbox);im.src=btn.dataset.full;im.alt=btn.dataset.caption||'IJA Events';$('span',lightbox).textContent=btn.dataset.caption||'IJA Events';lightbox.classList.add('open');lightbox.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');$('#closeLightbox').focus();
  }));
  const close=()=>{lightbox.classList.remove('open');lightbox.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');$('img',lightbox).removeAttribute('src')};
@@ -272,7 +272,7 @@
  lightbox.addEventListener('click',e=>{if(e.target===lightbox)close()});
  addEventListener('keydown',e=>{if(e.key==='Escape'){close();document.body.classList.remove('menu-open');menu.setAttribute('aria-expanded','false')}});
  const today=new Date();today.setMinutes(today.getMinutes()-today.getTimezoneOffset());$('#fDate').min=today.toISOString().slice(0,10);
- $('.space-card').forEach(card=>card.addEventListener('click',()=>{const name=$('h3',card)?.textContent||'';$('#fMessage').value=(language==='sq'?'Dëshiroj informacion për ':'I would like information about ')+name+'.';}));
+ $$('.space-card').forEach(card=>card.addEventListener('click',()=>{const name=$('h3',card)?.textContent||'';$('#fMessage').value=(language==='sq'?'Dëshiroj informacion për ':'I would like information about ')+name+'.';}));
  $('#contactForm').addEventListener('submit',e=>{
  e.preventDefault();const form=e.currentTarget;if(!form.reportValidity())return;
  const data=new FormData(form),names={name:language==='sq'?'Emri':'Name',phone:language==='sq'?'Telefoni':'Phone',type:language==='sq'?'Shërbimi':'Service',date:language==='sq'?'Data':'Date',message:language==='sq'?'Mesazhi':'Message'};
@@ -297,18 +297,18 @@
  gsap.to(heroVisual,{scale:1.19,ease:'none',scrollTrigger:{trigger:hero,start:'top top',end:'bottom bottom',scrub:true}});
  gsap.to(heroContent,{opacity:0,yPercent:-16,ease:'none',scrollTrigger:{trigger:hero,start:'top top',end:'bottom 70%',scrub:true}});
  gsap.to('.hero-grid',{opacity:.03,ease:'none',scrollTrigger:{trigger:hero,start:'top top',end:'bottom bottom',scrub:true}});
- $('[data-reveal]').forEach((el,i)=>{
+ $$('[data-reveal]').forEach((el,i)=>{
  gsap.fromTo(el,{y:Math.min(58,20+(i%3)*12),opacity:0,filter:'blur(7px)'},{y:0,opacity:1,filter:'blur(0px)',duration:1.15,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 92%',once:true}});
  });
  gsap.to('.story-media',{yPercent:9,ease:'none',scrollTrigger:{trigger:'#memorial',start:'top bottom',end:'bottom top',scrub:true}});
  gsap.to('.film-video-wrap',{scale:1.12,ease:'none',scrollTrigger:{trigger:'#film',start:'top bottom',end:'bottom top',scrub:true}});
  gsap.to('.events-img img',{yPercent:-5,ease:'none',scrollTrigger:{trigger:'#events',start:'top bottom',end:'bottom top',scrub:true}});
- $('.space-card').forEach((el,i)=>{
+ $$('.space-card').forEach((el,i)=>{
  gsap.from(el,{y:110,opacity:0,duration:1.25,ease:'power3.out',delay:i*.08,scrollTrigger:{trigger:el,start:'top 93%',once:true}});
  gsap.to($('img',el),{yPercent:-7,ease:'none',scrollTrigger:{trigger:el,start:'top bottom',end:'bottom top',scrub:true}});
  });
- $('.gallery-photo').forEach((el,i)=>gsap.from(el,{opacity:0,clipPath:'inset(100% 0 0 0)',duration:1.3,delay:i*.06,ease:'power3.inOut',scrollTrigger:{trigger:el,start:'top 94%',once:true}}));
- $('[data-reveal]').forEach(el=>el.style.removeProperty('will-change'));
+ $$('.gallery-photo').forEach((el,i)=>gsap.from(el,{opacity:0,clipPath:'inset(100% 0 0 0)',duration:1.3,delay:i*.06,ease:'power3.inOut',scrollTrigger:{trigger:el,start:'top 94%',once:true}}));
+ $$('[data-reveal]').forEach(el=>el.style.removeProperty('will-change'));
  addEventListener('load',()=>ScrollTrigger.refresh(),{once:true});
  }
  translate(language);
