@@ -1,4 +1,4 @@
-import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
+let THREE=null;
 const root=document.getElementById('panoFrame');
 const canvas=document.getElementById('panoCanvas');
 const backdrop=document.getElementById('stageBackdrop');
@@ -87,9 +87,10 @@ async function showHall(id){
  }
  if(version===loadingId){await fadePause(120);transition.classList.remove('active')}
 }
-function init(){
+async function init(){
  if(started)return;started=true;
  try{
+  THREE=await import('https://unpkg.com/three@0.160.0/build/three.module.js');
   renderer=new THREE.WebGLRenderer({canvas,antialias:false,alpha:false,powerPreference:'default'});
   renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.6));
   renderer.outputColorSpace=THREE.SRGBColorSpace;
