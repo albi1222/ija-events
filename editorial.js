@@ -84,7 +84,7 @@
  lightbox.addEventListener('click',e=>{if(e.target===lightbox)close()});
  addEventListener('keydown',e=>{if(e.key==='Escape'){close();document.body.classList.remove('menu-open');menu.setAttribute('aria-expanded','false')}});
  const today=new Date();today.setMinutes(today.getMinutes()-today.getTimezoneOffset());$('#fDate').min=today.toISOString().slice(0,10);
- $$('.space-card').forEach(card=>card.addEventListener('click',()=>{const name=$('h3',card)?.textContent||'';$('#fMessage').value=(language==='sq'?'Dëshiroj informacion për ':'I would like information about ')+name+'.';}));
+ $('.space-card').forEach(card=>card.addEventListener('click',()=>{const name=$('h3',card)?.textContent||'';$('#fMessage').value=(language==='sq'?'Dëshiroj informacion për ':'I would like information about ')+name+'.';}));
  $('#contactForm').addEventListener('submit',e=>{
  e.preventDefault();const form=e.currentTarget;if(!form.reportValidity())return;
  const data=new FormData(form),names={name:language==='sq'?'Emri':'Name',phone:language==='sq'?'Telefoni':'Phone',type:language==='sq'?'Shërbimi':'Service',date:language==='sq'?'Data':'Date',message:language==='sq'?'Mesazhi':'Message'};
@@ -124,4 +124,47 @@
  addEventListener('load',()=>ScrollTrigger.refresh(),{once:true});
  }
  translate(language);
+})();
+
+/* Signature motion director — no framework and no blocking loader */
+(()=>{
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const saver=Boolean(navigator.connection?.saveData);
+ const head=document.querySelector('.cinema-heading');
+ if(head){
+  const nodes=head.querySelectorAll('.letter-reveal');
+  nodes.forEach((element,line)=>{
+   const value=element.textContent;element.textContent='';
+   [...value].forEach((letter,i)=>{
+    const span=document.createElement('span');
+    span.className='cinema-letter';
+    span.textContent=letter===' '?'\u00a0':letter;
+    span.style.display='inline-block';span.style.whiteSpace='pre';
+    span.style.opacity=reduced?'1':'0';
+    span.style.filter=reduced?'none':'blur(12px)';
+    span.style.transform=reduced?'none':'translateY(72px) rotateX(-22deg)';
+    span.style.transition='transform 1.1s cubic-bezier(.2,.8,.2,1),opacity .9s ease,filter 1.1s ease';
+    span.style.transitionDelay=((line*.35+i*.045+.45)*1000)+'ms';
+    element.append(span);
+   });
+  });
+  requestAnimationFrame(()=>requestAnimationFrame(()=>head.querySelectorAll('.cinema-letter').forEach(el=>{el.style.opacity='1';el.style.filter='blur(0)';el.style.transform='translateY(0) rotateX(0deg)'})));
+ }
+ // Ambient gold particles: fixed local particle count and frame-rate cap.
+ const canvas=document.getElementById('atmosphere');
+ if(!canvas||reduced||saver)return;
+ const ctx=canvas.getContext('2d',{alpha:true});if(!ctx)return;
+ let width=0,height=0,dpr=1,particles=[],last=0,active=true;
+ const count=matchMedia('(max-width:760px)').matches?24:62;
+ function resize(){dpr=Math.min(devicePixelRatio||1,1.5);width=canvas.clientWidth;height=canvas.clientHeight;canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);particles=Array.from({length:count},(_,i)=>({x:Math.random()*width,y:Math.random()*height,r:.4+Math.random()*1.3,v:.09+Math.random()*.35,o:.12+Math.random()*.5}))}
+ resize();new ResizeObserver(resize).observe(canvas);
+ const observer=new IntersectionObserver(entries=>{active=entries.some(e=>e.isIntersecting)},{threshold:0});observer.observe(canvas);
+ function frame(t){requestAnimationFrame(frame);if(!active||document.hidden||t-last<32)return;last=t;ctx.clearRect(0,0,width,height);
+  for(const p of particles){p.y-=p.v;p.x+=Math.sin(t*.00017+p.y*.004)*.18;if(p.y<0){p.y=height;p.x=Math.random()*width}ctx.beginPath();ctx.fillStyle='rgba(235,190,115,'+p.o+')';ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill()}
+ }requestAnimationFrame(frame);
+ // Respect shared scroll-trigger lifecycle; animated frames stay offscreen when hidden.
+ if(window.gsap&&window.ScrollTrigger){
+  gsap.utils.toArray('.service-item').forEach((el,i)=>gsap.fromTo(el,{y:40,opacity:0},{y:0,opacity:1,duration:.9,delay:i*.09,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 92%',once:true}}));
+  gsap.fromTo('.immersive-head h2',{filter:'blur(10px)',y:65,opacity:0},{filter:'blur(0px)',y:0,opacity:1,duration:1.3,ease:'power3.out',scrollTrigger:{trigger:'.immersive-head',start:'top 85%',once:true}});
+ }
 })();
