@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0c0c0c">
+<meta name="theme-color" content="#0c0c0c"><meta name="color-scheme" content="dark light">
 <meta name="description" content="IJA Events, Tiranë. Hapësira të rafinuara për ceremoni përkujtimore, mbledhje familjare dhe evente. Mikpritje me dinjitet që nga viti 2000.">
 <meta property="og:title" content="IJA Events — Momente me kuptim">
 <meta property="og:description" content="Një vend për kujtimet, njerëzit dhe momentet që kanë rëndësi.">
@@ -31,7 +31,7 @@
 <nav class="nav-desktop" aria-label="Menu kryesore">
 <a href="#philosophy" data-t="nav.about">Rreth nesh</a>
 <a href="#memorial" data-t="nav.memorial">Ceremonitë</a>
-<a href="#spaces" data-t="nav.spaces">Sallat</a>
+<a href="#spaces" data-t="nav.spaces">Sallat</a><a href="#experience">360° Experience</a>
 <a href="#events" data-t="nav.events">Eventet</a>
 <a href="#gallery" data-t="nav.gallery">Galeria</a>
 </nav>
@@ -42,21 +42,21 @@
 </div>
 </header>
 <nav class="mobile-nav" id="mobileNav" aria-label="Menu mobile">
-<a href="#philosophy" data-t="nav.about">Rreth nesh</a><a href="#memorial" data-t="nav.memorial">Ceremonitë</a><a href="#spaces" data-t="nav.spaces">Sallat</a><a href="#events" data-t="nav.events">Eventet</a><a href="#gallery" data-t="nav.gallery">Galeria</a><a href="#contact" data-t="nav.contact">Kontakt</a>
+<a href="#philosophy" data-t="nav.about">Rreth nesh</a><a href="#memorial" data-t="nav.memorial">Ceremonitë</a><a href="#spaces" data-t="nav.spaces">Sallat</a><a href="#experience">360° Experience</a><a href="#events" data-t="nav.events">Eventet</a><a href="#gallery" data-t="nav.gallery">Galeria</a><a href="#contact" data-t="nav.contact">Kontakt</a>
 <p>IJA EVENTS · TIRANË · SINCE 2000</p>
 </nav>
 <main>
 <section class="hero" id="home" aria-label="IJA Events cinematic">
 <div class="hero-stage">
-<div class="hero-visual"><img class="hero-poster" src="/assets/bg-poster.jpg" alt="" fetchpriority="high"><video id="heroVideo" muted loop playsinline autoplay preload="metadata" poster="/assets/bg-poster.jpg" aria-hidden="true"><source src="/assets/bg-exterior.mp4" type="video/mp4"></video><div class="hero-vignette"></div></div>
+<canvas id="atmosphere" aria-hidden="true"></canvas><div class="hero-visual"><img class="hero-poster" src="/assets/bg-poster.jpg" alt="" fetchpriority="high"><video id="heroVideo" muted loop playsinline autoplay preload="metadata" poster="/assets/bg-poster.jpg" aria-hidden="true"><source src="/assets/bg-exterior.mp4" type="video/mp4"></video><div class="hero-vignette"></div></div>
 <div class="hero-grid" aria-hidden="true"><i></i><i></i><i></i></div>
 <div class="hero-content">
 <div class="eyebrow hero-eyebrow"><span class="dot"></span><span data-t="hero.eyebrow">TIRANË · QË NGA VITI 2000</span></div>
-<h1><span class="hero-line"><span data-t="hero.line1">Momente</span></span><span class="hero-line"><em data-t="hero.line2">me kuptim.</em></span></h1>
-<p data-t="hero.copy">Për njerëzit që duam. Për kujtimet që mbeten. Për çdo moment që meriton një vend të veçantë.</p>
-<div class="hero-actions"><a class="button button-light magnetic" href="#spaces"><span data-t="hero.cta">Zbuloni ambientet</span><span class="arrow">↗</span></a><a class="text-link" href="#memorial"><span data-t="hero.cta2">Ceremoni me dinjitet</span><span>↗</span></a></div>
+<h1 class="cinema-heading" aria-label="Every Moment Deserves An Extraordinary Setting."><span class="hero-line"><span class="letter-reveal">Every Moment</span></span><span class="hero-line"><em class="letter-reveal">Deserves An</em></span><span class="hero-line"><span class="letter-reveal">Extraordinary Setting.</span></span></h1>
+<p class="cinema-sub">Where unforgettable celebrations become timeless memories. <span class="sub-note">Ceremonies and meaningful gatherings, hosted with dignity.</span></p>
+<div class="hero-actions"><a class="button button-light magnetic" href="#spaces"><span>Discover Our Venues</span><span class="arrow">↗</span></a><a class="text-link" href="#experience"><span>Explore the Experience</span><span>↗</span></a></div>
 </div>
-<div class="hero-bottom"><span data-t="hero.foot">KU MIKPRITJA TAKON KUJTIMIN</span><a href="#philosophy" class="scroll-indicator"><span data-t="hero.scroll">ZBRISNI POSHTË</span><span class="scroll-line"></span></a><span class="hero-index"><span>01</span> / 05</span></div>
+<div class="hero-chapter" aria-hidden="true">IJA / A PLACE FOR MOMENTS THAT MATTER</div><div class="hero-bottom"><span data-t="hero.foot">KU MIKPRITJA TAKON KUJTIMIN</span><a href="#philosophy" class="scroll-indicator"><span data-t="hero.scroll">ZBRISNI POSHTË</span><span class="scroll-line"></span></a><span class="hero-index"><span>01</span> / 05</span></div>
 </div>
 </section>
 <section class="intro section-pad" id="philosophy">
@@ -81,18 +81,29 @@
 <div class="section-topline" data-reveal><span>03 / <span data-t="spaces.section">AMBIENTET</span></span><span>40°54' N · 19°50' E</span></div>
 <div class="section-heading"><div><span class="label" data-reveal data-t="spaces.label">ZBULONI HAPËSIRAT</span><h2 class="editorial-title" data-reveal><span data-t="spaces.title1">Hapësira për</span><br><em data-t="spaces.title2">çdo histori.</em></h2></div><p data-reveal data-t="spaces.copy">Tre ambiente të veçanta, të përgatitura për të pritur familjet dhe të ftuarit me elegancë, qetësi dhe rehati.</p></div>
 <div class="space-list">
-<a class="space-card" href="#contact" data-space="grand" data-cursor="VIEW"><div class="space-image"><img src="/assets/grand-1.webp" srcset="/assets/grand-1-sm.webp 520w,/assets/grand-1.webp 1440w" sizes="(max-width:900px) 100vw,75vw" alt="Salla e Madhe në IJA Events" loading="lazy" decoding="async"></div><div class="space-shade"></div><span class="space-no">01</span><div class="space-info"><span data-t="spaces.grand.sub">HAPËSIRA KRYESORE</span><h3 data-t="spaces.grand">Salla e Madhe</h3></div><span class="space-arrow">↗</span></a>
-<a class="space-card" href="#contact" data-space="royal" data-cursor="VIEW"><div class="space-image"><img src="/assets/royal-1.webp" srcset="/assets/royal-1-sm.webp 520w,/assets/royal-1.webp 1440w" sizes="(max-width:900px) 100vw,75vw" alt="Salla Royal në IJA Events" loading="lazy" decoding="async"></div><div class="space-shade"></div><span class="space-no">02</span><div class="space-info"><span data-t="spaces.royal.sub">KOMFORT & PRIVATËSI</span><h3 data-t="spaces.royal">Salla Royal</h3></div><span class="space-arrow">↗</span></a>
-<a class="space-card" href="#contact" data-space="salon" data-cursor="VIEW"><div class="space-image"><img src="/assets/salon-1.webp" srcset="/assets/salon-1-sm.webp 520w,/assets/salon-1.webp 1440w" sizes="(max-width:900px) 100vw,75vw" alt="Salla Salon në IJA Events" loading="lazy" decoding="async"></div><div class="space-shade"></div><span class="space-no">03</span><div class="space-info"><span data-t="spaces.salon.sub">INTIMITET & ELEGANCË</span><h3 data-t="spaces.salon">Salon</h3></div><span class="space-arrow">↗</span></a>
+<a class="space-card" href="#experience" data-space="grand" data-cursor="VIEW"><div class="space-image"><img src="/assets/grand-1.webp" srcset="/assets/grand-1-sm.webp 520w,/assets/grand-1.webp 1440w" sizes="(max-width:900px) 100vw,75vw" alt="Salla e Madhe në IJA Events" loading="lazy" decoding="async"></div><div class="space-shade"></div><span class="space-no">01</span><div class="space-info"><span data-t="spaces.grand.sub">HAPËSIRA KRYESORE</span><h3 data-t="spaces.grand">Salla e Madhe</h3></div><span class="space-arrow">↗</span></a>
+<a class="space-card" href="#experience" data-space="royal" data-cursor="VIEW"><div class="space-image"><img src="/assets/royal-1.webp" srcset="/assets/royal-1-sm.webp 520w,/assets/royal-1.webp 1440w" sizes="(max-width:900px) 100vw,75vw" alt="Salla Royal në IJA Events" loading="lazy" decoding="async"></div><div class="space-shade"></div><span class="space-no">02</span><div class="space-info"><span data-t="spaces.royal.sub">KOMFORT & PRIVATËSI</span><h3 data-t="spaces.royal">Salla Royal</h3></div><span class="space-arrow">↗</span></a>
+<a class="space-card" href="#experience" data-space="salon" data-cursor="VIEW"><div class="space-image"><img src="/assets/salon-1.webp" srcset="/assets/salon-1-sm.webp 520w,/assets/salon-1.webp 1440w" sizes="(max-width:900px) 100vw,75vw" alt="Salla Salon në IJA Events" loading="lazy" decoding="async"></div><div class="space-shade"></div><span class="space-no">03</span><div class="space-info"><span data-t="spaces.salon.sub">INTIMITET & ELEGANCË</span><h3 data-t="spaces.salon">Salon</h3></div><span class="space-arrow">↗</span></a>
 </div>
 <div class="spaces-end" data-reveal><p data-t="spaces.note">Çdo ambient, i menduar për njerëzit që kanë rëndësi.</p><span>01 — 03</span></div>
 </section>
 
-<section class="panorama section-pad" id="experience">
-<div class="section-topline" data-reveal><span>03.5 / IMMERSIVE EXPERIENCE</span><span>INTERACTIVE 360°</span></div>
-<div class="panorama-head"><div><span class="label" data-reveal data-t="pano.kicker">SHIHNI AMBIENTIN NGA AFËR</span><h2 class="editorial-title" data-reveal><span data-t="pano.title1">Hyni brenda.</span><br><em data-t="pano.title2">Shikoni çdo kënd.</em></h2></div><p data-reveal data-t="pano.copy">Një përvojë interaktive 360° e bazuar në pamje panoramike të sallave. Lëvizni për të eksploruar.</p></div>
-<div class="pano-frame" id="panoFrame"><img class="pano-fallback" src="/assets/grand-1.webp" loading="lazy" alt="Pamje e sallës së madhe"><canvas id="panoCanvas" aria-label="Pamje interaktive panoramike 360 gradë"></canvas><div class="pano-mask" id="panoMask"><span>✦</span><p data-t="pano.start">Zbuloni hapësirën në 360°</p><button class="button button-light" id="panoStart" type="button"><span data-t="pano.open">Hap përvojën</span><span class="arrow">↗</span></button></div><div class="pano-control"><div class="pano-tabs" id="panoTabs"><button type="button" class="active" data-room="grand" data-t="spaces.grand">Salla e Madhe</button><button type="button" data-room="royal" data-t="spaces.royal">Salla Royal</button><button type="button" data-room="salon" data-t="spaces.salon">Salon</button></div><button class="pano-full" id="panoFull" type="button" aria-label="Ekran i plotë">⛶</button></div></div>
-<p class="pano-disclaimer" data-t="pano.note">Pamjet panoramike janë vizualizime të bazuara në fotografi; fotografitë në galeri janë reale.</p>
+<section class="immersive" id="experience" aria-labelledby="immersiveHeading">
+<div class="section-topline immersive-eyebrow"><span>03.5 / THE SIGNATURE EXPERIENCE</span><span>DRAG · EXPLORE · DISCOVER</span></div>
+<div class="immersive-head"><span class="label">STEP INSIDE THE STORY</span><h2 id="immersiveHeading" class="editorial-title">Not just a venue.<br><em>A world to explore.</em></h2><p>Discover the rooms in an interactive panorama experience. Select a hall, explore each direction and discover details through elegant hotspots.</p></div>
+<div class="immersive-stage" id="panoFrame" aria-label="Immersive room explorer">
+<div class="stage-backdrop" id="stageBackdrop" style="background-image:url('/assets/grand-1.webp')"></div>
+<div class="stage-grain" aria-hidden="true"></div>
+<canvas id="panoCanvas" aria-label="360-degree interactive room canvas" tabindex="0"></canvas>
+<div class="stage-transition" id="stageTransition" aria-hidden="true"><span>ENTERING THE EXPERIENCE</span></div>
+<div class="stage-particles" aria-hidden="true"></div>
+<div class="stage-top"><div class="stage-tag">IJA EVENTS <span> / </span> IMMERSIVE TOUR</div><div class="stage-tools"><button type="button" id="panoZoomOut" aria-label="Zoom out">−</button><button type="button" id="panoZoomIn" aria-label="Zoom in">+</button><button type="button" id="panoFull" aria-label="Toggle fullscreen">⛶</button></div></div>
+<div class="stage-center" id="panoMask"><div class="stage-circle" aria-hidden="true">360°</div><p>BEYOND THE PHOTOGRAPH</p><h3>Step into the venue.</h3><button type="button" class="button button-light" id="panoStart">Enter the experience <span class="arrow">↗</span></button></div>
+<div id="panoHotspots" class="pano-hotspots" aria-label="Room detail hotspots"></div>
+<div class="stage-bottom"><div class="stage-identity"><span id="roomIndex">01 / 03</span><h3 id="roomTitle">Grand Ballroom</h3><p id="roomDescription">An elegant setting for meaningful gatherings.</p><p id="roomFacts">CAPACITY: ON REQUEST · FACILITIES: ASK OUR TEAM</p><small id="roomSource">Panoramic visualisation — not a verified photographic 360° survey.</small></div><div class="pano-tabs" role="tablist" aria-label="Choose event hall"><button type="button" class="active" data-room="grand" role="tab" aria-selected="true">01 GRAND</button><button type="button" data-room="royal" role="tab" aria-selected="false">02 ROYAL</button><button type="button" data-room="salon" role="tab" aria-selected="false">03 SALON</button></div></div>
+<div class="hotspot-detail" id="hotspotDetail" role="status" aria-live="polite" hidden></div>
+</div>
+<div class="immersive-foot"><span>MOVE YOUR POINTER OR DRAG TO EXPLORE / SCROLL TO ZOOM</span><span>SPACE — LIGHT — ATMOSPHERE</span></div>
 </section>
 <section class="film-section" id="film" aria-label="Pamje cinematic të sallës">
 <div class="film-video-wrap"><img src="/assets/grand-2.webp" alt="" loading="lazy"><video id="hallVideo" playsinline muted loop preload="none" poster="/assets/grand-2.webp"><source src="/assets/film-hall.mp4" type="video/mp4"></video></div>
@@ -105,7 +116,14 @@
 <a class="button button-dark" href="#contact" data-reveal><span data-t="events.cta">Planifikoni eventin</span><span class="arrow">↗</span></a></div>
 <div class="events-visual" data-reveal><div class="events-img"><img src="/assets/grand-3.webp" srcset="/assets/grand-3-sm.webp 520w,/assets/grand-3.webp 1440w" sizes="(max-width:900px) 95vw,50vw" alt="Ambient i organizuar për event në IJA Events" loading="lazy" decoding="async"></div><div class="events-stamp">IJA<br>EVENTS<small>SINCE 2000</small></div></div></div>
 </section>
-<section class="gallery section-pad" id="gallery">
+<section class="services-chapter section-pad" id="details">
+<div class="section-topline"><span>04.5 / EXPERIENCE & DETAILS</span><span>THE FINISHING TOUCHES</span></div><div class="service-intro"><span class="label">BEYOND THE OCCASION</span><h2 class="editorial-title">Every detail.<br><em>Considered.</em></h2><p>From thoughtful coordination to a welcoming atmosphere, our team helps you plan a gathering that feels distinctly yours. Ask us about the services available for your occasion.</p></div>
+<div class="service-grid">
+<div class="service-item"><span>01 /</span><h3>Event Coordination</h3><p>Thoughtful organisation and assistance.</p></div>
+<div class="service-item"><span>02 /</span><h3>Catering & Hospitality</h3><p>Ask about menus and service arrangements.</p></div>
+<div class="service-item"><span>03 /</span><h3>Ambience & Decoration</h3><p>Discuss the setting for your occasion.</p></div>
+<div class="service-item"><span>04 /</span><h3>Lighting & Sound</h3><p>Equipment availability on request.</p></div>
+</div></section><section class="gallery section-pad" id="gallery">
 <div class="section-topline" data-reveal><span>05 / <span data-t="gallery.label">GALERIA</span></span><span>SELECTED SPACES</span></div>
 <div class="gallery-head"><h2 class="editorial-title" data-reveal><span data-t="gallery.title1">Shihni detajet.</span><br><em data-t="gallery.title2">Ndjeni ndryshimin.</em></h2><p data-reveal data-t="gallery.copy">Një vështrim më afër hapësirave tona.</p></div>
 <div class="gallery-grid">
@@ -123,7 +141,7 @@
 <div class="field"><label for="fPhone" data-t="form.phone">Numri i telefonit</label><input id="fPhone" name="phone" placeholder="+355 ..." autocomplete="tel" type="tel" required></div>
 <div class="field"><label for="fType" data-t="form.type">Lloji i kërkesës</label><select id="fType" name="type"><option value="Ceremoni përkujtimore" data-t="form.mem">Ceremoni përkujtimore</option><option value="Event / pritje" data-t="form.event">Event / pritje</option><option value="Vizitë në sallë" data-t="form.visit">Vizitë në sallë</option><option value="Informacion tjetër" data-t="form.other">Informacion tjetër</option></select></div>
 <div class="field"><label for="fDate" data-t="form.date">Data e preferuar (opsionale)</label><input id="fDate" name="date" type="date"></div>
-<div class="field field-wide"><label for="fMessage" data-t="form.message">Mesazhi</label><textarea id="fMessage" name="message" rows="3" placeholder="Na tregoni çfarë ju nevojitet..."></textarea></div>
+<div class="field"><label for="fGuests">Number of guests</label><input id="fGuests" name="guests" type="number" min="1" max="10000" step="1" placeholder="Guests"></div><div class="field field-wide"><label for="fMessage" data-t="form.message">Mesazhi</label><textarea id="fMessage" name="message" rows="3" placeholder="Na tregoni çfarë ju nevojitet..."></textarea></div>
 <button class="button button-gold" type="submit"><span data-t="form.submit">Përgatit mesazhin në WhatsApp</span><span class="arrow">↗</span></button><small data-t="form.note">WhatsApp do të hapet me një mesazh gati; dërgimin e konfirmoni vetë.</small></form></div>
 </section>
 </main>
